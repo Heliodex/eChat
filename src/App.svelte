@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import Chat from "./Chat.svelte";
 	import Header from "./Header.svelte";
 </script>
@@ -7,3 +7,23 @@
 	<Header />
 	<Chat />
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

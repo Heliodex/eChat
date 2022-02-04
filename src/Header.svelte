@@ -12,8 +12,8 @@
 	{#if $username}
 		<div class="user-bio">
 			
-			<span>Hello <strong>{$username}</strong></span>
-			<img src={`https://avatars.dicebear.com/api/initials/${$username}.svg`} alt="avatar" /> 
+			<!-- <img src={`https://avatars.dicebear.com/api/identicon/eChat_${$username}.svg?rotate=45`} alt="avatar" /> -->
+			<span><strong>{$username}</strong></span>
 		</div>
 
 		<button class="signout-button" on:click={signout}>Sign Out</button> 
