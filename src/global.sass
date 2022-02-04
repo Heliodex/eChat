@@ -1,0 +1,188 @@
+@font-face
+	font-family: lexendDeca
+	src: url("../lexend.ttf")
+
+html, body
+	position: relative
+	width: 100%
+	height: 100%
+
+body
+	margin: 0
+	box-sizing: border-box
+	font-family: lexendDeca, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+	overflow: hidden
+
+a
+	text-decoration: none
+
+a:hover
+	text-decoration: underline
+
+label
+	display: block
+
+input, button, select, textarea
+	font-family: inherit
+	font-size: inherit
+	-webkit-padding: 0.4em 0
+	padding: 0.4em
+	margin: 0 0 0.5em 0
+	box-sizing: border-box
+
+textarea
+	border-radius: 25px
+
+.app
+	text-align: center
+	margin: 0 auto
+
+header
+	height: 10vh
+	min-height: 50px
+	color: white
+	position: fixed
+	width: 100%
+	top: 0
+	display: flex
+	align-items: center
+	justify-content: space-between
+	z-index: 99
+	padding: 10px
+	box-sizing: border-box
+
+.container
+	display: flex
+	flex-direction: column
+	justify-content: center
+	min-height: 100vh
+
+main 
+	height: 80vh
+	overflow-y: scroll
+	display: flex
+	flex-direction: column
+
+form
+	height: 8vh
+	position: fixed
+	bottom: 0
+	width: 100%
+	max-width: 728px
+	display: flex
+	font-size: 1.5rem
+
+form button
+	width: 20%
+
+
+input
+	line-height: 1.5
+	width: 100%
+	font-size: 1.5rem
+	outline: none
+	border: none
+	padding: 0 10px
+	margin: 0
+
+button
+	border: none
+	padding: 15px 32px
+	text-align: center
+	text-decoration: none
+	display: inline-block
+	cursor: pointer
+	font-size: 1.25rem
+	margin: 0
+
+button:hover, button:active
+	filter: brightness(0.9)
+
+button:disabled
+	opacity: 0.5
+	cursor: not-allowed
+
+
+
+.login
+	margin: 1rem 0 0
+
+label
+	margin: 0.5rem 0
+ul, li
+	text-align: left
+	list-style: none
+
+p
+	max-width: 260px
+	margin: 1px 0 0 0
+	line-height: 18px
+	padding: 10px 20px
+	border-radius: 25px
+	position: relative
+	text-align: center
+
+.message
+	display: flex
+	align-items: center
+	margin: 0
+	word-wrap:break-word
+
+
+.sent
+	flex-direction: row-reverse
+
+.sent p
+	align-self: flex-end
+	text-align: right
+.received p
+	text-align: left
+
+.message-text
+	display: flex
+	flex-direction: column
+	align-items: flex-end
+
+.received .message-text
+	align-items: flex-start
+
+.time
+	display: inline
+	font-size: 0.5rem
+	float: right
+	font-style: italic
+	padding: 0
+	margin: 0
+	
+
+.username
+	font-size: 0.7rem
+	margin: 0 1rem
+
+img
+	width: 30px
+	height: 30px
+	border-radius: 50%
+	margin: 0px 7px
+
+.message:last-child
+	margin-bottom: 20px
+
+.user-bio
+	display: flex
+	align-items: center
+
+.scroll-button
+	position: fixed
+	bottom: 70px
+	right: 20px
+
+.signout-button
+	font-size: 0.8rem
+	padding: 0.5rem 1rem
+	border: none
+
+.spacer
+	margin: 0px 3px
+.spacer2
+	margin: 5px 0px

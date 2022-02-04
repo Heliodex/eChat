@@ -7,6 +7,8 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 
+import sass from 'rollup-plugin-sass';
+
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
@@ -44,11 +46,13 @@ export default {
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production
-			}
+			},
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),
+
+		sass({ output: 'public/build/common.css' }),
 
 		resolve({
 			browser: true,
@@ -74,5 +78,5 @@ export default {
 	],
 	watch: {
 		clearScreen: false
-	}
+	},
 };
