@@ -22,9 +22,6 @@
 	{/if}
 
 	<div class="message-text">
-
-		 
-		
 		<p>
 			{message.what}
 			<br>
@@ -35,9 +32,5 @@
 		{#if userMessage}
 			<time class="username">{message.who.toString()}</time>
 		{/if}
-		
-
-		
-
 	</div>
 </div>
