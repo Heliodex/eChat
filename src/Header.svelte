@@ -12,7 +12,7 @@
 	{#if $username}
 		<div class="user-bio">
 			
-			<!-- <img src={`https://avatars.dicebear.com/api/identicon/eChat_${$username}.svg?rotate=45`} alt="avatar" /> -->
+			<!-- <img  class="avatar" src={`https://avatars.dicebear.com/api/identicon/eChat_${$username}.svg?rotate=45`} alt="Your avatar" /> -->
 			<span><strong>{$username}</strong></span>
 		</div>
 

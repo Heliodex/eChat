@@ -17,13 +17,13 @@
 	let unreadMessages = false;
 
 	function autoScroll() {
-	setTimeout(() => scrollBottom?.scrollIntoView({ behavior: "auto" }), 50);
-	unreadMessages = false;
+		setTimeout(() => scrollBottom?.scrollIntoView({ behavior: "auto" }), 50);
+		unreadMessages = false;
 	}
 
 	function watchScroll(e) {
-	canAutoScroll = (e.target.scrollTop || Infinity) > lastScrollTop;
-	lastScrollTop = e.target.scrollTop;
+		canAutoScroll = (e.target.scrollTop || Infinity) > lastScrollTop;
+		lastScrollTop = e.target.scrollTop;
 	}
 
 	$: debouncedWatchScroll = debounce(watchScroll, 1000);
@@ -99,16 +99,12 @@
 		</form>
 
 
-		{#if !canAutoScroll}
-			<div class="scroll-button">
-				<button on:click={autoScroll} class:red={unreadMessages}>
-				{#if unreadMessages}
-					New messages
-				{:else}
-					Back to bottom
-				{/if}
-				</button>
-			</div>
+		{#if !canAutoScroll}		
+			{#if unreadMessages}
+				<img class="scrollbutton" src="message.svg" on:click={autoScroll} alt="New messages"/>
+			{:else}
+				<img class="scrollbutton" src="message.svg" on:click={autoScroll} alt="Back to bottom"/>
+			{/if}
 		{/if}
 	{:else}
 		<main>
