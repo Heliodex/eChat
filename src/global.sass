@@ -56,6 +56,11 @@ header
 	justify-content: center
 	min-height: 100vh
 
+::-webkit-scrollbar
+	width: 10px
+	&-thumb
+		border-radius: 5px
+
 main 
 	height: 80vh
 	overflow-y: scroll
@@ -67,12 +72,9 @@ form
 	position: fixed
 	bottom: 0
 	width: 100%
-	max-width: 728px
 	display: flex
 	font-size: 1.5rem
 
-form button
-	width: 20%
 
 
 input
@@ -93,9 +95,9 @@ button
 	cursor: pointer
 	font-size: 1.25rem
 	margin: 0
-
 	&:hover, &:active
 		filter: brightness(0.9)
+
 
 button:disabled
 	opacity: 0.5
