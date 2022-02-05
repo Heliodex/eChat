@@ -87,7 +87,7 @@ import App from "./App.svelte";
 			<div class="spacer2" />
 			
 			{#each messages as message (message.when)}
-			<ChatMessage {message} sender={$username} />
+				<ChatMessage {message} sender={$username} />
 			{/each}
 
 			<div class="dummy" bind:this={scrollBottom} />
