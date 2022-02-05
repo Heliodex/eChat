@@ -16,19 +16,19 @@
 <div class={`message ${messageClass}`}>
 
 	{#if userMessage}
-		<img src={avatar} alt="avatar" />
+		<img class="avatar" src={avatar} alt="Avatar" />
 	{:else}
 		<div class="spacer" />
 	{/if}
 
 	<div class="message-text">
 
-		  <!-- literally the same solution as DocSocial -->
+		 
 		
 		<p>
 			{message.what}
 			<br>
-			<time class="time">{ts.toTimeString().substring(0, 5)}</time>
+			<time class="time">{ts.toTimeString().substring(0, 5)}</time> <!-- literally the same solution as DocSocial -->
 		
 		</p>
 
