@@ -6,6 +6,7 @@
 	import debounce from "lodash.debounce";
 
 	import GUN from "gun";
+import App from "./App.svelte";
 	const db = GUN();
 
 	let newMessage;
@@ -93,19 +94,19 @@
 		</main>
 
 		<form on:submit|preventDefault={sendMessage}>
-			<input type="text" placeholder="Type a message..." bind:value={newMessage} maxlength="100" />
+			<input class="messageBox" type="text" placeholder="Type a message..." bind:value={newMessage} maxlength="100" />
 
 			<button type="submit" disabled={!newMessage}>Send</button>
 		</form>
 
 
-		{#if !canAutoScroll}		
+		<!--{#if !canAutoScroll}		
 			{#if unreadMessages}
 				<img class="scrollbutton" src="message.svg" on:click={autoScroll} alt="New messages"/>
 			{:else}
 				<img class="scrollbutton" src="message.svg" on:click={autoScroll} alt="Back to bottom"/>
 			{/if}
-		{/if}
+		{/if}-->
 	{:else}
 		<main>
 			<Login />

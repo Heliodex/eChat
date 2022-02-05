@@ -3,10 +3,9 @@ body
 	background-color: #000000
 
 a
-	color: rgb(0,100,200)
-
-a:visited
-	color: rgb(0,80,160)
+	color: #0064cb
+	&:visited
+		color: #0050A0
 
 
 input, button, select, textarea
@@ -22,17 +21,16 @@ header
 .container
 	background-color: #ffffff
 
-main
-	&::-webkit-scrollbar-track
-		background: #1e1e24
-	&::-webkit-scrollbar-thumb
-		background: #6649b8
+::-webkit-scrollbar
+	&-track
+		background: #ffffff
+	&-thumb
+		background: #31a4fe
 
 form
 	background-color: #cccccc
-
-form button
-	background-color: #31a4fe
+	& button
+		background-color: #31a4fe
 
 input
 	background: #3a3a3a
