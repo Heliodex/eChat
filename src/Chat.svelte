@@ -104,7 +104,7 @@
 				maxlength="100"
 			/>
 
-			<button type="submit" disabled={!newMessage}>Send</button>
+			<button type="submit" disabled={!newMessage}>Send</button> <!-- TODO: change to svg -->
 		</form>
 
 		<!--{#if !canAutoScroll}		
