@@ -1,63 +1,74 @@
+$main: #31a47e
+$main-dark: #31857e
+// $main: #31a4fe
+// $main-dark: #3183fe
+// $main: #fea431
+// $main-dark: #fe8331
+
+$tint1: white
+$tint2: #cccccc
+$tint3: #b3b3b3
+$tint4: #333333
+$tint5: #191919
+$tint6: black
+
 a
-	color: #0064cb
+	color: $main
 	&:visited
-		color: #0050a0
+		color: $main-dark
 
 input, button, select, textarea
-	border: 1px solid #cccccc
+	border: 1px solid $tint2
 
 input:disabled
-	color: #cccccc
+	color: $tint2
 
 header
-	background-color: #31a4fe
-	color: white
+	background-color: $main
+	color: $tint1
 
 .container
-	background-color: #ffffff
+	background-color: $tint1
 
 ::-webkit-scrollbar
 	&-track
-		background: #ffffff
+		background: $tint1
 	&-thumb
-		background: #31a4fe
+		background: $main
 
 form button
-		background-color: #31a4fe
+	background-color: $main
 
 input
-	background-color: #cccccc
-	color: white
+	background-color: $tint2
+	color: $tint1
 	&::placeholder
-		color: white
+		color: $tint1
 
 .messageBox
-	border: 2px solid #31a4fe
-	color: black
+	border: 2px solid $main
+	color: $tint6
 
 button
-	background-color: #282c34 
-	color: white
+	background-color: $tint4
+	color: $tint1
 
 .login
-	background: #1a1520
+	background: $tint5
 
 label
-	color: white
+	color: $tint1
 
 p
-	color: white
+	color: $tint1
 
 .sent p
-	background: #b3b3b3
+	background: $tint3
 .received p
-	background: #31a4fe
+	background: $main
 
 .username
-	color: black
-	
-.time
-	color: white
+	color: $tint6
 
-.red
-	background: #cc3539
+.time
+	color: $tint1
