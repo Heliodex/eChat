@@ -25,7 +25,7 @@
         </p>
 
         {#if userMessage}
-            <img class="avatar" src={avatar} alt="Avatar" />
+            <img class="avatar" src={avatar} alt="Avatar" /> <!-- TODO: Make inline -->
             <time class="username">{message.who.toString()}</time>
         {/if}
     </div>
