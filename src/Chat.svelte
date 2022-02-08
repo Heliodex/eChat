@@ -2,11 +2,10 @@
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
 	import { onMount } from "svelte"
-	import { username, user } from "./user"
+	import { username, user } from "./user.js"
 	import debounce from "lodash.debounce"
 
 	import GUN from "gun"
-	import App from "./App.svelte"
 	const db = GUN()
 
 	let newMessage

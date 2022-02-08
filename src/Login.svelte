@@ -1,5 +1,5 @@
 <script>
-	import { user } from "./user"
+	import { user } from "./user.js"
 
 	let username
 	let password
