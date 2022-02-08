@@ -2,7 +2,7 @@
     export let message
     export let sender
 
-    import { username } from "./user"
+    import { username } from "./user.js"
 
     const messageClass = message.who === sender ? "sent" : "received"
 
