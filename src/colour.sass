@@ -1,5 +1,5 @@
 $main: #31a47e
-$main-dark: #31857e
+$main-dark: #31837e
 // $main: #31a4fe
 // $main-dark: #3183fe
 // $main: #fea431
@@ -17,7 +17,7 @@ a
 	&:visited
 		color: $main-dark
 
-input, button, select, textarea
+input, select, textarea
 	border: 1px solid $tint2
 
 input:disabled
@@ -36,8 +36,9 @@ header
 	&-thumb
 		background: $main
 
-form button
-	background-color: $main
+button
+	background-color: $tint4
+	color: $tint1
 
 input
 	background-color: $tint2
@@ -49,9 +50,17 @@ input
 	border: 2px solid $main
 	color: $tint6
 
-button
-	background-color: $tint4
+.send
+	background-color: $main
 	color: $tint1
+	border: none
+	padding: 0.5em
+	margin: 0
+	font-size: 1.5rem
+	cursor: pointer
+	&:hover
+		background-color: $main-dark
+
 
 .login
 	background: $tint5
