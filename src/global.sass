@@ -60,7 +60,7 @@ header
 		border-radius: 5px
 
 main
-	height: 80vh
+	height: 100vh
 	overflow-y: scroll
 	display: flex
 	flex-direction: column
@@ -69,7 +69,7 @@ form
 	height: 8vh
 	position: fixed
 	bottom: 0
-	width: 100%
+	width: 96%
 	display: flex
 	font-size: 1.5rem
 
@@ -87,17 +87,23 @@ input
 	border-radius: 50px
 	font-size: 1rem
 
+.send
+	height: 35px
+	width: 35px
+	border-radius: 50px
+
 button
 	border: none
-	padding: 15px 32px
 	text-align: center
 	text-decoration: none
 	display: inline-block
 	cursor: pointer
 	font-size: 1.25rem
-	margin: 0
+	margin: 5px
+	padding: 0
 	&:hover, &:active
 		filter: brightness(0.9)
+
 
 button:disabled
 	opacity: 0.5
@@ -145,7 +151,6 @@ p
 .message-text
 	display: flex
 	flex-direction: column
-	align-items: flex-end
 
 .received .message-text
 	align-items: flex-start
@@ -160,17 +165,22 @@ p
 	margin: 0
 
 .username
-	display: inline-block
 	font-size: 0.7rem
+	display: inline
+	text-align: center
+	margin-bottom: 0.5rem
 
 .avatar
-	width: 10px
-	height: 10px
+	width: 0.7rem
+	height: 0.7rem
 	border-radius: 50%
-	margin: 0px 7px
+	margin: 0.2rem 0.5rem
+
+.aftermessage
+	display: flex
 
 .message:last-child
-	margin-bottom: 20px
+	margin-bottom: 1rem
 
 .user-bio
 	display: flex
@@ -189,6 +199,8 @@ p
 	border: none
 
 .spacer
-	margin: 0px 3px
+	margin: 0px 0.2rem
 .spacer2
-	margin: 5px 0px
+	margin: 0.3rem 0px
+.dummy
+	margin: 1.2rem 0px

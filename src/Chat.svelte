@@ -99,11 +99,12 @@
 				class="messageBox"
 				type="text"
 				placeholder="Type a message..."
-				bind:value={newMessage}
+				bind:value={newMessage} 
 				maxlength="100"
 			/>
 
-			<button type="submit" disabled={!newMessage}>Send</button> <!-- TODO: change to svg -->
+			<input type="image" class="send" src="send.svg" alt="Send message"/>
+			
 		</form>
 
 		<!--{#if !canAutoScroll}		
