@@ -103,7 +103,9 @@
 				maxlength="100"
 			/>
 
-			<input type="image" class="send" src="send.svg" alt="Send message"/>
+			<button class="send">
+				 <img  src="send.png" class="sendimg" alt="Send message"/>
+			</button>
 			
 		</form>
 
