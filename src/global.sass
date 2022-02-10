@@ -1,3 +1,5 @@
+$infinity: 500rem
+	
 @font-face
 	font-family: lexendDeca
 	src: url("../lexend.ttf")
@@ -60,7 +62,8 @@ header
 		border-radius: 5px
 
 main
-	height: 100vh
+	margin-top: 10vh
+	height: 90vh
 	overflow-y: scroll
 	display: flex
 	flex-direction: column
@@ -84,13 +87,19 @@ input
 
 .messageBox
 	margin: 5px
-	border-radius: 50px
+	border-radius: $infinity
 	font-size: 1rem
 
 .send
-	height: 35px
-	width: 35px
-	border-radius: 50px
+	width: 9%
+	border-radius: $infinity
+	padding: 5px
+	margin: 5px 0px
+	cursor: pointer
+.sendimg
+	width: 100%
+	height: 100%
+	object-fit: cover
 
 button
 	border: none
@@ -203,4 +212,4 @@ p
 .spacer2
 	margin: 0.3rem 0px
 .dummy
-	margin: 1.2rem 0px
+	margin: 1.4rem 0px
