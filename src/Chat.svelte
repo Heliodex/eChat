@@ -84,7 +84,7 @@
 
 <div class="container">
 	{#if $username}
-		<main on:scroll={debouncedWatchScroll}>
+		<main class="messages" on:scroll={debouncedWatchScroll}>
 			<div class="spacer2" />
 
 			{#each messages as message (message.when)}
@@ -99,14 +99,13 @@
 				class="messageBox"
 				type="text"
 				placeholder="Type a message..."
-				bind:value={newMessage} 
+				bind:value={newMessage}
 				maxlength="100"
 			/>
 
 			<button class="send">
-				 <img  src="send.png" class="sendimg" alt="Send message"/>
+				<img src="send.svg" class="sendimg" alt="Send message" />
 			</button>
-			
 		</form>
 
 		<!--{#if !canAutoScroll}		
