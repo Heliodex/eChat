@@ -1,4 +1,4 @@
-$infinity: 500rem
+$infinity: 50rem
 	
 @font-face
 	font-family: lexendDeca
@@ -61,7 +61,7 @@ header
 	&-thumb
 		border-radius: 5px
 
-main
+.messages
 	margin-top: 10vh
 	height: 90vh
 	overflow-y: scroll
@@ -78,28 +78,30 @@ form
 
 input
 	line-height: 1.5
-	width: 100%
-	font-size: 1.5rem
+	font-size: 1rem
 	outline: none
 	border: none
-	padding: 0 10px
-	margin: 0
+	border-radius: $infinity
+
+.loginInput
+	width: 80%
+	margin-bottom: 0.5rem
+	padding: 0.2rem 0.7rem
 
 .messageBox
+	width: 100%
 	margin: 5px
-	border-radius: $infinity
-	font-size: 1rem
+	padding: 0 0.7rem
 
 .send
 	width: 9%
 	border-radius: $infinity
-	padding: 5px
-	margin: 5px 0px
+	padding: 0.3rem
+	margin: 0.3rem 0
 	cursor: pointer
 .sendimg
 	width: 100%
 	height: 100%
-	object-fit: cover
 
 button
 	border: none
@@ -118,8 +120,10 @@ button:disabled
 	opacity: 0.5
 	cursor: not-allowed
 
-.login
+.loginButton
 	margin: 1rem 0 0
+	padding: 0.5rem
+	border-radius: $infinity
 
 label
 	margin: 0.5rem 0
