@@ -1,5 +1,5 @@
 <script>
-	import { username, user } from "./user.js"
+	import { username, user } from "./user"
 
 	function signout() {
 		user.leave()
