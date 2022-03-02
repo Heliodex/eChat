@@ -2,7 +2,7 @@
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
 	import { onMount } from "svelte"
-	import { username, user } from "./user.js"
+	import { username, user } from "./user"
 	import debounce from "lodash.debounce"
 
 	import GUN from "gun"
@@ -41,7 +41,7 @@
 		}
 
 		// Get Messages
-		db.get("echat")
+		db.get("newerechatversion")
 			.map(match) // "prettier"
 			.once(async (data, id) => {
 				if (data) {
@@ -75,7 +75,7 @@
 		const secret = await SEA.encrypt(newMessage, "theFunny")
 		const message = user.get("all").set({ what: secret })
 		const index = new Date().toISOString()
-		db.get("echat").get(index).put(message)
+		db.get("newerechatversion").get(index).put(message)
 		newMessage = ""
 		canAutoScroll = true
 		autoScroll()
