@@ -94,7 +94,7 @@
 			<input class="messageBox" type="text" placeholder="Type a message..." bind:value={newMessage} maxlength="100" />
 
 			<button class="send">
-				<img src="assets/send.svg" class="sendimg" alt="Send message" />
+				<img src="send.svg" class="sendimg" alt="Send message" />
 			</button>
 		</form>
 
