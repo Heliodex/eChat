@@ -10,10 +10,12 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
-    "svelte": "^3.46.4",
+    "svelte": "^3.44.0",
     "vite": "^2.8.0"
   },
   "dependencies": {
-    "gun": "^0.2020.1235"
+    "gun": "^0.2020.1235",
+    "lodash": "^4.17.21",
+    "sass": "^1.49.9"
   }
 }

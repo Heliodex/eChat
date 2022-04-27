@@ -3,7 +3,7 @@
 	import ChatMessage from "./ChatMessage.svelte"
 	import { onMount } from "svelte"
 	import { username, user } from "./user"
-	import debounce from "lodash.debounce"
+	import debounce from "lodash/debounce"
 
 	import GUN from "gun"
 	const db = GUN()
@@ -33,9 +33,7 @@
 			// lexical queries are kind of like a limited RegEx or Glob.
 			".": {
 				// property selector
-				">": new Date(
-					+new Date() - 1 * 1000 * 60 * 60 * 24
-				).toISOString(), // find any indexed property less than 24 hours ago
+				">": new Date(+new Date() - 1 * 1000 * 60 * 60 * 24).toISOString(), // find any indexed property less than 24 hours ago
 			},
 			"-": 1, // filter in reverse
 		}
@@ -58,9 +56,7 @@
 					}
 
 					if (message.what) {
-						messages = [...messages.slice(-100), message].sort(
-							(a, b) => a.when - b.when
-						)
+						messages = [...messages.slice(-100), message].sort((a, b) => a.when - b.when)
 						if (canAutoScroll) {
 							autoScroll()
 						} else {
@@ -95,16 +91,10 @@
 		</main>
 
 		<form on:submit|preventDefault={sendMessage}>
-			<input
-				class="messageBox"
-				type="text"
-				placeholder="Type a message..."
-				bind:value={newMessage}
-				maxlength="100"
-			/>
+			<input class="messageBox" type="text" placeholder="Type a message..." bind:value={newMessage} maxlength="100" />
 
 			<button class="send">
-				<img src="send.svg" class="sendimg" alt="Send message" />
+				<img src="assets/send.svg" class="sendimg" alt="Send message" />
 			</button>
 		</form>
 
