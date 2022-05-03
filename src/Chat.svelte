@@ -1,0 +1,101 @@
+<script>
+	import { user, ably, channelName } from "./user"
+	import Login from "./Login.svelte"
+	import ChatMessage from "./ChatMessage.svelte"
+
+	let newMessage
+	let messages = []
+	let username
+	let canSend = true
+	let channel
+
+	let scrollBottom
+	//let unreadMessages
+
+	function autoScroll() {
+		setTimeout(() => scrollBottom?.scrollIntoView({ behavior: "smooth" }), 1)
+		// without setTimeout, it would scroll before the message was added, making it not scroll all the way
+		//unreadMessages = false
+	}
+
+	user.subscribe(value => {
+		if (value.trim()) {
+			if (channel) {
+				channel.unsubscribe()
+			}
+			username = value.trim()
+
+			channel = ably.channels.get("[?rewind=5]echat:" + $channelName)
+
+			channel.subscribe("message", message => {
+				// a different sort of "subscribe"
+				messages = [...messages, message] // Must be done to make the {#each messages} block update with the new message.
+				if (username) {
+					// prevent autoscroll being called many times before login
+					autoScroll()
+				}
+			})
+		}
+	})
+
+	function logout() {
+		username = null
+		messages = []
+		channelName.set("")
+		user.set("")
+	}
+
+	async function sendMessage() {
+		if (canSend) {
+			if (newMessage.trim()) {
+				canSend = false
+				channel.publish("message", {
+					username: username,
+					text: newMessage.trim(),
+				})
+				newMessage = null
+				setTimeout(() => {
+					canSend = true
+				}, 1000)
+			} else {
+				newMessage = null
+			}
+		}
+	}
+
+	$: username && autoScroll() // run autoScroll() whenever username changes, greatest line of code ever
+</script>
+
+{#if username}
+	<!-- decided to make this no longer a component -->
+	<header>
+		<button class="inverted" on:click={logout}>logout</button>
+		<h1>eChat</h1>
+	</header>
+{/if}
+
+<div class="container">
+	{#if username}
+		<main class="messages">
+			<div class="spacer2" />
+
+			{#each messages as msg}
+				<ChatMessage {msg} />
+			{/each}
+
+			<div class="dummy" bind:this={scrollBottom} />
+		</main>
+
+		<form on:submit|preventDefault={sendMessage} class="messageForm">
+			<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+
+			<button class="send">
+				<img src="send.svg" class="sendimg" alt="Send message" />
+			</button>
+		</form>
+	{:else}
+		<main>
+			<Login />
+		</main>
+	{/if}
+</div>

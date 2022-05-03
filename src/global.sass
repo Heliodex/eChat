@@ -1,0 +1,234 @@
+$infinity: 50rem
+
+@font-face
+	font-family: lexendDeca
+	src: url("lexend.ttf")
+	font-display: swap
+
+html, body
+	position: relative
+	width: 100%
+	height: 100%
+
+body
+	margin: 0
+	font-family: lexendDeca, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+	overflow: hidden
+
+a
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+		cursor: pointer
+
+label
+	display: block
+
+input, button, select, textarea
+	font-family: inherit
+	font-size: inherit
+	padding: 0.4em
+	margin: 0 0 0.5em 0
+	box-sizing: border-box
+
+textarea
+	border-radius: 25px
+
+.app
+	text-align: center
+	margin: 0 auto
+
+header
+	height: 10vh
+	position: fixed
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	z-index: 99
+	padding: 10px
+	box-sizing: border-box
+
+.container
+	display: flex
+	flex-direction: column
+	justify-content: center
+	min-height: 50vh
+
+::-webkit-scrollbar
+	right: 2px
+	width: 10px
+	&-thumb
+		border-radius: 5px
+
+.messages
+	margin-top: 10vh
+	height: 90vh
+	overflow-y: scroll
+	display: flex
+	flex-direction: column
+
+.messageForm
+	height: 8vh
+	position: fixed
+	bottom: 0
+	width: 96%
+	display: flex
+	font-size: 1.5rem
+
+input
+	line-height: 1.5
+	font-size: 1rem
+	outline: none
+	border: none
+	border-radius: $infinity
+
+.loginInput
+	text-align: center
+	width: 80%
+	margin-top: 4px // keep it in line with the image beside it
+	margin-bottom: 1.2rem
+	padding: 0.2rem 0.7rem
+
+.messageBox
+	width: 100%
+	margin: 5px
+	padding: 0 0.7rem
+
+.send
+	width: 9%
+	border-radius: $infinity
+	padding: 0.3rem
+	margin: 0.3rem 0
+	cursor: pointer
+.sendimg
+	width: 100%
+	height: 100%
+
+.loginIcon
+	position: absolute
+	height: 5%
+	border-radius: $infinity
+	padding: 0.5rem
+	margin-left: 10%
+
+.logo
+	margin-top: 6rem
+	margin-bottom: 4rem
+
+button
+	border: none
+	text-align: center
+	text-decoration: none
+	display: inline-block
+	cursor: pointer
+	font-size: 1.25rem
+	margin: 0.5rem 1rem
+	padding: 0.15rem 0.5rem
+	border-radius: $infinity
+
+	&:disabled
+		opacity: 0.5
+		cursor: not-allowed
+
+.joinButton
+	margin: 0.5rem 0.25rem
+	padding: 0.3rem 0.8rem
+	border-radius: $infinity
+
+label
+	margin: 0.5rem 0
+ul, li
+	text-align: left
+	list-style: none
+
+p
+	max-width: 260px
+	margin: 1px 0 0 0
+
+	line-height: 1rem
+	font-size: 0.9rem
+
+	padding: 10px 15px 5px 15px
+	border-radius: 20px
+	position: relative
+	text-align: center
+
+	word-wrap: break-word
+
+.message
+	display: flex
+	align-items: center
+	margin: 0
+	word-wrap: break-word
+
+.sent
+	flex-direction: row-reverse
+
+.terms
+	font-size: 0.5rem
+	margin: auto
+	width: 100%
+
+.sent p
+	align-self: flex-end
+	text-align: right
+.received p
+	text-align: left
+
+.message-text
+	display: flex
+	flex-direction: column
+
+.received .message-text
+	align-items: flex-start
+
+.time
+	display: inline
+	font-size: 0.5rem
+	line-height: 0.7rem
+	float: right
+	font-style: italic
+	padding: 0
+	margin: 0
+
+.username
+	font-size: 0.7rem
+	display: inline
+	text-align: center
+	margin-bottom: 0.5rem
+
+.avatar
+	width: 0.7rem
+	height: 0.7rem
+	border-radius: 50%
+	margin: 0.2rem 0.5rem
+
+.aftermessage
+	display: flex
+
+.message:last-child
+	margin-bottom: 1rem
+
+.user-bio
+	display: flex
+	align-items: center
+
+.scrollbutton
+	position: fixed
+	bottom: 60px
+	right: 20px
+	height: 50px
+	width: 50px
+
+.signout-button
+	font-size: 0.8rem
+	padding: 0.5rem 1rem
+	border: none
+
+.spacer
+	margin: 0px 0.2rem
+.spacer2
+	margin: 0.3rem 0px
+.dummy
+	margin: 1.4rem 0px
