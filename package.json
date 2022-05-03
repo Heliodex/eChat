@@ -11,6 +11,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "svelte": "^3.44.0",
+<<<<<<< HEAD
     "vite": "^2.9.5"
   },
   "dependencies": {
@@ -18,5 +19,13 @@
     "node-sass": "^7.0.1",
     "sass": "^1.51.0",
     "svelte-preprocess": "^4.10.6"
+=======
+    "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "gun": "^0.2020.1235",
+    "lodash": "^4.17.21",
+    "sass": "^1.49.9"
+>>>>>>> refs/remotes/origin/main
   }
 }
