@@ -5,7 +5,6 @@ export const ably = new Ably.Realtime("isRZcA.aBObcg:whZxS4MZXz9sIEBWlbeoVmYgnjQ
 
 export const channelName = writable("")
 export const user = writable("")
-//export const channelname = writable("")
 
 ably.connection.on("failed", () => {
 	alert("Connection to eChat failed.")

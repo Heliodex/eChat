@@ -11,7 +11,7 @@
 <div class={`message ${messageClass}`}>
 	<div class="spacer" />
 
-	<div class="message-text">
+	<div class="messageText">
 		<p>
 			{msg.data.text}
 			<br />
