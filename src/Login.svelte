@@ -3,6 +3,7 @@
 
 	let loginInput = localStorage.getItem("username")
 	let groupInput
+	let page
 
 	function login() {
 		channelName.set(groupInput)
@@ -11,26 +12,44 @@
 	}
 
 	function test() {
-		console.log("test")
+		page = "terms"
 	}
 </script>
 
 <main>
-	<img src="echat.svg" class="logo" alt="eChat Logo" width="50%" />
+	{#if page == "terms"}
+		<button
+			class="close"
+			on:click={() => {
+				page = null
+			}}>X</button
+		>
+		hEllo wordld!
+	{:else if page == "privacy"}
+		<button
+			class="close"
+			on:click={() => {
+				page = null
+			}}>X</button
+		>
+		hEllo wordld!
+	{:else}
+		<img src="echat.svg" class="logo" alt="eChat Logo" width="50%" />
 
-	<form on:submit|preventDefault={login}>
-		<div class="loginIcon">
-			<img src="group.svg" class="sendimg" alt="Group icon" />
-		</div>
-		<input class="loginInput" placeholder="Group name" name="group" bind:value={groupInput} minlength="3" maxlength="16" />
+		<form on:submit|preventDefault={login}>
+			<div class="loginIcon">
+				<img src="group.svg" class="sendimg" alt="Group icon" />
+			</div>
+			<input class="loginInput" placeholder="Group name" name="group" bind:value={groupInput} minlength="3" maxlength="16" />
 
-		<div class="loginIcon">
-			<img src="user.svg" class="sendimg" alt="Username icon" />
-		</div>
-		<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput} minlength="3" maxlength="16" />
+			<div class="loginIcon">
+				<img src="user.svg" class="sendimg" alt="Username icon" />
+			</div>
+			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput} minlength="3" maxlength="16" />
 
-		<button class="joinButton">Join</button>
-	</form>
+			<button class="joinButton">Join</button>
+		</form>
 
-	<p class="terms">By using eChat, you agree to the <button class="linkStyle" on:click={test}>Terms of Service</button> and <button class="linkStyle" on:click={test}>Privacy Policy.</button></p>
+		<p class="terms">By using eChat, you agree to the <button class="linkStyle" on:click={test}>Terms of Service</button> and <button class="linkStyle" on:click={test}>Privacy Policy.</button></p>
+	{/if}
 </main>
