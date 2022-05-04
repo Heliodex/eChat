@@ -1,11 +1,12 @@
 <script>
 	import { user, channelName } from "./user"
 
-	let loginInput
+	let loginInput = localStorage.getItem("username")
 	let groupInput
 
 	function login() {
 		channelName.set(groupInput)
+		localStorage.setItem("username", loginInput)
 		user.set(loginInput) // if you log back in with the same username, it does not work.
 	}
 
@@ -31,5 +32,5 @@
 		<button class="joinButton">Join</button>
 	</form>
 
-	<p class="terms">By using eChat, you agree to the <a on:click={test}>Terms of Service</a> and <a on:click={test}>Privacy Policy.</a></p>
+	<p class="terms">By using eChat, you agree to the <button class="linkStyle" on:click={test}>Terms of Service</button> and <button class="linkStyle" on:click={test}>Privacy Policy.</button></p>
 </main>

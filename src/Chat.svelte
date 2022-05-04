@@ -8,6 +8,7 @@
 	let username
 	let canSend = true
 	let channel
+	let headerText
 
 	let scrollBottom
 	//let unreadMessages
@@ -36,6 +37,10 @@
 				}
 			})
 		}
+	})
+
+	channelName.subscribe(value => {
+		headerText = value
 	})
 
 	function logout() {
@@ -67,10 +72,9 @@
 </script>
 
 {#if username}
-	<!-- decided to make this no longer a component -->
 	<header>
 		<button class="inverted" on:click={logout}>logout</button>
-		<h1>eChat</h1>
+		<h1>{headerText}</h1>
 	</header>
 {/if}
 
