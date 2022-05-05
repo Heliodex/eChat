@@ -1,5 +1,6 @@
 <script>
 	import { user, channelName } from "./user"
+	import { splashes } from "./splashes"
 
 	let loginInput = localStorage.getItem("username")
 	let groupInput
@@ -10,31 +11,6 @@
 		localStorage.setItem("username", loginInput)
 		user.set(loginInput) // if you log back in with the same username, it does not work.
 	}
-
-	const splashes = [
-		"Now with more EVERYTHING!",
-		"What happpened to DocSocial?",
-		"Now with extra protein!",
-		"They can't ban us.",
-		"Remember to read the ToS!",
-		"Built with Svelte!",
-		"Cybernetically enhanced!",
-		"Now in SHOCKING 2-D!",
-		"One in a million!",
-		"Coming soon!",
-		"End-to-end encrypted!",
-		"It's anonymous and FREE!",
-		"Better than Hangouts!",
-		"Serving suggestion",
-		"45 GitHub commits!",
-		"undefined",
-		"Accepts payment via propane!",
-		"Happy birthday!",
-		"Ratio, touch grass",
-		"Even less XSS!",
-		"5.72 Gibibytes!",
-		"Not stolen from Minecraft!",
-	]
 </script>
 
 <main>
@@ -74,7 +50,9 @@
 		</form>
 
 		<p class="terms">
-			By using eChat, you agree to the <button
+			<br />
+			By using eChat, you agree to the
+			<button
 				class="linkStyle"
 				on:click={() => {
 					page = "terms"
