@@ -11,9 +11,30 @@
 		user.set(loginInput) // if you log back in with the same username, it does not work.
 	}
 
-	function test() {
-		page = "terms"
-	}
+	const splashes = [
+		"Now with more EVERYTHING!",
+		"What happpened to DocSocial?",
+		"Now with extra protein!",
+		"They can't ban us.",
+		"Remember to read the ToS!",
+		"Built with Svelte!",
+		"Cybernetically enhanced!",
+		"Now in SHOCKING 2-D!",
+		"One in a million!",
+		"Coming soon!",
+		"End-to-end encrypted!",
+		"It's anonymous and FREE!",
+		"Better than Hangouts!",
+		"Serving suggestion",
+		"45 GitHub commits!",
+		"undefined",
+		"Accepts payment via propane!",
+		"Happy birthday!",
+		"Ratio, touch grass",
+		"Even less XSS!",
+		"5.72 Gibibytes!",
+		"Not stolen from Minecraft!",
+	]
 </script>
 
 <main>
@@ -36,6 +57,8 @@
 	{:else}
 		<img src="echat.svg" class="logo" alt="eChat Logo" width="50%" />
 
+		<p class="splash">{splashes[Math.floor(Math.random() * splashes.length)]}</p>
+
 		<form on:submit|preventDefault={login}>
 			<div class="loginIcon">
 				<img src="group.svg" class="sendimg" alt="Group icon" />
@@ -50,6 +73,20 @@
 			<button class="joinButton">Join</button>
 		</form>
 
-		<p class="terms">By using eChat, you agree to the <button class="linkStyle" on:click={test}>Terms of Service</button> and <button class="linkStyle" on:click={test}>Privacy Policy.</button></p>
+		<p class="terms">
+			By using eChat, you agree to the <button
+				class="linkStyle"
+				on:click={() => {
+					page = "terms"
+				}}>Terms of Service</button
+			>
+			and
+			<button
+				class="linkStyle"
+				on:click={() => {
+					page = "privacy"
+				}}>Privacy Policy.</button
+			>
+		</p>
 	{/if}
 </main>
