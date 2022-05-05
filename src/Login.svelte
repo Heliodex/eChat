@@ -1,4 +1,5 @@
 <script>
+	import { fade } from "svelte/transition"
 	import { user, channelName } from "./user"
 	import { splashes } from "./splashes"
 
@@ -13,7 +14,7 @@
 	}
 </script>
 
-<main>
+<main transition:fade>
 	{#if page == "terms"}
 		<button
 			class="close"
