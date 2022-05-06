@@ -145,4 +145,5 @@ export const splashes = [
 	"Caught in 4k 🎥",
 	"Memory leaks!",
 	"🇺🇦",
+	"Good vibes only"
 ]
