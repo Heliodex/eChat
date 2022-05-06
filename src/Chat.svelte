@@ -89,12 +89,17 @@
 	{#if username}
 		{#if page == "settings"}
 			<main>
-				<button
-					class="smallIcon"
-					on:click={() => {
-						page = null
-					}}><img class="fillIcon" src="Close.svg" alt="Close icon" /></button
-				>
+				<header>
+					<img
+						class="headerButton logout"
+						src="Backfill.svg"
+						alt="Logout button"
+						on:click={() => {
+							page = null
+						}}
+					/>
+					<h2>eChat</h2>
+				</header>
 				<Settings />
 			</main>
 		{:else}
@@ -109,13 +114,13 @@
 			</main>
 
 			<form on:submit|preventDefault={sendMessage} class="messageForm">
-			<div class="messageboxbac">
-				<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+				<div class="messageboxbac">
+					<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
-				<button class="send">
-					<img src="Send.svg" class="fillIcon" alt="Send message" />
-				</button>
-			</div>
+					<button class="send">
+						<img src="Send.svg" class="fillIcon" alt="Send message" />
+					</button>
+				</div>
 			</form>
 		{/if}
 	{:else}

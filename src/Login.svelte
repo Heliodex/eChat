@@ -29,12 +29,17 @@
 		</header>
 		<Terms />
 	{:else if page == "settings"}
-		<button
-			class="smallIcon"
-			on:click={() => {
-				page = null
-			}}><img class="fillIcon" src="Close.svg" alt="Close icon" /></button
-		>
+		<header>
+			<img
+				class="headerButton logout"
+				src="Backfill.svg"
+				alt="Logout button"
+				on:click={() => {
+					page = null
+				}}
+			/>
+			<h2>eChat</h2>
+		</header>
 		<Settings />
 	{:else}
 		<img src="echat.svg" class="logo" alt="eChat Logo" width="50%" />

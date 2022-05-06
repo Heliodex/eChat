@@ -1,4 +1,7 @@
 <script>
 </script>
 
-<div class="scrollable">Hello wrl!</div>
+<div class="scrollable">
+	<h3>Settings</h3>
+	<p class="agreement">Hello worl!</p>
+</div>
