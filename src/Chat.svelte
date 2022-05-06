@@ -61,7 +61,7 @@
 				newMessage = null
 				setTimeout(() => {
 					canSend = true
-				}, 1000)
+				}, 1337)
 			} else {
 				newMessage = null
 			}
