@@ -109,11 +109,13 @@
 			</main>
 
 			<form on:submit|preventDefault={sendMessage} class="messageForm">
+			<div class="messageboxbac">
 				<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
 				<button class="send">
 					<img src="Send.svg" class="fillIcon" alt="Send message" />
 				</button>
+			</div>
 			</form>
 		{/if}
 	{:else}
