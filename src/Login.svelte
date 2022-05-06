@@ -38,12 +38,12 @@
 
 		<form on:submit|preventDefault={login}>
 			<div class="loginIcon">
-				<img src="group.svg" class="sendimg" alt="Group icon" />
+				<img src="Groupnofill.svg" class="sendimg" alt="Group icon" />
 			</div>
 			<input class="loginInput" placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" />
 
 			<div class="loginIcon">
-				<img src="user.svg" class="sendimg" alt="Username icon" />
+				<img src="Accountnofill.svg" class="sendimg" alt="Account icon" />
 			</div>
 			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" />
 

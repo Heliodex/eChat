@@ -72,9 +72,9 @@
 
 {#if username && !page}
 	<header>
-		<img class="headerButton logout" src="back.svg" alt="Logout button" on:click={logout} />
+		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:click={logout} />
 		<h2>{headerText}</h2>
-		<img class="headerButton settings" src="settings2.svg" alt="Logout button" on:click={logout} />
+		<img class="headerButton settings" src="Settingsfill.svg" alt="Logout button" on:click={logout} />
 	</header>
 {/if}
 
@@ -105,7 +105,7 @@
 				<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
 				<button class="send">
-					<img src="send.svg" class="sendimg" alt="Send message" />
+					<img src="Sendnofill.svg" class="sendimg" alt="Send message" />
 				</button>
 			</form>
 		{/if}
