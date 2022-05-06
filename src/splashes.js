@@ -150,4 +150,5 @@ export const splashes = [
 	"Never gonna give you up",
 	"Never gonna let you down",
 	"Never gonna say goodbye,"
+	"Doge",
 ]
