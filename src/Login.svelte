@@ -10,7 +10,7 @@
 
 	function login() {
 		loginInfo.set(loginInput) // if you log back in with the same username, it does not work.
-		localStorage.setItem("username", loginInfo["username"])
+		localStorage.setItem("username", $loginInfo["username"])
 	}
 </script>
 
