@@ -31,14 +31,6 @@ a
 label
 	display: block
 
-.close
-	top: 5px
-	left: 0
-	position: fixed
-	height: 7%
-	width: 7vh // idk if this is bad?? aspect-ratio didnt really work
-	padding: 0.5rem
-
 input, button, select
 	font-family: inherit
 	font-size: inherit
@@ -86,7 +78,7 @@ header
 	bottom: 0
 	width: 96%
 	display: flex
-	font-size: 1.5rem
+	font-size: 1rem
 
 input
 	line-height: 1.5
@@ -98,9 +90,9 @@ input
 .loginInput
 	text-align: center
 	width: 80%
-	margin-top: 4px // keep it in line with the image beside it
 	margin-bottom: 1.2rem
 	padding: 0.2rem 0.7rem
+	height: 35px
 
 .messageBox
 	width: 100%
@@ -114,14 +106,13 @@ input
 	margin: 0.3rem 0
 	cursor: pointer
 .sendimg
-	width: 100%
-	height: 100%
+	width: 35px
+	height: 35px
 
 .loginIcon
 	position: absolute
-	height: 5%
+	height: 35px
 	border-radius: $infinity
-	padding: 0.5rem
 	margin-left: 10%
 
 .logo
@@ -150,15 +141,16 @@ button
 	text-decoration: none
 	display: inline-block
 	cursor: pointer
-	font-size: 1.25rem
+	font-size: 1rem
 	margin: 0.5rem 1rem
-	padding: 0.15rem 0.5rem
+	padding: 0px 10px 0px 10px
 	border-radius: $infinity
 
 .joinButton
-	margin: 0.5rem 0.25rem
-	padding: 0.3rem 0.8rem
+	justify-content: center
+	height: 35px
 	border-radius: $infinity
+	padding: 0px 10px 0px 10px
 
 .sent p, .received p
 	max-width: 260px
@@ -230,7 +222,7 @@ button
 	margin: 0
 
 .username
-	font-size: 0.7rem
+	font-size: 0.6rem
 	display: inline
 	text-align: center
 	margin-bottom: 0.5rem
