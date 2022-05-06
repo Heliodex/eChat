@@ -51,7 +51,7 @@
 
 	async function sendMessage() {
 		if (canSend) {
-			if (newMessage.trim()) {
+			if (newMessage && newMessage.trim()) {
 				canSend = false
 				channel.publish("message", {
 					username: username,
@@ -117,7 +117,7 @@
 				<div class="messageboxbac">
 					<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
-					<button class="send">
+					<button class="send" on:mousedown={sendMessage}>
 						<img src="Send.svg" class="fillIcon" alt="Send message" />
 					</button>
 				</div>
