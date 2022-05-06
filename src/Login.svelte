@@ -21,7 +21,7 @@
 				class="headerButton logout"
 				src="Backfill.svg"
 				alt="Logout button"
-				on:click={() => {
+				on:mousedown={() => {
 					page = null
 				}}
 			/>
@@ -34,7 +34,7 @@
 				class="headerButton logout"
 				src="Backfill.svg"
 				alt="Logout button"
-				on:click={() => {
+				on:mousedown={() => {
 					page = null
 				}}
 			/>
@@ -65,7 +65,7 @@
 			By using eChat, you agree to the
 			<button
 				class="linkStyle"
-				on:click={() => {
+				on:mousedown={() => {
 					page = "terms"
 				}}>Terms of Service</button
 			>.

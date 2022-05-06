@@ -72,13 +72,13 @@
 
 {#if username && !page}
 	<header>
-		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:click={logout} />
+		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2 class="headerText">{headerText}</h2>
 		<img
 			class="headerButton settings"
 			src="Settingsfill.svg"
 			alt="Settings button"
-			on:click={() => {
+			on:mousedown={() => {
 				page = "settings"
 			}}
 		/>
@@ -94,7 +94,7 @@
 						class="headerButton logout"
 						src="Backfill.svg"
 						alt="Logout button"
-						on:click={() => {
+						on:mousedown={() => {
 							page = null
 						}}
 					/>
