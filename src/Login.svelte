@@ -57,7 +57,7 @@
 			</div>
 			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" />
 
-			<button class="joinButton">Join</button>
+			<button class="joinButton" on:mousedown={login}>Join</button>
 		</form>
 
 		<p class="footer">
