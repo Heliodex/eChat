@@ -16,12 +16,17 @@
 
 <main transition:fade>
 	{#if page == "terms"}
-		<button
-			class="smallIcon"
-			on:click={() => {
-				page = null
-			}}><img class="fillIcon" src="Close.svg" alt="Close icon" /></button
-		>
+		<header>
+			<img
+				class="headerButton logout"
+				src="Backfill.svg"
+				alt="Logout button"
+				on:click={() => {
+					page = null
+				}}
+			/>
+			<h2>eChat</h2>
+		</header>
 		<Terms />
 	{:else if page == "settings"}
 		<button
