@@ -74,7 +74,7 @@
 {#if username}
 	<header>
 		<img class="logout" src="back.svg" alt="Logout button" on:click={logout} />
-		<h1>{headerText}</h1>
+		<h2>{headerText}</h2>
 	</header>
 {/if}
 
