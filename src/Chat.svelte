@@ -73,7 +73,7 @@
 {#if username && !page}
 	<header>
 		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:click={logout} />
-		<h2>{headerText}</h2>
+		<h2 class="headerText">{headerText}</h2>
 		<img
 			class="headerButton settings"
 			src="Settingsfill.svg"

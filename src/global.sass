@@ -135,7 +135,7 @@ input
 .settings
 	right: 0.5rem
 
-h2
+.headerText
 	width: 75%
 	text-overflow: ellipsis
 	white-space: nowrap
@@ -174,12 +174,16 @@ button
 
 .agreement
 	text-align: left
-	font-size: 0.9rem
-	padding: 0 1rem
+	font-size: 0.85rem
+	padding: 0 0.5rem
 .scrollable
-	margin-top: 1rem
 	overflow: scroll
-	height: 27rem
+	height: 93.3vh
+	transform: translate(0, 10vh) // not good, but it works well
+
+.title
+	font-size: 1.5rem
+	text-align: center
 
 .message
 	display: flex
