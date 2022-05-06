@@ -2,17 +2,15 @@
 	import { fade } from "svelte/transition"
 	import Terms from "./Terms.svelte"
 	import Settings from "./Settings.svelte"
-	import { user, channelName } from "./user"
+	import { loginInfo } from "./user"
 	import { splashes } from "./splashes"
 
-	let loginInput = localStorage.getItem("username")
-	let groupInput
 	let page
+	let loginInput = $loginInfo
 
 	function login() {
-		channelName.set(groupInput)
-		localStorage.setItem("username", loginInput)
-		user.set(loginInput) // if you log back in with the same username, it does not work.
+		loginInfo.set(loginInput) // if you log back in with the same username, it does not work.
+		localStorage.setItem("username", loginInfo["username"])
 	}
 </script>
 
@@ -42,12 +40,12 @@
 			<div class="loginIcon">
 				<img src="group.svg" class="sendimg" alt="Group icon" />
 			</div>
-			<input class="loginInput" placeholder="Group name" name="group" bind:value={groupInput} minlength="3" maxlength="16" />
+			<input class="loginInput" placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" />
 
 			<div class="loginIcon">
 				<img src="user.svg" class="sendimg" alt="Username icon" />
 			</div>
-			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput} minlength="3" maxlength="16" />
+			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" />
 
 			<button class="joinButton">Join</button>
 		</form>

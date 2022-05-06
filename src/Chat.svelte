@@ -1,5 +1,5 @@
 <script>
-	import { user, ably, channelName } from "./user"
+	import { loginInfo, ably } from "./user"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
 	import Settings from "./Settings.svelte"
@@ -21,14 +21,16 @@
 		//unreadMessages = false
 	}
 
-	user.subscribe(value => {
-		if (value.trim()) {
+	loginInfo.subscribe(value => {
+		if (value["username"].trim() && value["groupname"].trim()) {
 			if (channel) {
 				channel.unsubscribe()
 			}
-			username = value.trim()
+			username = value["username"].trim()
 
-			channel = ably.channels.get("[?rewind=5]echat:" + $channelName)
+			headerText = value["groupname"]
+
+			channel = ably.channels.get("[?rewind=5]echat:" + loginInfo["groupname"])
 
 			channel.subscribe("message", message => {
 				// a different sort of "subscribe"
@@ -41,15 +43,10 @@
 		}
 	})
 
-	channelName.subscribe(value => {
-		headerText = value
-	})
-
 	function logout() {
-		username = null
+		username = ""
 		messages = []
-		channelName.set("")
-		user.set("")
+		loginInfo.set({ groupname: "", username: $loginInfo["username"] })
 	}
 
 	async function sendMessage() {

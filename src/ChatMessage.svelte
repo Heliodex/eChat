@@ -1,11 +1,13 @@
 <script>
-	import { user } from "./user"
+	import Login from "./Login.svelte"
+
+	import { loginInfo } from "./user"
 	export let msg
 
 	const timestamp = new Date(msg.timestamp)
 
-	$: messageClass = msg.data.username == $user.toString() ? "sent" : "received"
-	$: userMessage = msg.data.username != $user.toString()
+	$: messageClass = msg.data.username == $loginInfo["username"].toString() ? "sent" : "received"
+	$: userMessage = msg.data.username != $loginInfo["username"].toString()
 </script>
 
 <div class={`message ${messageClass}`}>
