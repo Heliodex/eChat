@@ -1,6 +1,6 @@
 <div class="scrollable">
 	<p class="agreement">
-		eChat Terms of Service: Last updated 5 May 2022<br />
+		eChat Terms of Service: Last updated 6 May 2022<br />
 		<br />
 		<br />
 		This Terms of Service Agreement (“agreement”) is an agreement made between you, or if you represent a legal entity, that legal entity (“you”) and eChat, the owners of all eChat logos, documents,
@@ -44,7 +44,7 @@
 		<br />
 		7.4. Placing any obscene, pornographic, sexually explicit or violent materials in eChat.<br />
 		<br />
-		7.5. Placing any unsolicited advertising, attempted business solicitation, marketing materials or sales/promotional materials in eChat.<br />
+		7.5. Repeatedly placing any unsolicited advertising, marketing materials, or sales/promotional materials in eChat.<br />
 		<br />
 		7.6. Placing any material in the eChat that is disruptive or defamatory to eChat or other users of the eChat service including Administrators.<br />
 		<br />
@@ -60,8 +60,8 @@
 		<br />
 		<br />
 		This agreement is governed by and constructed in accordance with the applicable laws of Scotland, England, Northern Ireland, and Wales. The https://echatapp.ml/ and https://echat.cf/ domains are
-		solely governed by and constructed in accordance with the laws of the Central African Republic, Mali, or any entities connected with the Central African Republic or the country of Mali, including
-		connected corporations/companies such as SEDO, Société Centrafricaine de Télécommunications (SOCATEL), Point.ml, Dot.cf, or United Internet AG.<br />
+		solely governed by and constructed in accordance with the laws of the Central African Republic, Mali, or any entities connected with them, including connected corporations/companies such as SEDO,
+		Société Centrafricaine de Télécommunications (SOCATEL), Point.ml, Dot.cf, or United Internet AG.<br />
 		<br />
 		If any term of this agreement is adjudged to be invalid or unenforceable, such term shall in no way affect any other term of this agreement or the application of such term in any other circumstance
 		or the validity or enforceability of this Agreement. The Parties will negotiate in good faith about a term that will replace the invalid or unenforceable term.<br />
