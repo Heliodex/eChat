@@ -146,4 +146,5 @@ export const splashes = [
 	"Memory leaks!",
 	"🇺🇦",
 	"Good vibes only"
+	"living in a material world",
 ]
