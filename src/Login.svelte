@@ -17,18 +17,18 @@
 <main transition:fade>
 	{#if page == "terms"}
 		<button
-			class="close"
+			class="smallIcon"
 			on:click={() => {
 				page = null
-			}}><img src="close.svg" class="sendimg" alt="Close icon" /></button
+			}}><img class="fillIcon" src="Close.svg" alt="Close icon" /></button
 		>
 		<Terms />
 	{:else if page == "settings"}
 		<button
-			class="close"
+			class="smallIcon"
 			on:click={() => {
 				page = null
-			}}><img src="close.svg" class="sendimg" alt="Close icon" /></button
+			}}><img class="fillIcon" src="Close.svg" alt="Close icon" /></button
 		>
 		<Settings />
 	{:else}
@@ -38,12 +38,12 @@
 
 		<form on:submit|preventDefault={login}>
 			<div class="loginIcon">
-				<img src="Groupnofill.svg" class="sendimg" alt="Group icon" />
+				<img src="Group.svg" alt="Group icon" />
 			</div>
 			<input class="loginInput" placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" />
 
 			<div class="loginIcon">
-				<img src="Accountnofill.svg" class="sendimg" alt="Account icon" />
+				<img src="Account.svg" alt="Account icon" />
 			</div>
 			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" />
 
