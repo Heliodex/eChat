@@ -1,5 +1,6 @@
 <script>
 	import { fade } from "svelte/transition"
+	import Terms from "./Terms.svelte"
 	import { user, channelName } from "./user"
 	import { splashes } from "./splashes"
 
@@ -20,21 +21,13 @@
 			class="close"
 			on:click={() => {
 				page = null
-			}}>X</button
+			}}><img src="close.svg" class="sendimg" alt="Close icon" /></button
 		>
-		hEllo wordld!
-	{:else if page == "privacy"}
-		<button
-			class="close"
-			on:click={() => {
-				page = null
-			}}>X</button
-		>
-		hEllo wordld!
+		<Terms />
 	{:else}
 		<img src="echat.svg" class="logo" alt="eChat Logo" width="50%" />
 
-		<p class="splash">{splashes[Math.floor(Math.random() * splashes.length)]}</p>
+		<p class="splash">{@html splashes[Math.floor(Math.random() * splashes.length)]}</p>
 
 		<form on:submit|preventDefault={login}>
 			<div class="loginIcon">
@@ -50,7 +43,7 @@
 			<button class="joinButton">Join</button>
 		</form>
 
-		<p class="terms">
+		<p class="footer">
 			<br />
 			By using eChat, you agree to the
 			<button
@@ -58,14 +51,7 @@
 				on:click={() => {
 					page = "terms"
 				}}>Terms of Service</button
-			>
-			and
-			<button
-				class="linkStyle"
-				on:click={() => {
-					page = "privacy"
-				}}>Privacy Policy.</button
-			>
+			>.
 		</p>
 	{/if}
 </main>
