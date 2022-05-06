@@ -73,7 +73,7 @@
 
 {#if username}
 	<header>
-		<button class="inverted" on:click={logout}>logout</button>
+		<img class="logout" src="back.svg" alt="Logout button" on:click={logout} />
 		<h1>{headerText}</h1>
 	</header>
 {/if}
