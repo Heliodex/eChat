@@ -147,4 +147,7 @@ export const splashes = [
 	"🇺🇦",
 	"Good vibes only"
 	"living in a material world",
+	"Never gonna give you up",
+	"Never gonna let you down",
+	"Never gonna say goodbye,"
 ]
