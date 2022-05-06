@@ -30,7 +30,7 @@
 
 			headerText = value["groupname"]
 
-			channel = ably.channels.get("[?rewind=5]echat:" + loginInfo["groupname"])
+			channel = ably.channels.get("[?rewind=5]echat:" + value["groupname"])
 
 			channel.subscribe("message", message => {
 				// a different sort of "subscribe"
