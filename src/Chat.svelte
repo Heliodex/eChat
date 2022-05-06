@@ -76,8 +76,8 @@
 		<h2>{headerText}</h2>
 		<img
 			class="headerButton settings"
-			src="settings2.svg"
-			alt="Logout button"
+			src="Settingsfill.svg"
+			alt="Settings button"
 			on:click={() => {
 				page = "settings"
 			}}
@@ -90,10 +90,10 @@
 		{#if page == "settings"}
 			<main>
 				<button
-					class="close"
+					class="smallIcon"
 					on:click={() => {
 						page = null
-					}}><img src="close.svg" class="sendimg" alt="Close icon" /></button
+					}}><img class="fillIcon" src="Close.svg" alt="Close icon" /></button
 				>
 				<Settings />
 			</main>
@@ -112,7 +112,7 @@
 				<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
 				<button class="send">
-					<img src="Sendnofill.svg" class="sendimg" alt="Send message" />
+					<img src="Send.svg" class="fillIcon" alt="Send message" />
 				</button>
 			</form>
 		{/if}
