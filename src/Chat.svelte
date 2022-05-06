@@ -2,6 +2,7 @@
 	import { user, ably, channelName } from "./user"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
+	import Settings from "./Settings.svelte"
 
 	let newMessage
 	let messages = []
@@ -9,6 +10,7 @@
 	let canSend = true
 	let channel
 	let headerText
+	let page
 
 	let scrollBottom
 	//let unreadMessages
@@ -71,32 +73,45 @@
 	$: username && autoScroll() // run autoScroll() whenever username changes, greatest line of code ever
 </script>
 
-{#if username}
+{#if username && !page}
 	<header>
-		<img class="logout" src="back.svg" alt="Logout button" on:click={logout} />
+		<img class="headerButton logout" src="back.svg" alt="Logout button" on:click={logout} />
 		<h2>{headerText}</h2>
+		<img class="headerButton settings" src="settings2.svg" alt="Logout button" on:click={logout} />
 	</header>
 {/if}
 
 <div class="container">
 	{#if username}
-		<main class="messages">
-			<div class="spacer2" />
+		{#if page == "settings"}
+			<main>
+				<button
+					class="close"
+					on:click={() => {
+						page = null
+					}}><img src="close.svg" class="sendimg" alt="Close icon" /></button
+				>
+				<Settings />
+			</main>
+		{:else}
+			<main class="messages">
+				<div class="spacer2" />
 
-			{#each messages as msg}
-				<ChatMessage {msg} />
-			{/each}
+				{#each messages as msg}
+					<ChatMessage {msg} />
+				{/each}
 
-			<div class="dummy" bind:this={scrollBottom} />
-		</main>
+				<div class="dummy" bind:this={scrollBottom} />
+			</main>
 
-		<form on:submit|preventDefault={sendMessage} class="messageForm">
-			<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+			<form on:submit|preventDefault={sendMessage} class="messageForm">
+				<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
-			<button class="send">
-				<img src="send.svg" class="sendimg" alt="Send message" />
-			</button>
-		</form>
+				<button class="send">
+					<img src="send.svg" class="sendimg" alt="Send message" />
+				</button>
+			</form>
+		{/if}
 	{:else}
 		<main>
 			<Login />

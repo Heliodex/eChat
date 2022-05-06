@@ -1,6 +1,7 @@
 <script>
 	import { fade } from "svelte/transition"
 	import Terms from "./Terms.svelte"
+	import Settings from "./Settings.svelte"
 	import { user, channelName } from "./user"
 	import { splashes } from "./splashes"
 
@@ -24,6 +25,14 @@
 			}}><img src="close.svg" class="sendimg" alt="Close icon" /></button
 		>
 		<Terms />
+	{:else if page == "settings"}
+		<button
+			class="close"
+			on:click={() => {
+				page = null
+			}}><img src="close.svg" class="sendimg" alt="Close icon" /></button
+		>
+		<Settings />
 	{:else}
 		<img src="echat.svg" class="logo" alt="eChat Logo" width="50%" />
 
