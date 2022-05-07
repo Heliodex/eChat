@@ -22,7 +22,7 @@
 	}
 
 	loginInfo.subscribe(value => {
-		if (value["username"].trim() && value["groupname"].trim()) {
+		if (value["username"]?.trim() && value["groupname"]?.trim()) {
 			if (channel) {
 				channel.unsubscribe()
 			}
@@ -51,7 +51,7 @@
 
 	async function sendMessage() {
 		if (canSend) {
-			if (newMessage && newMessage.trim()) {
+			if (newMessage?.trim()) {
 				canSend = false
 				channel.publish("message", {
 					username: username,
