@@ -42,6 +42,15 @@
 		</header>
 		<Settings />
 	{:else}
+		<button
+			class="settingsLogin"
+			on:mousedown={() => {
+				page = "settings"
+			}}
+		>
+			<img class="fillIconSmall" src="Settings.svg" alt="Settings button" />
+		</button>
+
 		<img src="echat.svg" class="logo" alt="eChat Logo" width="50%" />
 
 		<p class="splash">{@html splashes[Math.floor(Math.random() * splashes.length)]}</p>
