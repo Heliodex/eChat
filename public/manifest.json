@@ -1,0 +1,12 @@
+{
+	"manifest_version": 3,
+	"name": "eChat",
+	"description": "eChat chat application",
+	"version": "0.1.0",
+
+	"action": {
+		"default_icon": "128.png",
+		"default_title": "eChat app",
+		"default_popup": "index.html"
+	}
+}
