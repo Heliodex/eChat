@@ -70,62 +70,64 @@
 	$: username && autoScroll() // run autoScroll() whenever username changes, greatest line of code ever
 </script>
 
-{#if username && !page}
-	<header>
-		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
-		<h2 class="headerText">{headerText}</h2>
-		<img
-			class="headerButton settings"
-			src="Settingsfill.svg"
-			alt="Settings button"
-			on:mousedown={() => {
-				page = "settings"
-			}}
-		/>
-	</header>
-{/if}
-
-<div class="container">
-	{#if username}
-		{#if page == "settings"}
-			<main>
-				<header>
-					<img
-						class="headerButton logout"
-						src="Backfill.svg"
-						alt="Logout button"
-						on:mousedown={() => {
-							page = null
-						}}
-					/>
-					<h2>eChat</h2>
-				</header>
-				<Settings />
-			</main>
-		{:else}
-			<main class="messages">
-				<div class="spacer2" />
-
-				{#each messages as msg}
-					<ChatMessage {msg} />
-				{/each}
-
-				<div class="dummy" bind:this={scrollBottom} />
-			</main>
-
-			<form on:submit|preventDefault={sendMessage} class="messageForm">
-				<div class="messageboxbac">
-					<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
-
-					<button class="send" on:mousedown={sendMessage}>
-						<img src="Send.svg" class="fillIcon" alt="Send message" />
-					</button>
-				</div>
-			</form>
-		{/if}
-	{:else}
-		<main>
-			<Login />
-		</main>
+<div class="app">
+	{#if username && !page}
+		<header>
+			<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
+			<h2 class="headerText">{headerText}</h2>
+			<img
+				class="headerButton settings"
+				src="Settingsfill.svg"
+				alt="Settings button"
+				on:mousedown={() => {
+					page = "settings"
+				}}
+			/>
+		</header>
 	{/if}
+
+	<div class="container">
+		{#if username}
+			{#if page == "settings"}
+				<main>
+					<header>
+						<img
+							class="headerButton logout"
+							src="Backfill.svg"
+							alt="Logout button"
+							on:mousedown={() => {
+								page = null
+							}}
+						/>
+						<h2>eChat</h2>
+					</header>
+					<Settings />
+				</main>
+			{:else}
+				<main class="messages">
+					<div class="spacer2" />
+
+					{#each messages as msg}
+						<ChatMessage {msg} />
+					{/each}
+
+					<div class="dummy" bind:this={scrollBottom} />
+				</main>
+
+				<form on:submit|preventDefault={sendMessage} class="messageForm">
+					<div class="messageboxbac">
+						<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+
+						<button class="send" on:mousedown={sendMessage}>
+							<img src="Send.svg" class="fillIcon" alt="Send message" />
+						</button>
+					</div>
+				</form>
+			{/if}
+		{:else}
+			<main>
+				<Login />
+			</main>
+		{/if}
+	</div>
 </div>
