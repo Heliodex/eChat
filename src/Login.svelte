@@ -3,7 +3,7 @@
 	import Terms from "./Terms.svelte"
 	import Settings from "./Settings.svelte"
 	import { loginInfo } from "./user"
-	import { splashes } from "./splashes"
+	import splashes from "./splashes.json"
 
 	let page
 	let loginInput = $loginInfo

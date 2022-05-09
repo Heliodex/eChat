@@ -1,4 +1,4 @@
-export const splashes = [
+[
 	"Now with more EVERYTHING!",
 	"What happpened to DocSocial?",
 	"Now with extra protein!",
@@ -9,7 +9,6 @@ export const splashes = [
 	"Now in <strong>SHOCKING</strong> 2-D!",
 	"One in a million!",
 	"Coming soon! 🔜",
-	//"End-to-end encrypted!",
 	"It's anonymous and FREE!",
 	"Better than Hangouts!",
 	"Serving suggestion",
@@ -167,4 +166,7 @@ export const splashes = [
 	"Higher kinetic energy!",
 	"Six quintillion electron-volts!",
 	"Taste the greyscale!",
+	"You spin me right round!",
+	"What happens next?",
+	"In the cloud! ☁️"
 ]
