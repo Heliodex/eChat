@@ -1,5 +1,5 @@
 <script>
-	import { loginInfo, ably } from "./user"
+	import { loginInfo, centrifuge } from "./user"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
 	import Settings from "./Settings.svelte"
@@ -23,16 +23,18 @@
 
 	loginInfo.subscribe(value => {
 		if (value["username"]?.trim() && value["groupname"]?.trim()) {
+			console.log(value)
 			if (channel) {
+				console.log("unsubbed")
 				channel.unsubscribe()
 			}
+
 			username = value["username"].trim()
 
 			headerText = value["groupname"]
 
-			channel = ably.channels.get("[?rewind=5]echat:" + value["groupname"])
-
-			channel.subscribe("message", message => {
+			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message) {
+				console.log(message)
 				// a different sort of "subscribe"
 				messages = [...messages, message] // Must be done to make the {#each messages} block update with the new message.
 				if (username) {
@@ -53,9 +55,10 @@
 		if (canSend) {
 			if (newMessage?.trim()) {
 				canSend = false
-				channel.publish("message", {
+				centrifuge.publish("chat:" + $loginInfo["groupname"], {
 					username: username,
 					text: newMessage.trim(),
+					timestamp: new Date().getTime(),
 				})
 				newMessage = null
 				setTimeout(() => {
@@ -68,6 +71,8 @@
 	}
 
 	$: username && autoScroll() // run autoScroll() whenever username changes, greatest line of code ever
+
+	centrifuge.connect() // don't forget
 </script>
 
 <div class="app">
