@@ -7,7 +7,6 @@
 	let newMessage
 	let messages = []
 	let username
-	let canSend = true
 	let channel
 	let headerText
 	let page
@@ -31,6 +30,8 @@
 
 			headerText = value["groupname"]
 
+			console.log("chat:" + value["groupname"])
+
 			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message) {
 				// a different sort of "subscribe"
 				messages = [...messages, message] // Must be done to make the {#each messages} block update with the new message.
@@ -38,6 +39,11 @@
 					// prevent autoscroll being called many times before login
 					autoScroll()
 				}
+			})
+			channel.history({ limit: 100 }).then(function (history) {
+				history["publications"].forEach(function (message) {
+					messages = [...messages, message]
+				})
 			})
 		}
 	})
@@ -49,21 +55,15 @@
 	}
 
 	async function sendMessage() {
-		if (canSend) {
-			if (newMessage?.trim()) {
-				canSend = false
-				centrifuge.publish("chat:" + $loginInfo["groupname"], {
-					username: username,
-					text: newMessage.trim(),
-					timestamp: new Date().getTime(),
-				})
-				newMessage = null
-				setTimeout(() => {
-					canSend = true
-				}, 1337)
-			} else {
-				newMessage = null
-			}
+		if (newMessage?.trim()) {
+			centrifuge.publish("chat:" + $loginInfo["groupname"], {
+				username: username,
+				text: newMessage.trim(),
+				timestamp: new Date().getTime(),
+			})
+			newMessage = null
+		} else {
+			newMessage = null
 		}
 	}
 
