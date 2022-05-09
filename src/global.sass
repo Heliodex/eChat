@@ -34,9 +34,19 @@ a
 		background: none
 
 label
-	display: block
+	display: flex
+	align-items: center
 
-input, button, select
+.settingsInput
+	align-items: center
+	display: inline
+	padding: 0
+.settingsLabel
+	align-items: center
+	display: inline
+	margin-left: 1rem
+
+.loginInput, .messageBox, button, select
 	font-family: inherit
 	font-size: inherit
 	padding: 0.4rem
@@ -85,7 +95,7 @@ header
 	display: flex
 	font-size: 1rem
 
-input
+.loginInput, .messageBox
 	line-height: 1.5
 	font-size: 1rem
 	outline: none
@@ -160,6 +170,14 @@ input
 	width: 35px
 	padding: 7px
 	margin: 0.5rem
+
+.settingsPage
+	display: grid
+	grid-template-columns: 1fr 1fr
+	row-gap: 0.7rem
+
+label
+	align-items: center
 
 .headerText
 	width: 75%
