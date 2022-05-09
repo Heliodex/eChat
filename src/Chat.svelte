@@ -15,7 +15,7 @@
 	//let unreadMessages
 
 	function autoScroll() {
-		setTimeout(() => scrollBottom?.scrollIntoView({ behavior: "smooth" }), 1)
+		setTimeout(() => scrollBottom?.scrollIntoView(/*{ behavior: "smooth" }*/), 1)
 		// without setTimeout, it would scroll before the message was added, making it not scroll all the way
 		//unreadMessages = false
 	}
@@ -30,8 +30,6 @@
 
 			headerText = value["groupname"]
 
-			console.log("chat:" + value["groupname"])
-
 			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message) {
 				// a different sort of "subscribe"
 				messages = [...messages, message] // Must be done to make the {#each messages} block update with the new message.
@@ -41,9 +39,10 @@
 				}
 			})
 			channel.history({ limit: 100 }).then(function (history) {
-				history["publications"].forEach(function (message) {
-					messages = [...messages, message]
-				})
+				for (let i = 0; i < history["publications"].length; i++) {
+					messages = [...messages, history["publications"][i]]
+				}
+				autoScroll()
 			})
 		}
 	})
@@ -61,10 +60,8 @@
 				text: newMessage.trim(),
 				timestamp: new Date().getTime(),
 			})
-			newMessage = null
-		} else {
-			newMessage = null
 		}
+		newMessage = null
 	}
 
 	$: username && autoScroll() // run autoScroll() whenever username changes, greatest line of code ever
