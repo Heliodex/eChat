@@ -15,7 +15,6 @@
 	function login() {
 		if (canLogin) {
 			canLogin = false // Still lets you logout then log back in, though
-			console.log("loggedin")
 			loginInfo.set(loginInput) // If you log back in with the same username, history does not load. (ably)
 			localStorage.setItem("username", $loginInfo["username"])
 		}
