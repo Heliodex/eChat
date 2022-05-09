@@ -7,10 +7,18 @@
 
 	let page
 	let loginInput = $loginInfo
+	let canLogin = true
+	// Without this, it would subscribe-unsubscribe-resubscribe rather than just subbing once,
+	// or subscribing more than once, resulting in message duplication
+	// So login() must be being called more than once by the form. idk y
 
 	function login() {
-		loginInfo.set(loginInput) // if you log back in with the same username, it does not work.
-		localStorage.setItem("username", $loginInfo["username"])
+		if (canLogin) {
+			canLogin = false // Still lets you logout then log back in, though
+			console.log("loggedin")
+			loginInfo.set(loginInput) // If you log back in with the same username, history does not load. (ably)
+			localStorage.setItem("username", $loginInfo["username"])
+		}
 	}
 </script>
 

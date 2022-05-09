@@ -14,7 +14,7 @@
     "vite": "^2.9.5"
   },
   "dependencies": {
-    "ably": "^1.2.20",
+    "centrifuge": "^2.8.5",
     "node-sass": "^7.0.1",
     "sass": "^1.51.0",
     "svelte-preprocess": "^4.10.6"
