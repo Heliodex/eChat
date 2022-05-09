@@ -23,9 +23,7 @@
 
 	loginInfo.subscribe(value => {
 		if (value["username"]?.trim() && value["groupname"]?.trim()) {
-			console.log(value)
 			if (channel) {
-				console.log("unsubbed")
 				channel.unsubscribe()
 			}
 
@@ -34,7 +32,6 @@
 			headerText = value["groupname"]
 
 			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message) {
-				console.log(message)
 				// a different sort of "subscribe"
 				messages = [...messages, message] // Must be done to make the {#each messages} block update with the new message.
 				if (username) {
