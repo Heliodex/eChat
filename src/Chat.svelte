@@ -1,15 +1,17 @@
-<script>
+<script lang="ts">
 	import { loginInfo, centrifuge } from "./user"
+	import { messageType } from "./types"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
 	import Settings from "./Settings.svelte"
 
-	let newMessage
-	let messages = []
-	let username
+	let messages: messageType[] = []
+
+	let newMessage: string
+	let headerText: string
+	let username: string
+	let page: string
 	let channel
-	let headerText
-	let page
 
 	let scrollBottom
 	//let unreadMessages
@@ -32,7 +34,7 @@
 
 			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message) {
 				// a different sort of "subscribe"
-				messages = [...messages, message] // Must be done to make the {#each messages} block update with the new message.
+				messages = [...messages, message["data"]] // Must be done to make the {#each messages} block update with the new message.
 				if (username) {
 					// prevent autoscroll being called many times before login
 					autoScroll()
@@ -40,7 +42,7 @@
 			})
 			channel.history({ limit: 100 }).then(function (history) {
 				for (let i = 0; i < history["publications"].length; i++) {
-					messages = [...messages, history["publications"][i]]
+					messages = [...messages, history["publications"][i]["data"]] // anything outside "data" is not used right now
 				}
 				autoScroll()
 			})
