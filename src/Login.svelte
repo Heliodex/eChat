@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
 	import { fade } from "svelte/transition"
 	import Terms from "./Terms.svelte"
 	import Settings from "./Settings.svelte"
 	import { loginInfo } from "./user"
 	import splashes from "./splashes.json"
 
-	let page
+	let page: string
 	let loginInput = $loginInfo
 	let canLogin = true
 	// Without this, it would subscribe-unsubscribe-resubscribe rather than just subbing once,

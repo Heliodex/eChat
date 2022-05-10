@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	let darkMode = false
 	let historyLength = 100
 	let theme = "green"

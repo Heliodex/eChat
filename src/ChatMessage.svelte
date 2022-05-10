@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
 	import { loginInfo } from "./user"
-	export let msg
+	import { messageType } from "./types"
+	export let msg: messageType
 
-	const timestamp = new Date(msg.data.timestamp)
+	const timestamp: Date = new Date(msg.timestamp)
 
-	$: messageClass = msg.data.username == $loginInfo["username"].toString() ? "sent" : "received"
-	$: userMessage = msg.data.username != $loginInfo["username"].toString()
+	$: messageClass = msg.username == $loginInfo["username"].toString() ? "sent" : "received"
+	$: userMessage = msg.username != $loginInfo["username"].toString()
 </script>
 
 <div class={`message ${messageClass}`}>
@@ -13,7 +14,7 @@
 
 	<div class="messageText">
 		<p>
-			{msg.data.text}
+			{msg.text}
 			<br />
 			<time class="time">{timestamp.toTimeString().substring(0, 5)}</time>
 			<!-- a much better solution than DocSocial -->
@@ -21,7 +22,7 @@
 
 		{#if userMessage}
 			<div class="aftermessage">
-				<time class="username">{msg.data.username.toString()}</time>
+				<time class="username">{msg.username.toString()}</time>
 			</div>
 		{/if}
 	</div>
