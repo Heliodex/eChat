@@ -1,9 +1,9 @@
 $main: #31a47e
 $main-dark: #31837e
-//$main: #31a4fe
-//$main-dark: #3183fe
-//$main: #fea431
-//$main-dark: #fe8331
+// $main: #31a4fe
+// $main-dark: #3183fe
+// $main: #fea431
+// $main-dark: #fe8331
 
 $tint1: white
 $tint2: #cccccc
@@ -12,13 +12,16 @@ $tint4: #333333
 $tint5: #191919
 $tint6: black
 
+:root
+	accent-color: $main
+
+::selection
+	background: $main
+
 .linkStyle, a
 	color: $main
 	&:hover
 		color: $main-dark
-
-input
-	border: 1px solid $tint2
 
 header
 	background-color: $main
@@ -48,6 +51,7 @@ button
 input
 	background-color: $tint2
 	color: $tint6
+	border: 1px solid $main
 	&::placeholder
 		color: $tint1
 
