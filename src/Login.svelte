@@ -12,7 +12,7 @@
 	// or subscribing more than once, resulting in message duplication
 	// So login() must be being called more than once by the form. idk y
 
-	function login() {
+	function login(): void {
 		if (canLogin) {
 			canLogin = false // Still lets you logout then log back in, though
 			loginInfo.set(loginInput) // If you log back in with the same username, history does not load. (ably)
