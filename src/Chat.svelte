@@ -16,7 +16,7 @@
 	let scrollBottom
 	//let unreadMessages
 
-	function autoScroll() {
+	function autoScroll(): void {
 		setTimeout(() => scrollBottom?.scrollIntoView(/*{ behavior: "smooth" }*/), 1)
 		// without setTimeout, it would scroll before the message was added, making it not scroll all the way
 		//unreadMessages = false
@@ -40,7 +40,7 @@
 					autoScroll()
 				}
 			})
-			channel.history({ limit: 100 }).then(function (history) {
+			channel.history({ limit: 100 }).then(function (history): void {
 				for (let i = 0; i < history["publications"].length; i++) {
 					messages = [...messages, history["publications"][i]["data"]] // anything outside "data" is not used right now
 				}
@@ -49,13 +49,13 @@
 		}
 	})
 
-	function logout() {
+	function logout(): void {
 		username = ""
 		messages = []
 		loginInfo.set({ groupname: "", username: $loginInfo["username"] })
 	}
 
-	async function sendMessage() {
+	async function sendMessage(): Promise<void> {
 		if (newMessage?.trim()) {
 			centrifuge.publish("chat:" + $loginInfo["groupname"], {
 				username: username,
