@@ -1,5 +1,4 @@
 <div class="scrollable">
-	<h3>Terms of Service</h3>
 	<p class="agreement">
 		Last updated: 6 May 2022<br />
 		<br />

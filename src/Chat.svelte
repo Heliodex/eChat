@@ -101,7 +101,7 @@
 								page = ""
 							}}
 						/>
-						<h2>eChat</h2>
+						<h2>Settings</h2>
 					</header>
 					<Settings />
 				</main>

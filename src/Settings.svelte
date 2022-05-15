@@ -8,7 +8,7 @@
 </script>
 
 <div class="scrollable">
-	<h3>Settings</h3>
+	<br />
 	<div class="agreement settingsPage">
 		<div>Dark mode</div>
 		<input bind:value={darkMode} type="checkbox" />

@@ -32,7 +32,7 @@
 					page = ""
 				}}
 			/>
-			<h2>eChat</h2>
+			<h2>Terms of Service</h2>
 		</header>
 		<Terms />
 	{:else if page == "settings"}
@@ -45,7 +45,7 @@
 					page = ""
 				}}
 			/>
-			<h2>eChat</h2>
+			<h2>Settings</h2>
 		</header>
 		<Settings />
 	{:else}
