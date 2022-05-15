@@ -5,8 +5,8 @@
 
 	const timestamp: Date = new Date(msg.timestamp)
 
-	$: messageClass = msg.username == $loginInfo["username"].toString() ? "sent" : "received"
-	$: userMessage = msg.username != $loginInfo["username"].toString()
+	$: messageClass = msg.username == $loginInfo["username"]?.toString() ? "sent" : "received"
+	$: userMessage = msg.username != $loginInfo["username"]?.toString()
 </script>
 
 <div class={`message ${messageClass}`}>
@@ -16,14 +16,13 @@
 		<p>
 			{msg.text}
 			<br />
-			<time class="time">{timestamp.toTimeString().substring(0, 5)}</time>
+			<time class="time">
+				{#if userMessage}
+					{msg.username.toString()},
+				{/if}
+				{timestamp.toTimeString().substring(0, 5)}
+			</time>
 			<!-- a much better solution than DocSocial -->
 		</p>
-
-		{#if userMessage}
-			<div class="aftermessage">
-				<time class="username">{msg.username.toString()}</time>
-			</div>
-		{/if}
 	</div>
 </div>
