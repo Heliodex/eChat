@@ -3,7 +3,7 @@ import "./global.sass"
 import "./colour.sass"
 
 const app = new Chat({
-  target: document.getElementById("app")
+  target: document.getElementById("app")!
 })
 
 export default app

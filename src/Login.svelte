@@ -16,7 +16,7 @@
 		if (canLogin) {
 			canLogin = false // Still lets you logout then log back in, though
 			loginInfo.set(loginInput) // If you log back in with the same username, history does not load. (ably)
-			localStorage.setItem("username", $loginInfo["username"])
+			localStorage.setItem("username", String($loginInfo["username"]))
 		}
 	}
 </script>
@@ -29,7 +29,7 @@
 				src="Backfill.svg"
 				alt="Logout button"
 				on:mousedown={() => {
-					page = null
+					page = ""
 				}}
 			/>
 			<h2>eChat</h2>
@@ -42,7 +42,7 @@
 				src="Backfill.svg"
 				alt="Logout button"
 				on:mousedown={() => {
-					page = null
+					page = ""
 				}}
 			/>
 			<h2>eChat</h2>
