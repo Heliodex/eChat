@@ -204,7 +204,7 @@ button
 
 .sent p, .received p
 	max-width: 260px
-	margin: 1px 0 0 0
+	margin: 4px 0 0 0
 
 	line-height: 1rem
 	font-size: 0.9rem
@@ -216,6 +216,11 @@ button
 
 	word-wrap: break-word
 
+.sent p
+	align-self: flex-end
+	text-align: right
+.received p
+	text-align: left
 .agreement
 	text-align: left
 	font-size: 0.85rem
@@ -253,12 +258,6 @@ button
 	top: 25%
 	transform: rotate(-15deg)
 	word-wrap: break-word
-
-.sent p
-	align-self: flex-end
-	text-align: right
-.received p
-	text-align: left
 
 .messageText
 	display: flex
