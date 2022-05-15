@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { loginInfo, centrifuge } from "./user"
+	import { theme } from "./theme"
 	import { messageType } from "./types"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
@@ -11,9 +12,9 @@
 	let headerText: string
 	let username: string
 	let page: string
-	let channel
+	let channel: any
 
-	let scrollBottom
+	let scrollBottom: any
 	//let unreadMessages
 
 	function autoScroll(): void {
@@ -40,7 +41,7 @@
 					autoScroll()
 				}
 			})
-			channel.history({ limit: 100 }).then(function (history): void {
+			channel.history({ limit: 100 }).then(function (history: any): void {
 				for (let i = 0; i < history["publications"].length; i++) {
 					messages = [...messages, history["publications"][i]["data"]] // anything outside "data" is not used right now
 				}
@@ -63,7 +64,7 @@
 				timestamp: new Date().getTime(),
 			})
 		}
-		newMessage = null
+		newMessage = ""
 	}
 
 	$: username && autoScroll() // run autoScroll() whenever username changes, greatest line of code ever
@@ -97,7 +98,7 @@
 							src="Backfill.svg"
 							alt="Logout button"
 							on:mousedown={() => {
-								page = null
+								page = ""
 							}}
 						/>
 						<h2>eChat</h2>

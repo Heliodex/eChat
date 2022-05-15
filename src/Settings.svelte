@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { theme } from "./theme"
+
 	let darkMode = false
 	let historyLength = 100
-	let theme = "green"
+	let themeInput = localStorage.getItem("theme")
+	$: themeInput && theme.set(themeInput)
 </script>
 
 <div class="scrollable">
@@ -17,7 +20,7 @@
 		</label>
 
 		<div>Theme</div>
-		<select bind:value={theme}>
+		<select bind:value={themeInput}>
 			<option value="green">Sea green</option>
 			<option value="blue">Bubble blue</option>
 			<option value="orange">Orange orange</option>
