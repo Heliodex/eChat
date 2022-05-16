@@ -73,10 +73,10 @@
 
 {#if username && !page}
 	<header>
-		<img class="headerButton logout darkInvert" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
+		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2 class="headerText">{headerText}</h2>
 		<img
-			class="headerButton settings darkInvert"
+			class="headerButton settings"
 			src="Settingsfill.svg"
 			alt="Settings button"
 			on:mousedown={() => {
@@ -92,7 +92,7 @@
 			<main>
 				<header>
 					<img
-						class="headerButton logout darkInvert"
+						class="headerButton logout"
 						src="Backfill.svg"
 						alt="Logout button"
 						on:mousedown={() => {
@@ -108,7 +108,7 @@
 				{#each messages as msg}
 					<ChatMessage {msg} />
 				{/each}
-				<br /><br /><br bind:this={scrollBottom}/>
+				<br /><br /><br bind:this={scrollBottom} />
 			</main>
 
 			<form on:submit|preventDefault={sendMessage} class="messageForm">
