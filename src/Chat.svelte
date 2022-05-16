@@ -71,64 +71,59 @@
 	centrifuge.connect() // don't forget
 </script>
 
-<div class="app">
-	{#if username && !page}
-		<header>
-			<img class="headerButton logout darkInvert" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
-			<h2 class="headerText">{headerText}</h2>
-			<img
-				class="headerButton settings darkInvert"
-				src="Settingsfill.svg"
-				alt="Settings button"
-				on:mousedown={() => {
-					page = "settings"
-				}}
-			/>
-		</header>
-	{/if}
+{#if username && !page}
+	<header>
+		<img class="headerButton logout darkInvert" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
+		<h2 class="headerText">{headerText}</h2>
+		<img
+			class="headerButton settings darkInvert"
+			src="Settingsfill.svg"
+			alt="Settings button"
+			on:mousedown={() => {
+				page = "settings"
+			}}
+		/>
+	</header>
+{/if}
 
-	<div class="container">
-		{#if username}
-			{#if page == "settings"}
-				<main>
-					<header>
-						<img
-							class="headerButton logout darkInvert"
-							src="Backfill.svg"
-							alt="Logout button"
-							on:mousedown={() => {
-								page = ""
-							}}
-						/>
-						<h2>Settings</h2>
-					</header>
-					<Settings />
-				</main>
-			{:else}
-				<main class="messages">
-					<div class="spacer2" />
-
-					{#each messages as msg}
-						<ChatMessage {msg} />
-					{/each}
-
-					<div class="dummy" bind:this={scrollBottom} />
-				</main>
-
-				<form on:submit|preventDefault={sendMessage} class="messageForm">
-					<div class="messageboxbac">
-						<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
-
-						<button class="send" on:mousedown={sendMessage}>
-							<img src="Send.svg" class="fillIcon" alt="Send message" />
-						</button>
-					</div>
-				</form>
-			{/if}
-		{:else}
+<div class="container">
+	{#if username}
+		{#if page == "settings"}
 			<main>
-				<Login />
+				<header>
+					<img
+						class="headerButton logout darkInvert"
+						src="Backfill.svg"
+						alt="Logout button"
+						on:mousedown={() => {
+							page = ""
+						}}
+					/>
+					<h2>Settings</h2>
+				</header>
+				<Settings />
 			</main>
+		{:else}
+			<main class="messages">
+				{#each messages as msg}
+					<ChatMessage {msg} />
+				{/each}
+				<br /><br /><br bind:this={scrollBottom}/>
+			</main>
+
+			<form on:submit|preventDefault={sendMessage} class="messageForm">
+				<div class="messageboxBack">
+					<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+
+					<button class="send" on:mousedown={sendMessage}>
+						<img src="Send.svg" class="fillIcon" alt="Send message" />
+					</button>
+				</div>
+			</form>
 		{/if}
-	</div>
+	{:else}
+		<main>
+			<Login />
+		</main>
+	{/if}
 </div>
