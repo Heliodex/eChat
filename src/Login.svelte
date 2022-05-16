@@ -79,7 +79,7 @@
 				on:mousedown={() => {
 					page = "Terms of Service"
 				}}>Terms of Service</button
-			>.
+			>
 		</p>
 	{/if}
 	<br /><br /><br /><br /><br />
