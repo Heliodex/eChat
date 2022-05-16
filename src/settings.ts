@@ -1,7 +1,7 @@
 import { writable } from "svelte/store"
 
-export const theme = writable("")
-theme.set(localStorage.getItem("theme") || "green")
+export const darkMode = writable(localStorage.getItem("darkMode") || false)
+export const theme = writable(localStorage.getItem("theme") || "green")
 
 theme.subscribe(value => {
 	switch (value) {

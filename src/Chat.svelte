@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { loginInfo, centrifuge } from "./user"
-	import { theme } from "./theme"
 	import { messageType } from "./types"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
