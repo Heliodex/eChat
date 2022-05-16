@@ -1,7 +1,27 @@
 import { writable } from "svelte/store"
 
-export const darkMode = writable(localStorage.getItem("darkMode") || false)
+export const darkMode = writable(localStorage.getItem("darkMode") == "true" || false)
 export const theme = writable(localStorage.getItem("theme") || "green")
+
+darkMode.subscribe(value => {
+	switch (value) {
+		case true:
+			document.documentElement.style.setProperty("--dark", "0%")
+			document.documentElement.style.setProperty("--t1", "black")
+			document.documentElement.style.setProperty("--t2", "#222")
+			document.documentElement.style.setProperty("--t3", "#777")
+			document.documentElement.style.setProperty("--t4", "white")
+			break
+			case false:
+			document.documentElement.style.setProperty("--dark", "100%")
+			document.documentElement.style.setProperty("--t1", "white")
+			document.documentElement.style.setProperty("--t2", "#ccc")
+			document.documentElement.style.setProperty("--t3", "#b3b3b3")
+			document.documentElement.style.setProperty("--t4", "black")
+			break
+	}
+	localStorage.setItem("darkMode", String(value))
+})
 
 theme.subscribe(value => {
 	switch (value) {
@@ -17,14 +37,6 @@ theme.subscribe(value => {
 			document.documentElement.style.setProperty("--main", "#fea431")
 			document.documentElement.style.setProperty("--main-dark", "#fe8331")
 			break
-		// case "red":
-		// 	document.documentElement.style.setProperty("--main", "#fe4131")
-		// 	document.documentElement.style.setProperty("--main-dark", "#fe3131")
-		// 	break
-		// case "purple":
-		// 	document.documentElement.style.setProperty("--main", "#a431fe")
-		// 	document.documentElement.style.setProperty("--main-dark", "#8331fe")
-		// 	break
 	}
 	localStorage.setItem("theme", value)
 })
