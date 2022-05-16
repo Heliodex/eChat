@@ -11,7 +11,7 @@
 
 <div class="scrollable">
 	<br />
-	<div class="agreement settingsPage">
+	<div class="agreementsettings">
 		<div>Dark mode</div>
 		<input bind:checked={darkModeInput} type="checkbox" />
 
