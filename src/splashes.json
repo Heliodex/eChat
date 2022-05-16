@@ -118,7 +118,7 @@
 	"YOU WIN! 🏆",
 	"😎 <em>Pretty cool...<em>",
 	"A bit better than DocSocial!",
-	"<a>How to trick an idiot</a>",
+	"<button class=\"linkStyle\">How to trick an idiot</button>",
 	"🧑‍💻 Learn programming!",
 	"130 Words per minute!",
 	"Please remain calm. 🧘",
@@ -174,5 +174,15 @@
 	"🔵 Blue bubble gang!",
 	"🟧 Orange bubble gang!",
 	"Solid state!",
-	"okay"
+	"okay",
+    "102% extra FREE!!!!",
+    "Includes evil tech corporations!",
+    "Guarantees load times of 50ms or less!",
+    "Satisfaction not guaranteed!",
+    "Extra data loss!",
+    "Expired long ago!",
+    "🔮 Third time's the charm!",
+    "Slightly misaligned!",
+    "It's the bomb! 💣",
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 ]

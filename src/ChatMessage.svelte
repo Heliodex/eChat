@@ -10,7 +10,6 @@
 </script>
 
 <div class={`message ${messageClass}`}>
-	<div class="spacer" />
 
 	<div class="messageText">
 		<p>
