@@ -7,6 +7,7 @@ darkMode.subscribe(value => {
 	switch (value) {
 		case true:
 			document.documentElement.style.setProperty("--dark", "0%")
+			document.documentElement.style.setProperty("--p", "#777")
 			document.documentElement.style.setProperty("--t1", "black")
 			document.documentElement.style.setProperty("--t2", "#222")
 			document.documentElement.style.setProperty("--t3", "#777")
@@ -14,9 +15,10 @@ darkMode.subscribe(value => {
 			break
 			case false:
 			document.documentElement.style.setProperty("--dark", "100%")
+			document.documentElement.style.setProperty("--p", "white")
 			document.documentElement.style.setProperty("--t1", "white")
 			document.documentElement.style.setProperty("--t2", "#ccc")
-			document.documentElement.style.setProperty("--t3", "#b3b3b3")
+			document.documentElement.style.setProperty("--t3", "#aaa")
 			document.documentElement.style.setProperty("--t4", "black")
 			break
 	}
