@@ -1,81 +1,79 @@
-$main: #31a47e
-$main-dark: #31837e
-// $main: #31a4fe
-// $main-dark: #3183fe
-// $main: #fea431
-// $main-dark: #fe8331
-
-$tint1: white
-$tint2: #cccccc
-$tint3: #b3b3b3
-$tint4: #333333
-$tint5: #191919
-$tint6: black
-
 :root
-	accent-color: var(--main, $main)
+	--main: #31a47e
+	--main-dark: #31837e
+	// --main: #31a4fe
+	// --main-dark: rgb(49, 131, 254)
+	// --main: #fea431
+	// --main-dark: #fe8331
+	--t1: white
+	--t2: #cccccc
+	--t3: #b3b3b3
+	--t4: black
+	
+	accent-color: var(--main)
+	color: var(--t4)
 
 ::selection
-	background: var(--main, $main)
+	background: var(--main)
 
 .linkStyle, a
-	color: var(--main, $main)
+	color: var(--main)
 	&:hover
-		color: var(--main-dark, $main-dark)
+		color: var(--main)
 
 header
-	background-color: var(--main, $main)
-	color: var(--tint1, $tint1)
+	background-color: var(--main)
+	color: var(--t1)
 
 .container
-	background-color: var(--tint1, $tint1)
+	background-color: var(--t1)
 
 ::-webkit-scrollbar
 	&-track
-		background: var(--tint1, $tint1)
+		background: var(--t1)
 	&-thumb
-		background: var(--main, $main)
+		background: var(--main)
 
 button
-	background-color: var(--main, $main)
-	color: var(--tint1, $tint1)
+	background-color: var(--main)
+	color: var(--t1)
 	&:hover, &:active
-		background-color: var(--main-dark, $main-dark)
+		background-color: var(--main)
 
 .inverted
-	background-color: var(--tint1, $tint1)
-	color: var(--main, $main)
+	background-color: var(--t1)
+	color: var(--main)
 	&:hover, &:active
-		background-color: var(--tint2, $tint2)
+		background-color: var(--t2)
 
 input
-	background-color: var(--tint2, $tint2)
-	color: var(--tint6, $tint6)
-	border: 1px solid var(--main, $main)
+	background-color: var(--t2)
+	color: var(--t4)
+	border: 1px solid var(--main)
 	&::placeholder
-		color: var(--tint1, $tint1)
+		color: var(--t1)
 
 .messageBox
-	color: var(--tint6, $tint6)
+	color: var(--t4)
 
 .loginIcon
-	background-color: var(--main, $main)
+	background-color: var(--main)
 
 .loginInput
-	color: var(--tint6, $tint6)
+	color: var(--t4)
 
 .footer, .splash, p
-	color: var(--tint6, $tint6)
+	color: var(--t4)
 
 .sent p
-	color: var(--tint1, $tint1)
-	background: var(--tint3, $tint3)
+	color: var(--t1)
+	background: var(--t3)
 .received p
-	color: var(--tint1, $tint1)
-	background: var(--main, $main)
+	color: var(--t1)
+	background: var(--main)
 
 .username
-	color: var(--tint6, $tint6)
+	color: var(--t4)
 
 .time
-	color: var(--tint1, $tint1)
+	color: var(--t1)
