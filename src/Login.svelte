@@ -26,7 +26,7 @@
 </script>
 
 <main transition:fade>
-	{#if page == "terms"}
+	{#if page}
 		<header>
 			<img
 				class="headerButton logout darkInvert"
@@ -36,27 +36,18 @@
 					page = ""
 				}}
 			/>
-			<h2>Terms of Service</h2>
+			<h2>{page}</h2>
 		</header>
+	{/if}
+	{#if page == "Terms of Service"}
 		<Terms />
-	{:else if page == "settings"}
-		<header>
-			<img
-				class="headerButton logout darkInvert"
-				src="Backfill.svg"
-				alt="Logout button"
-				on:mousedown={() => {
-					page = ""
-				}}
-			/>
-			<h2>Settings</h2>
-		</header>
+	{:else if page == "Settings"}
 		<Settings />
 	{:else}
 		<button
 			class="settingsLogin"
 			on:mousedown={() => {
-				page = "settings"
+				page = "Settings"
 			}}
 		>
 			<img class="fillIconSmall darkInvert" src="Settings.svg" alt="Settings button" />
@@ -86,7 +77,7 @@
 			<button
 				class="linkStyle"
 				on:mousedown={() => {
-					page = "terms"
+					page = "Terms of Service"
 				}}>Terms of Service</button
 			>.
 		</p>
