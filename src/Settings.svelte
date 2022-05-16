@@ -25,7 +25,7 @@
 		<select bind:value={themeInput}>
 			<option value="green">Sea green</option>
 			<option value="blue">Bubble blue</option>
-			<option value="orange">Orange orange</option>
+			<option value="orange">Juicy orange</option>
 		</select>
 	</div>
 </div>
