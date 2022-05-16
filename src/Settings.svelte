@@ -1,22 +1,24 @@
 <script lang="ts">
-	import { theme } from "./theme"
+	import { theme, darkMode } from "./settings"
 
-	let darkMode = false
-	let historyLength = 100
 	let themeInput = localStorage.getItem("theme")
+	let darkModeInput = localStorage.getItem("darkMode")
+	let historyLengthInput = 100
+
 	$: themeInput && theme.set(themeInput)
+	$: darkModeInput && darkMode.set(darkModeInput)
 </script>
 
 <div class="scrollable">
 	<br />
 	<div class="agreement settingsPage">
 		<div>Dark mode</div>
-		<input bind:value={darkMode} type="checkbox" />
+		<input bind:value={darkModeInput} type="checkbox" />
 
 		<div>Message history length</div>
 		<label>
-			<input class="settingsInput" bind:value={historyLength} type="range" min="0" max="100" />
-			<div class="settingsLabel">{historyLength}</div>
+			<input class="settingsInput" bind:value={historyLengthInput} type="range" min="0" max="100" />
+			<div class="settingsLabel">{historyLengthInput}</div>
 		</label>
 
 		<div>Theme</div>
