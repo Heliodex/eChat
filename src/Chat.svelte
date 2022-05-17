@@ -80,7 +80,7 @@
 			src="Settingsfill.svg"
 			alt="Settings button"
 			on:mousedown={() => {
-				page = "settings"
+				page = "Settings"
 			}}
 		/>
 	</header>
@@ -88,7 +88,7 @@
 
 <div class="container">
 	{#if username}
-		{#if page == "settings"}
+		{#if page == "Settings"}
 			<main>
 				<header>
 					<img

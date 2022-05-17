@@ -4,6 +4,7 @@
 	import { fade } from "svelte/transition"
 	import Terms from "./Terms.svelte"
 	import Settings from "./Settings.svelte"
+	import About from "./About.svelte"
 	import splashes from "./splashes.json"
 
 	let page: string
@@ -43,14 +44,25 @@
 		<Terms />
 	{:else if page == "Settings"}
 		<Settings />
+	{:else if page == "About"}
+		<About />
 	{:else}
 		<button
-			class="settingsLogin"
+			class="settingsLogin loginButton"
 			on:mousedown={() => {
 				page = "Settings"
 			}}
 		>
 			<img class="fillIconSmall" src="Settings.svg" alt="Settings button" />
+		</button>
+
+		<button
+			class="aboutLogin loginButton"
+			on:mousedown={() => {
+				page = "About"
+			}}
+		>
+			<img class="fillIconSmall" src="About.svg" alt="About button" />
 		</button>
 
 		<img {src} class="logo" alt="eChat Logo" width="50%" />
