@@ -9,7 +9,6 @@
 
 	let page: string
 	let loginInput = $loginInfo
-	let src: string
 	let canLogin = true
 	// Without this, it would subscribe-unsubscribe-resubscribe rather than just subbing once,
 	// or subscribing more than once, resulting in message duplication
@@ -22,8 +21,6 @@
 			localStorage.setItem("username", String($loginInfo["username"]))
 		}
 	}
-
-	$: src = $theme + ".svg"
 </script>
 
 <main transition:fade>
@@ -65,7 +62,7 @@
 			<img class="fillIconSmall" src="About.svg" alt="About button" />
 		</button>
 
-		<img {src} class="logo" alt="eChat Logo" width="50%" />
+		<img src={$theme + ".svg"} class="logo" alt="eChat Logo" width="50%" />
 
 		<p class="splash">{@html splashes[Math.floor(Math.random() * splashes.length)]}</p>
 
