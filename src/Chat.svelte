@@ -17,8 +17,8 @@
 	//let unreadMessages
 
 	function autoScroll(): void {
-		setTimeout(() => scrollBottom?.scrollIntoView(/*{ behavior: "smooth" }*/), 1)
-		// without setTimeout, it would scroll before the message was added, making it not scroll all the way
+		requestAnimationFrame(() => scrollBottom?.scrollIntoView(/*{ behavior: "smooth" }*/))
+		// without requestAnimationFrame, it would scroll before the message was added, making it not scroll all the way
 		//unreadMessages = false
 	}
 
