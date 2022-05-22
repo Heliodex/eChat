@@ -6,7 +6,7 @@
 		To go back in eChat, click the back/exit icon in the top left corner.
 		<br>
 		<br>
-		<b id="b">How to create a message group</b>
+		<b class="b">How to create a message group</b>
 		<br>
 		From the homepage, enter your desired group name into the group name box. Then enter your desired username into the username box. Once completed, click the join button below and your group should be created.
 		<br>
