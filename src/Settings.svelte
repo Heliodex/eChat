@@ -1,12 +1,13 @@
 <script lang="ts">
-	import { theme, darkMode } from "./settings"
+	import { darkMode, theme, historyLength } from "./settings"
 
 	let darkModeInput = $darkMode
 	let themeInput = $theme
-	let historyLengthInput = 100
+	let historyLengthInput = $historyLength
 
 	$: darkMode.set(darkModeInput)
-	$: theme.set(themeInput!)
+	$: theme.set(themeInput)
+	$: historyLength.set(historyLengthInput)
 </script>
 
 <div class="scrollable">

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { loginInfo, centrifuge } from "./user"
+	import { historyLength } from "./settings"
 	import { messageType } from "./types"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
@@ -40,9 +41,10 @@
 					autoScroll()
 				}
 			})
-			channel.history({ limit: 100 }).then(function (history: any): void {
-				for (let i = 0; i < history["publications"].length; i++) {
-					messages = [...messages, history["publications"][i]["data"]] // anything outside "data" is not used right now
+			channel.history({ limit: Number($historyLength), since: null, reverse: true }).then(function (history: any): void {
+				let pubs = history["publications"].reverse()
+				for (let i = 0; i < pubs.length; i++) {
+					messages = [...messages, pubs[i]["data"]] // anything outside "data" is not used right now
 				}
 				autoScroll()
 			})
