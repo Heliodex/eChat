@@ -81,6 +81,8 @@
 		</form>
 
 		<p class="footer">
+			<br><br>
+			<br>
 			By using eChat, you agree to the
 			<button
 				class="linkStyle"
@@ -88,8 +90,11 @@
 					page = "Terms of Service"
 				}}>Terms of Service</button
 			><br /><br />
-			eChat v1.0.0<br />
-			Released 25 May 2022.
+			<!--
+			<i>eChat v1.0.0<br />
+			Released 25 May 2022</i>
+
+			-->
 		</p>
 	{/if}
 	<br /><br />
