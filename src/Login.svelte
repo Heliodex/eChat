@@ -59,7 +59,7 @@
 				page = "About"
 			}}
 		>
-			<img class="fillIconSmall" src="About.svg" alt="About button" />
+			<img class="fillIconSmall1" src="About.svg" alt="About button" />
 		</button>
 
 		<img src={$theme + ".svg"} class="logo" alt="eChat Logo" width="50%" />
