@@ -214,8 +214,18 @@ button
 	flex-direction: row-reverse
 	p
 		text-align: right
+	.time
+		float: right
+
 .received p
 	text-align: left
+	.time
+		float: left
+
+.time
+	display: flex
+	font-size: 0.5rem
+	line-height: 0.6rem
 
 .agreement, li
 	text-align: left
@@ -246,9 +256,3 @@ button
 .message, .messageText
 	display: flex
 
-.time
-	display: inline
-	font-size: 0.5rem
-	line-height: 0.7rem
-	float: right
-	font-style: italic
