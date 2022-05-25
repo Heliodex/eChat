@@ -3,7 +3,7 @@
 	import { messageType } from "./types"
 	export let msg: messageType
 
-	const week = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+	const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 	const timestamp: Date = new Date(msg.timestamp)
 
 	$: messageClass = msg.username == $loginInfo["username"]?.toString() ? "sent" : "received"
@@ -11,17 +11,18 @@
 </script>
 
 <div class={`message ${messageClass}`}>
-
 	<div class="messageText">
 		<p>
 			{msg.text}
 			<br />
-			<i class="time">
+			<em class="time">
 				{#if userMessage}
 					{msg.username.toString()},
 				{/if}
-				{week[timestamp.getDay()]} {timestamp.toTimeString().substring(0, 5)} <!-- or {timestamp.getHours()}:{timestamp.getMinutes()} -->
-			</i>
+				{week[timestamp.getDay()]}
+				{timestamp.toTimeString().substring(0, 5)}
+				<!-- or {timestamp.getHours()}:{timestamp.getMinutes()} -->
+			</em>
 			<!-- a much better solution than DocSocial -->
 		</p>
 	</div>
