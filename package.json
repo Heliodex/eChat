@@ -20,6 +20,8 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
-    "centrifuge": "^2.8.5"
+    "aes256": "^1.1.0",
+    "centrifuge": "^2.8.5",
+    "sass": "^1.52.1"
   }
 }
