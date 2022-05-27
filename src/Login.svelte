@@ -3,6 +3,7 @@
 	import { theme } from "./settings"
 	import { fade } from "svelte/transition"
 	import Terms from "./Terms.svelte"
+	import Privacy from "./Privacy.svelte"
 	import Settings from "./Settings.svelte"
 	import Help from "./Help.svelte"
 	import splashes from "./splashes.json"
@@ -39,6 +40,8 @@
 	{/if}
 	{#if page == "Terms of Service"}
 		<Terms />
+	{:else if page == "Privacy Policy"}
+		<Privacy />
 	{:else if page == "Settings"}
 		<Settings />
 	{:else if page == "Help"}
@@ -82,14 +85,20 @@
 
 		<p class="footer">
 			<br /><br />
-			<br />
 			By using eChat, you agree to the
 			<button
 				class="linkStyle"
 				on:mousedown={() => {
 					page = "Terms of Service"
 				}}>Terms of Service</button
-			><br /><br />
+			>
+			and 
+			<button
+				class="linkStyle"
+				on:mousedown={() => {
+					page = "Privacy Policy"
+				}}>Privacy Policy</button
+			>
 			<!--
 			<em>eChat v1.0.0<br />
 			Released 25 May 2022</em>
