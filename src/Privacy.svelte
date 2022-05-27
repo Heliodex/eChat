@@ -1,7 +1,7 @@
 <div class="scrollable">
 	<p class="agreement">
 		<br />
-		Last updated: 27 May 2022<br />
+		<i>Last updated: 27 May 2022</i><br />
 		<br />
 		<strong>Information collection and use</strong><br />
 		For a better experience while using eChat, we use cookies to store your settings choices. These include your dark mode, message history length and theme colour choices.<br />
