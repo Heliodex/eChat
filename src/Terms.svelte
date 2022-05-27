@@ -62,7 +62,7 @@
 		<br />
 		Please check these terms and conditions regularly. We may update them at any time without notice. You must agree to any changes if you continue to use eChat after the terms and conditions have been updated.<br />
 		<br />
-		If you believe you know of someone/a group of people who have broken these terms or you want more information, please contact our support team.<br />
+		If you believe you know of someone/a group of people who have broken these terms or you want more information, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.<br />
 		<br>
 	</p>
 </div>
