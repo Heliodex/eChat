@@ -9,19 +9,20 @@ $infinity: 50rem
 	text-align: center
 	font-family: lexendDeca, Arial, sans-serif
 	--dark: 100%
-	position: relative
 	width: 375px
 	height: 500px
 	overflow: hidden
+
+*
+	font-family: inherit
 	border: none
+	outline: none
 
 body
 	margin: 0
 	display: flex
 	flex-direction: column
 	justify-content: center
-	font-family: inherit
-	
 
 .linkStyle
 	font-size: inherit
@@ -34,28 +35,17 @@ body
 
 select, input
 	border-radius: $infinity
-	padding: 0
 
-.label
-	display: flex
-	display: block
-	p
-		font-size: 0.7rem
+.label p
+	font-size: 0.7rem
 
-.loginInput, .messageBox, button, select, input
-	font-family: inherit
+.loginInput, #messageBox, button, select, input
 	padding: 0.4rem
 	margin-bottom: 0.5rem
 	box-sizing: border-box
-	border: none
-	outline: none
 
 .rangeInput
 	padding: 0
-
-.app
-	text-align: center
-	margin: 0
 
 header
 	height: 10vh
@@ -65,7 +55,7 @@ header
 	align-items: center
 	justify-content: center
 
-.container
+#container
 	min-height: 50vh
 
 ::-webkit-scrollbar
@@ -73,10 +63,10 @@ header
 	&-thumb
 		border-radius: $infinity
 
-.messages
+#messages
 	margin-top: 10vh
 	height: 90vh
-	overflow-y: scroll
+	overflow-y: auto
 	display: flex
 	flex-direction: column
 
@@ -84,11 +74,10 @@ header
 	height: 8vh
 	position: fixed
 	bottom: 0
-	width: 96%
 	display: flex
 	font-size: 1rem
 
-.loginInput, .messageBox
+.loginInput, #messageBox
 	line-height: 1.5
 	font-size: 1rem
 	border-radius: $infinity
@@ -102,7 +91,7 @@ header
 	margin-top: 0.5rem
 	height: 35px
 
-.messageBox
+#messageBox
 	height: 35px
 	padding: 0 0.7rem
 	margin-left: 5px
@@ -122,7 +111,7 @@ header
 	border-radius: $infinity
 	margin-left: 10%
 
-.logo
+#logo
 	margin-top: 6rem
 	margin-bottom: 4rem
 
@@ -134,7 +123,7 @@ header
 		opacity: 0.8
 .logout
 	left: 0
-.settings
+#settings
 	right: 0
 
 .loginButton
@@ -143,9 +132,10 @@ header
 	width: 35px
 	padding: 7px
 	margin: 0.47rem 10px
-.settingsLogin
+
+#settingsLogin
 	right: 0
-.helpLogin
+#helpLogin
 	left: 0
 
 .headerText
@@ -198,12 +188,12 @@ button
 	height: 93.3vh
 	transform: translate(0, 10vh) // not good, but it works well
 
-.footer
+#footer
 	font-size: 0.7rem
 	line-height: 1rem
 	margin: 12% 20vw
 
-.splash
+#splash
 	font-size: 0.6rem
 	width: 25%
 	position: fixed
@@ -214,5 +204,5 @@ button
 	cursor: pointer
 	user-select: none
 
-.message, .messageText, .messageboxBack
+.message, .messageText, #messageboxBack
 	display: flex

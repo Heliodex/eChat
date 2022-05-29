@@ -41,7 +41,7 @@
 					autoScroll()
 				}
 			})
-			channel.history({ limit: Number($historyLength), since: null, reverse: true }).then(function (history: any): void {
+			channel.history({ limit: parseInt($historyLength), reverse: true }).then(function (history: any): void {
 				let pubs = history["publications"].reverse()
 				for (let i = 0; i < pubs.length; i++) {
 					messages = [...messages, pubs[i]["data"]] // anything outside "data" is not used right now
@@ -78,7 +78,8 @@
 		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2 class="headerText">{headerText}</h2>
 		<img
-			class="headerButton settings"
+			class="headerButton"
+			id="settings"
 			src="Settingsfill.svg"
 			alt="Settings button"
 			on:mousedown={() => {
@@ -88,7 +89,7 @@
 	</header>
 {/if}
 
-<div class="container">
+<div id="container">
 	{#if username}
 		{#if page == "Settings"}
 			<main>
@@ -106,7 +107,7 @@
 				<Settings />
 			</main>
 		{:else}
-			<main class="messages">
+			<main id="messages">
 				{#each messages as msg}
 					<ChatMessage {msg} />
 				{/each}
@@ -114,11 +115,11 @@
 			</main>
 
 			<form on:submit|preventDefault={sendMessage} class="messageForm">
-				<div class="messageboxBack">
-					<input class="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+				<div id="messageboxBack">
+					<input id="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
 					<button class="send" on:mousedown={sendMessage}>
-						<img src="Send.svg" class="fillIcon" alt="Send message" />
+						<img src="Send.svg" alt="Send message" />
 					</button>
 				</div>
 			</form>
