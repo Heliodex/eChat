@@ -7,12 +7,19 @@
 	// --main-dark: #fe8331
 	--p: white
 	--t1: white
-	--t2: #cccccc
+	--t2: #ccc
 	--t3: #b3b3b3
 	--t4: black
 	
 	accent-color: var(--main)
 	color: var(--t4)
+
+:root
+	background-color: var(--t1)
+
+header
+	background-color: var(--main)
+	color: white
 
 ::selection
 	background: var(--main)
@@ -21,13 +28,6 @@
 	color: var(--main)
 	&:hover
 		color: var(--main)
-
-header
-	background-color: var(--main)
-	color: white
-
-.container
-	background-color: var(--t1)
 
 ::-webkit-scrollbar
 	&-track
@@ -50,7 +50,6 @@ button
 input
 	background-color: var(--t2)
 	color: var(--t4)
-	border: 1px solid var(--main)
 	&::placeholder
 		color: var(--p)
 
@@ -59,9 +58,6 @@ input
 
 .loginIcon
 	background-color: var(--main)
-
-.loginInput
-	color: var(--t4)
 
 .footer, .splash, p
 	color: var(--t4)
@@ -73,6 +69,6 @@ input
 	color: white
 	background: var(--main)
 
-select
+select, input
 	color: var(--t4)
-	background-color: var(--t1)
+	background-color: var(--t2)
