@@ -55,26 +55,27 @@
 		<Help />
 	{:else}
 		<button
-			class="settingsLogin loginButton"
-			on:mousedown={() => {
-				page = "Settings"
-			}}
-		>
-			<img class="fillIconSmall" src="Settings.svg" alt="Settings button" />
-		</button>
-
-		<button
-			class="helpLogin loginButton"
+			id="helpLogin"
+			class="loginButton"
 			on:mousedown={() => {
 				page = "Help"
 			}}
 		>
-			<img class="fillIconSmall1" src="Help.svg" alt="Help button" />
+			<img src="Help.svg" alt="Help button" />
+		</button>
+		<button
+			id="settingsLogin"
+			class="loginButton"
+			on:mousedown={() => {
+				page = "Settings"
+			}}
+		>
+			<img src="Settings.svg" alt="Settings button" />
 		</button>
 
-		<img src={$theme + ".svg"} class="logo" alt="eChat Logo" width="50%" />
+		<img src={$theme + ".svg"} id="logo" alt="eChat Logo" width="50%" />
 
-		<p class="splash" on:mousedown={splash}>{@html splashText}</p>
+		<p id="splash" on:mousedown={splash}>{@html splashText}</p>
 
 		<form on:submit|preventDefault={login}>
 			<div class="loginIcon">
@@ -90,7 +91,7 @@
 			<button class="joinButton" on:mousedown={login}>Join</button>
 		</form>
 
-		<p class="footer">
+		<p id="footer">
 			<br /><br />
 			By using eChat, you agree to the
 			<button
