@@ -9,46 +9,49 @@ $infinity: 50rem
 	text-align: center
 	font-family: lexendDeca, Arial, sans-serif
 	--dark: 100%
-
-html, body
 	position: relative
 	width: 375px
 	height: 500px
 	overflow: hidden
+	border: none
 
 body
 	margin: 0
-	overflow: hidden
+	display: flex
+	flex-direction: column
+	justify-content: center
+	font-family: inherit
+	
 
 .linkStyle
+	font-size: inherit
 	background: none
 	padding: 0
 	margin: 0
 	text-decoration: underline
-	font-size: inherit
 	&:hover
 		background: none
 
-label
-	display: flex
-	align-items: center
-
-.settingsInput
-	align-items: center
-	display: inline
-	padding: 0
-.settingsLabel
-	margin-left: 0.4rem
-	width: 1.45rem
-
-select
+select, input
 	border-radius: $infinity
+	padding: 0
 
-.loginInput, .messageBox, button, select
+.label
+	display: flex
+	display: block
+	p
+		font-size: 0.7rem
+
+.loginInput, .messageBox, button, select, input
 	font-family: inherit
 	padding: 0.4rem
 	margin-bottom: 0.5rem
 	box-sizing: border-box
+	border: none
+	outline: none
+
+.rangeInput
+	padding: 0
 
 .app
 	text-align: center
@@ -63,9 +66,6 @@ header
 	justify-content: center
 
 .container
-	display: flex
-	flex-direction: column
-	justify-content: center
 	min-height: 50vh
 
 ::-webkit-scrollbar
@@ -91,53 +91,30 @@ header
 .loginInput, .messageBox
 	line-height: 1.5
 	font-size: 1rem
-	outline: none
-	border: none
 	border-radius: $infinity
 
 .loginInput
 	text-align: center
 	width: 80%
-	padding: 0.2rem 0.7rem
+	height: 35px
+
+.joinButton
+	margin-top: 0.5rem
 	height: 35px
 
 .messageBox
 	height: 35px
 	padding: 0 0.7rem
 	margin-left: 5px
+	width: 315px
 
 .send
-	border-radius: $infinity
 	cursor: pointer
 	width: 35px
 	height: 35px
-	align-items: center
 	display: flex
 	justify-content: center
-	margin: 0
-	margin-left: 5px
-
-.fillIcon
-	padding: 0
-	width: 35px
-	height: 35px
-.fillIconSmall
-	padding: 0
-	width: 21px
-	height: 21px
-
-.fillIconSmall1
-	padding: 0
-	width: 17px
-	height: 17px
-
-.messageboxBack
-	width: 100vw
-	height: 45px
-	display: grid
-	justify-content: start
-	align-items: start
-	grid-template-columns: 320px 30px
+	margin: 0 5px
 
 .loginIcon
 	position: fixed
@@ -162,37 +139,26 @@ header
 
 .loginButton
 	position: fixed
-	top: 0.15rem
 	height: 35px
 	width: 35px
 	padding: 7px
-	margin: 0.32rem 10px
+	margin: 0.47rem 10px
 .settingsLogin
 	right: 0
 .helpLogin
 	left: 0
 
-.settingsPage
-	display: grid
-	grid-template-columns: 1fr 1fr
-	row-gap: 0.7rem
-
 .headerText
 	width: 75%
 	text-overflow: ellipsis
-	white-space: nowrap
 	overflow: hidden
 
 button
-	border: none
 	cursor: pointer
 	font-size: 1rem
 	margin: 0.5rem 1rem
 	padding: 0 10px
 	border-radius: $infinity
-
-.joinButton
-	height: 35px
 
 .sent p, .received p
 	max-width: 260px
@@ -204,8 +170,6 @@ button
 	padding: 10px 15px 5px 15px
 	border-radius: 20px
 	position: relative
-	text-align: center
-
 	word-wrap: break-word
 
 .sent
@@ -217,8 +181,6 @@ button
 
 .received p
 	text-align: left
-	.time
-		float: left
 
 .time
 	display: flex
@@ -235,14 +197,11 @@ button
 	overflow: scroll
 	height: 93.3vh
 	transform: translate(0, 10vh) // not good, but it works well
-	margin-bottom: 1rem // remove tiny blank space at bottom
 
 .footer
 	font-size: 0.7rem
-	margin-top: 12%
 	line-height: 1rem
-	margin-left: 20vw
-	margin-right: 20vw
+	margin: 12% 20vw
 
 .splash
 	font-size: 0.6rem
@@ -252,6 +211,8 @@ button
 	top: 25%
 	transform: rotate(-15deg)
 	word-wrap: break-word
+	cursor: pointer
+	user-select: none
 
-.message, .messageText
+.message, .messageText, .messageboxBack
 	display: flex
