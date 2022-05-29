@@ -58,7 +58,6 @@
 		To report a user please contact our support team
 		<br />
 		<br />
-		<br />
 		<strong>How to contact our support team</strong><br />
 		To contact our support team please email us at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.<br />
 		<br />
