@@ -9,8 +9,10 @@
 	import splashes from "./splashes.json"
 
 	let page: string
+	let splashText: string
 	let loginInput = $loginInfo
 	let canLogin = true
+
 	// Without this, it would subscribe-unsubscribe-resubscribe rather than just subbing once,
 	// or subscribing more than once, resulting in message duplication
 	// So login() must be being called more than once by the form. idk y
@@ -22,6 +24,11 @@
 			localStorage.setItem("username", String($loginInfo["username"]))
 		}
 	}
+
+	function splash(): void {
+		splashText = splashes[Math.floor(Math.random() * splashes.length)]
+	}
+	splash()
 </script>
 
 <main transition:fade>
@@ -67,18 +74,18 @@
 
 		<img src={$theme + ".svg"} class="logo" alt="eChat Logo" width="50%" />
 
-		<p class="splash">{@html splashes[Math.floor(Math.random() * splashes.length)]}</p>
+		<p class="splash" on:mousedown={splash}>{@html splashText}</p>
 
 		<form on:submit|preventDefault={login}>
 			<div class="loginIcon">
 				<img src="Group.svg" alt="Group icon" />
 			</div>
-			<input class="loginInput" placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" />
+			<input class="loginInput" placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" spellcheck="false" />
 
 			<div class="loginIcon">
 				<img src="Account.svg" alt="Account icon" />
 			</div>
-			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" />
+			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
 
 			<button class="joinButton" on:mousedown={login}>Join</button>
 		</form>
@@ -92,7 +99,7 @@
 					page = "Terms of Service"
 				}}>Terms of Service</button
 			>
-			and 
+			and
 			<button
 				class="linkStyle"
 				on:mousedown={() => {
@@ -102,9 +109,7 @@
 			<!--
 			<em>eChat v1.0.0<br />
 			Released 25 May 2022</em>
-
 			-->
 		</p>
 	{/if}
-	<br /><br />
 </main>
