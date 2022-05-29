@@ -13,21 +13,27 @@
 <div class="scrollable">
 	<br />
 	<div class="agreement settingsPage">
-		<div>Dark mode</div>
-		<input bind:checked={darkModeInput} type="checkbox" />
-
-		<div>Message history length</div>
-		<label>
-			<input class="settingsInput" bind:value={historyLengthInput} type="range" min="0" max="100" />
-			<div class="settingsLabel">{historyLengthInput}</div>
-		</label>
-
-		<div>Theme</div>
-		<select bind:value={themeInput}>
-			<option value="green">Sea green</option>
-			<option value="blue">Bubble blue</option>
-			<option value="orange">Juicy orange</option>
-		</select>
+		<div class="label">
+			<p>Dark mode</p>
+			<input bind:checked={darkModeInput} type="checkbox">
+		</div>
+		
+		<div class="label">
+			<p>Message history length</p>
+			<div>
+				<input bind:value={historyLengthInput} class="rangeInput" type="range" min="0" max="100" />
+				<input bind:value={historyLengthInput} type="number" min="0" max="100" />
+			</div>
+		</div>
+		
+		<div class="label">
+			<p>Theme</p>
+			<select bind:value={themeInput}>
+				<option value="green">Sea Green</option>
+				<option value="blue">Bubble Blue</option>
+				<option value="orange">Juicy Orange</option>
+			</select>
+		</div>
 	</div>
 </div>
 <br /><br /><br />
