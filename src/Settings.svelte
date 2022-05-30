@@ -15,9 +15,9 @@
 	<div class="agreement settingsPage">
 		<div class="label">
 			<p>Dark mode</p>
-			<input bind:checked={darkModeInput} type="checkbox">
+			<input bind:checked={darkModeInput} type="checkbox" />
 		</div>
-		
+
 		<div class="label">
 			<p>Message history length</p>
 			<div>
@@ -25,7 +25,7 @@
 				<input bind:value={historyLengthInput} type="number" min="0" max="100" />
 			</div>
 		</div>
-		
+
 		<div class="label">
 			<p>Theme</p>
 			<select bind:value={themeInput}>
@@ -36,4 +36,14 @@
 		</div>
 	</div>
 </div>
-<br /><br /><br />
+
+<style lang="sass">
+	.rangeInput
+		padding: 0
+
+	select, input
+		padding: 0.4rem
+	
+	.label p
+		font-size: 0.7rem
+</style>

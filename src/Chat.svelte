@@ -76,7 +76,7 @@
 {#if username && !page}
 	<header>
 		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
-		<h2 class="headerText">{headerText}</h2>
+		<h2 id="headerText">{headerText}</h2>
 		<img
 			class="headerButton"
 			id="settings"
@@ -89,44 +89,71 @@
 	</header>
 {/if}
 
-<div id="container">
-	{#if username}
-		{#if page == "Settings"}
-			<main>
-				<header>
-					<img
-						class="headerButton logout"
-						src="Backfill.svg"
-						alt="Logout button"
-						on:mousedown={() => {
-							page = ""
-						}}
-					/>
-					<h2>Settings</h2>
-				</header>
-				<Settings />
-			</main>
-		{:else}
-			<main id="messages">
-				{#each messages as msg}
-					<ChatMessage {msg} />
-				{/each}
-				<br /><br /><br bind:this={scrollBottom} />
-			</main>
-
-			<form on:submit|preventDefault={sendMessage} class="messageForm">
-				<div id="messageboxBack">
-					<input id="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
-
-					<button class="send" on:mousedown={sendMessage}>
-						<img src="Send.svg" alt="Send message" />
-					</button>
-				</div>
-			</form>
-		{/if}
-	{:else}
+{#if username}
+	{#if page == "Settings"}
 		<main>
-			<Login />
+			<header>
+				<img
+					class="headerButton logout"
+					src="Backfill.svg"
+					alt="Logout button"
+					on:mousedown={() => {
+						page = ""
+					}}
+				/>
+				<h2>Settings</h2>
+			</header>
+			<Settings />
 		</main>
+	{:else}
+		<main id="messages">
+			{#each messages as msg}
+				<ChatMessage {msg} />
+			{/each}
+			<br /><br /><br bind:this={scrollBottom} />
+		</main>
+
+		<form on:submit|preventDefault={sendMessage} id="messageForm">
+			<input id="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+
+			<button id="send" on:mousedown={sendMessage}>
+				<img src="Send.svg" alt="Send message" />
+			</button>
+		</form>
 	{/if}
-</div>
+{:else}
+	<main>
+		<Login />
+	</main>
+{/if}
+
+<style lang="sass">
+	#messages
+		margin-top: 10vh
+		height: 90vh
+		overflow-y: auto
+		display: flex
+		flex-direction: column
+
+	#messageForm
+		height: 8vh
+		position: fixed
+		bottom: 0
+		display: flex
+
+	#messageBox
+		font-size: 1rem
+		height: 35px
+		padding: 0 0.7rem
+		margin-left: 5px
+		width: 315px
+		box-sizing: border-box
+
+	#send
+		cursor: pointer
+		width: 35px
+		height: 35px
+		display: flex
+		justify-content: center
+		margin: 0 5px
+</style>

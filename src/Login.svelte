@@ -88,7 +88,7 @@
 			</div>
 			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
 
-			<button class="joinButton" on:mousedown={login}>Join</button>
+			<button id="joinButton" on:mousedown={login}>Join</button>
 		</form>
 
 		<p id="footer">
@@ -114,3 +114,63 @@
 		</p>
 	{/if}
 </main>
+
+<style lang="sass">
+	#helpLogin
+		left: 0
+	#settingsLogin
+		right: 0
+
+	.loginButton
+		position: fixed
+		height: 35px
+		width: 35px
+		padding: 7px
+		margin: 0.47rem 10px
+
+	#logo
+		margin-top: 6rem
+		margin-bottom: 4rem
+
+	#splash
+		font-size: 0.6rem
+		width: 25%
+		position: fixed
+		right: 12%
+		top: 25%
+		transform: rotate(-15deg)
+		word-wrap: break-word
+		cursor: pointer
+		user-select: none
+
+	.loginIcon
+		position: fixed
+		height: 35px
+		border-radius: 50rem
+		margin-left: 10%
+
+	.loginInput
+		text-align: center
+		width: 80%
+		height: 35px
+		margin-bottom: 0.5rem
+		box-sizing: border-box
+
+	#joinButton
+		margin-top: 0.5rem
+		height: 35px
+
+	#footer
+		font-size: 0.7rem
+		line-height: 1rem
+		margin: 12% 20vw
+	
+	.linkStyle
+		font-size: inherit
+		background: none
+		padding: 0
+		margin: 0
+		text-decoration: underline
+		&:hover
+			background: none
+</style>
