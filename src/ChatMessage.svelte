@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fly } from "svelte/transition"
 	import aes from "crypto-js/aes"
 	import Utf8 from "crypto-js/enc-utf8"
 	import { loginInfo } from "./user"
@@ -12,7 +13,7 @@
 	$: userMessage = msg.username != $loginInfo["username"]?.toString()
 </script>
 
-<div class={messageClass}>
+<div class={messageClass} in:fly={{x: userMessage ? 150 : -150, duration: 200}}>
 	<p>
 		{aes.decrypt(msg.text, $loginInfo["groupname"]).toString(Utf8)}
 		<br />

@@ -1,4 +1,8 @@
-<div class="scrollable">
+<script lang="ts">
+	import { fly } from "svelte/transition"
+</script>
+
+<div class="scrollable" in:fly={{y: 300, duration: 500}}>
 	<p class="agreement">
 		<br />
 		<strong>How to create a message group</strong><br />
@@ -63,3 +67,8 @@
 		<br />
 	</p>
 </div>
+
+<style lang="sass">
+	strong
+		line-height: 1.5rem
+</style>

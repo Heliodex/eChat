@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { fade } from "svelte/transition"
 	import { loginInfo } from "./user"
 	import { theme } from "./settings"
-	import { fade } from "svelte/transition"
 	import Terms from "./Terms.svelte"
 	import Privacy from "./Privacy.svelte"
 	import Settings from "./Settings.svelte"
@@ -31,7 +31,7 @@
 	splash()
 </script>
 
-<main transition:fade>
+<main>
 	{#if page}
 		<header>
 			<img
@@ -53,6 +53,7 @@
 	{:else if page == "Help"}
 		<Help />
 	{:else}
+	<main in:fade>
 		<button
 			id="helpLogin"
 			class="loginButton"
@@ -111,6 +112,7 @@
 			Released 25 May 2022</em>
 			-->
 		</footer>
+	</main>
 	{/if}
 </main>
 
@@ -127,7 +129,7 @@
 		position: fixed
 		width: 35px
 		padding: 7px
-		margin: 0.47rem 10px
+		margin: 0.8rem 10px
 
 	#logo
 		margin-top: 6rem

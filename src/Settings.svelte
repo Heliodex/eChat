@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fly } from "svelte/transition"
 	import { darkMode, theme, historyLength } from "./settings"
 
 	let darkModeInput = $darkMode
@@ -10,7 +11,7 @@
 	$: historyLength.set(historyLengthInput)
 </script>
 
-<div class="scrollable">
+<div class="scrollable" in:fly={{y: 300, duration: 500}}>
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
