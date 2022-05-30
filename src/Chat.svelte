@@ -19,7 +19,11 @@
 	let scrollBottom: any
 
 	function autoScroll(): void {
-		requestAnimationFrame(() => scrollBottom?.scrollIntoView({/* behavior: "smooth" */}))
+		requestAnimationFrame(() =>
+			scrollBottom?.scrollIntoView({
+				/* behavior: "smooth" */
+			})
+		)
 		// without requestAnimationFrame, it would scroll before the message was added, making it not scroll all the way
 	}
 
@@ -74,7 +78,7 @@
 </script>
 
 {#if username && page == "chat"}
-	<header>
+	<header transition:fade>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2>{headerText}</h2>
 		<img
@@ -90,7 +94,7 @@
 
 {#if username}
 	{#if page == "Settings"}
-		<header>
+		<header transition:fade>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"

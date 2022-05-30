@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade } from "svelte/transition"
+	import { fade, fly } from "svelte/transition"
 	import { loginInfo } from "./user"
 	import { theme } from "./settings"
 	import Terms from "./Terms.svelte"
@@ -33,7 +33,7 @@
 
 <main>
 	{#if page}
-		<header>
+		<header transition:fly={{y: -64, duration: 500}}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"
@@ -53,66 +53,66 @@
 	{:else if page == "Help"}
 		<Help />
 	{:else}
-	<main in:fade>
-		<button
-			id="helpLogin"
-			class="loginButton"
-			on:mousedown={() => {
-				page = "Help"
-			}}
-		>
-			<img src="Help.svg" alt="Help button" />
-		</button>
-		<button
-			id="settingsLogin"
-			class="loginButton"
-			on:mousedown={() => {
-				page = "Settings"
-			}}
-		>
-			<img src="Settings.svg" alt="Settings button" />
-		</button>
-
-		<img src={$theme + ".svg"} id="logo" alt="eChat Logo" width="50%" />
-
-		<p id="splash" on:mousedown={splash}>{@html splashText}</p>
-
-		<form on:submit|preventDefault={login}>
-			<div class="loginIcon">
-				<img src="Group.svg" alt="Group icon" />
-			</div>
-			<input placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" spellcheck="false" />
-
-			<div class="loginIcon">
-				<img src="Account.svg" alt="Account icon" />
-			</div>
-			<input placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
-
-			<button on:mousedown={login}>Join</button>
-		</form>
-
-		<footer>
-			<br /><br />
-			By using eChat, you agree to the
+		<main transition:fade>
 			<button
-				class="linkStyle"
+				id="helpLogin"
+				class="loginButton"
 				on:mousedown={() => {
-					page = "Terms of Service"
-				}}>Terms of Service</button
+					page = "Help"
+				}}
 			>
-			and
+				<img src="Help.svg" alt="Help button" />
+			</button>
 			<button
-				class="linkStyle"
+				id="settingsLogin"
+				class="loginButton"
 				on:mousedown={() => {
-					page = "Privacy Policy"
-				}}>Privacy Policy</button
+					page = "Settings"
+				}}
 			>
-			<!--
+				<img src="Settings.svg" alt="Settings button" />
+			</button>
+
+			<img src={$theme + ".svg"} id="logo" alt="eChat Logo" width="50%" />
+
+			<p id="splash" on:mousedown={splash}>{@html splashText}</p>
+
+			<form on:submit|preventDefault={login}>
+				<div class="loginIcon">
+					<img src="Group.svg" alt="Group icon" />
+				</div>
+				<input placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" spellcheck="false" />
+
+				<div class="loginIcon">
+					<img src="Account.svg" alt="Account icon" />
+				</div>
+				<input placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
+
+				<button on:mousedown={login}>Join</button>
+			</form>
+
+			<footer>
+				<br /><br />
+				By using eChat, you agree to the
+				<button
+					class="linkStyle"
+					on:mousedown={() => {
+						page = "Terms of Service"
+					}}>Terms of Service</button
+				>
+				and
+				<button
+					class="linkStyle"
+					on:mousedown={() => {
+						page = "Privacy Policy"
+					}}>Privacy Policy</button
+				>
+				<!--
 			<em>eChat v1.0.0<br />
 			Released 25 May 2022</em>
 			-->
-		</footer>
-	</main>
+			</footer>
+		</main>
 	{/if}
 </main>
 
@@ -164,7 +164,7 @@
 		font-size: 0.7rem
 		line-height: 1rem
 		margin: 12% 20vw
-	
+
 	.linkStyle
 		height: auto
 		font-size: inherit
