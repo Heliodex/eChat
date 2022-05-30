@@ -22,6 +22,7 @@
   "dependencies": {
     "@svelteuidev/core": "^0.6.3-next.2",
     "centrifuge": "^2.8.5",
+    "crypto-js": "^4.1.1",
     "node-sass": "^7.0.1",
     "nodejs-aes256": "^1.0.1",
     "sass": "^1.52.1"
