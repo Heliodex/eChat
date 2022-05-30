@@ -6,14 +6,12 @@ export const historyLength = writable(localStorage.getItem("historyLength") || "
 
 darkMode.subscribe(value => {
 	if (value) {
-		document.documentElement.style.setProperty("--dark", "0%")
 		document.documentElement.style.setProperty("--p", "#777")
 		document.documentElement.style.setProperty("--t1", "black")
 		document.documentElement.style.setProperty("--t2", "#222")
 		document.documentElement.style.setProperty("--t3", "#777")
 		document.documentElement.style.setProperty("--t4", "white")
 	} else {
-		document.documentElement.style.setProperty("--dark", "100%")
 		document.documentElement.style.setProperty("--p", "white")
 		document.documentElement.style.setProperty("--t1", "white")
 		document.documentElement.style.setProperty("--t2", "#ccc")
