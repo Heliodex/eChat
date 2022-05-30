@@ -26,8 +26,10 @@ header
 
 .linkStyle, a
 	color: var(--main)
+	transition: color 0.2s
 	&:hover
-		color: var(--main)
+		transition: color 0.2s
+		color: var(--main-dark)
 
 ::-webkit-scrollbar
 	&-track
@@ -38,8 +40,10 @@ header
 button
 	background-color: var(--main)
 	color: white
+	transition: background-color 0.2s
 	&:hover, &:active
-		background-color: var(--main)
+		transition: background-color 0.2s
+		background-color: var(--main-dark)
 
 .inverted
 	background-color: var(--t1)
