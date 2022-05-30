@@ -35,7 +35,6 @@
 	{#if page}
 		<header>
 			<img
-				class="headerButton logout"
 				src="Backfill.svg"
 				alt="Logout button"
 				on:mousedown={() => {
@@ -81,17 +80,17 @@
 			<div class="loginIcon">
 				<img src="Group.svg" alt="Group icon" />
 			</div>
-			<input class="loginInput" placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" spellcheck="false" />
+			<input placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" spellcheck="false" />
 
 			<div class="loginIcon">
 				<img src="Account.svg" alt="Account icon" />
 			</div>
-			<input class="loginInput" placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
+			<input placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
 
-			<button id="joinButton" on:mousedown={login}>Join</button>
+			<button on:mousedown={login}>Join</button>
 		</form>
 
-		<p id="footer">
+		<footer>
 			<br /><br />
 			By using eChat, you agree to the
 			<button
@@ -111,7 +110,7 @@
 			<em>eChat v1.0.0<br />
 			Released 25 May 2022</em>
 			-->
-		</p>
+		</footer>
 	{/if}
 </main>
 
@@ -121,9 +120,11 @@
 	#settingsLogin
 		right: 0
 
+	button
+		height: 35px
+
 	.loginButton
 		position: fixed
-		height: 35px
 		width: 35px
 		padding: 7px
 		margin: 0.47rem 10px
@@ -149,23 +150,21 @@
 		border-radius: 50rem
 		margin-left: 10%
 
-	.loginInput
+	input
+		font-size: 1rem
 		text-align: center
 		width: 80%
 		height: 35px
 		margin-bottom: 0.5rem
 		box-sizing: border-box
 
-	#joinButton
-		margin-top: 0.5rem
-		height: 35px
-
-	#footer
+	footer
 		font-size: 0.7rem
 		line-height: 1rem
 		margin: 12% 20vw
 	
 	.linkStyle
+		height: auto
 		font-size: inherit
 		background: none
 		padding: 0

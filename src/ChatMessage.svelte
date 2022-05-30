@@ -10,11 +10,11 @@
 	$: userMessage = msg.username != $loginInfo["username"]?.toString()
 </script>
 
-<div class={`message ${messageClass}`}>
+<div class={messageClass}>
 	<p>
 		{msg.text}
 		<br />
-		<em class="time">
+		<em>
 			{#if userMessage}
 				{msg.username.toString()},
 			{/if}
@@ -30,29 +30,29 @@
 		flex-direction: row-reverse
 		p
 			text-align: right
-		.time
+		em
 			float: right
 
 	.received p
 		text-align: left
 	
-	.time
+	em
 		display: flex
 		font-size: 0.5rem
 		line-height: 0.6rem
 
-	.sent p, .received p
-		max-width: 260px
-		margin: 4px 0.5rem 0 0.5rem
+	.sent, .received 
+		p
+			max-width: 260px
+			margin: 4px 0.5rem 0 0.5rem
 
-		line-height: 1rem
-		font-size: 0.9rem
+			line-height: 1rem
+			font-size: 0.9rem
 
-		padding: 10px 15px 5px 15px
-		border-radius: 20px
-		position: relative
-		word-wrap: break-word
+			padding: 10px 15px 5px 15px
+			border-radius: 20px
+			word-wrap: break-word
 
-	.message
+	div
 		display: flex
 </style>
