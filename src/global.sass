@@ -30,6 +30,14 @@ header
 	align-items: center
 	justify-content: center
 
+	img
+		left: 0
+		position: absolute
+		cursor: pointer
+		margin: 10px
+		&:hover
+			opacity: 0.8
+
 ::-webkit-scrollbar
 	width: 10px
 	&-thumb
@@ -38,19 +46,7 @@ header
 input, select
 	border-radius: 50rem
 
-.headerButton
-	position: absolute
-	cursor: pointer
-	margin: 10px
-	&:hover
-		opacity: 0.8
-
-.logout
-	left: 0
-#settings
-	right: 0
-
-.headerText
+h2
 	width: 75%
 	text-overflow: ellipsis
 	overflow: hidden

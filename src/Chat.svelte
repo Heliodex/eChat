@@ -75,10 +75,9 @@
 
 {#if username && !page}
 	<header>
-		<img class="headerButton logout" src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
-		<h2 id="headerText">{headerText}</h2>
+		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
+		<h2>{headerText}</h2>
 		<img
-			class="headerButton"
 			id="settings"
 			src="Settingsfill.svg"
 			alt="Settings button"
@@ -94,7 +93,6 @@
 		<main>
 			<header>
 				<img
-					class="headerButton logout"
 					src="Backfill.svg"
 					alt="Logout button"
 					on:mousedown={() => {
@@ -113,10 +111,10 @@
 			<br /><br /><br bind:this={scrollBottom} />
 		</main>
 
-		<form on:submit|preventDefault={sendMessage} id="messageForm">
-			<input id="messageBox" type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+		<form on:submit|preventDefault={sendMessage}>
+			<input type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
-			<button id="send" on:mousedown={sendMessage}>
+			<button on:mousedown={sendMessage}>
 				<img src="Send.svg" alt="Send message" />
 			</button>
 		</form>
@@ -128,6 +126,10 @@
 {/if}
 
 <style lang="sass">
+	#settings
+		left: auto
+		right: 0
+
 	#messages
 		margin-top: 10vh
 		height: 90vh
@@ -135,13 +137,13 @@
 		display: flex
 		flex-direction: column
 
-	#messageForm
+	form
 		height: 8vh
 		position: fixed
 		bottom: 0
 		display: flex
 
-	#messageBox
+	input
 		font-size: 1rem
 		height: 35px
 		padding: 0 0.7rem
@@ -149,7 +151,7 @@
 		width: 315px
 		box-sizing: border-box
 
-	#send
+	button
 		cursor: pointer
 		width: 35px
 		height: 35px
