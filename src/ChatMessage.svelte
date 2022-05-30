@@ -1,4 +1,6 @@
 <script lang="ts">
+	import aes from "crypto-js/aes"
+	import Utf8 from "crypto-js/enc-utf8"
 	import { loginInfo } from "./user"
 	import { messageType } from "./types"
 	export let msg: messageType
@@ -12,11 +14,11 @@
 
 <div class={messageClass}>
 	<p>
-		{msg.text}
+		{aes.decrypt(msg.text, $loginInfo["groupname"]).toString(Utf8)}
 		<br />
 		<em>
 			{#if userMessage}
-				{msg.username.toString()},
+				{msg.username},
 			{/if}
 			{week[timestamp.getDay()]}
 			{timestamp.getHours()}:{timestamp.getMinutes()}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import aes from "crypto-js/aes"
 	import { loginInfo, centrifuge } from "./user"
 	import { historyLength } from "./settings"
 	import { messageType } from "./types"
@@ -61,7 +62,7 @@
 		if (newMessage?.trim()) {
 			centrifuge.publish("chat:" + $loginInfo["groupname"], {
 				username: username,
-				text: newMessage.trim(),
+				text: aes.encrypt(newMessage.trim(), $loginInfo["groupname"]).toString(),
 				timestamp: new Date().getTime(),
 			})
 		}
