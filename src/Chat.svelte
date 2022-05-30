@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from "svelte/transition"
 	import aes from "crypto-js/aes"
 	import { loginInfo, centrifuge } from "./user"
 	import { historyLength } from "./settings"
@@ -12,16 +13,14 @@
 	let newMessage: string
 	let headerText: string
 	let username: string
-	let page: string
+	let page = "chat"
 	let channel: any
 
 	let scrollBottom: any
-	//let unreadMessages
 
 	function autoScroll(): void {
-		requestAnimationFrame(() => scrollBottom?.scrollIntoView(/*{ behavior: "smooth" }*/))
+		requestAnimationFrame(() => scrollBottom?.scrollIntoView({/* behavior: "smooth" */}))
 		// without requestAnimationFrame, it would scroll before the message was added, making it not scroll all the way
-		//unreadMessages = false
 	}
 
 	loginInfo.subscribe(value => {
@@ -69,12 +68,12 @@
 		newMessage = ""
 	}
 
-	$: username && autoScroll() // run autoScroll() whenever username changes, greatest line of code ever
+	$: page && autoScroll() // run autoScroll() whenever page changes, greatest line of code ever
 
 	centrifuge.connect() // don't forget
 </script>
 
-{#if username && !page}
+{#if username && page == "chat"}
 	<header>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2>{headerText}</h2>
@@ -96,7 +95,7 @@
 				src="Backfill.svg"
 				alt="Logout button"
 				on:mousedown={() => {
-					page = ""
+					page = "chat"
 				}}
 			/>
 			<h2>Settings</h2>
@@ -119,7 +118,9 @@
 		</form>
 	{/if}
 {:else}
-	<Login />
+	<main in:fade>
+		<Login />
+	</main>
 {/if}
 
 <style lang="sass">
@@ -130,6 +131,7 @@
 	#messages
 		margin-top: 10vh
 		height: 90vh
+		overflow-x: hidden
 		overflow-y: auto
 		display: flex
 		flex-direction: column

@@ -1,4 +1,8 @@
-<div class="scrollable">
+<script lang="ts">
+	import { fly } from "svelte/transition"
+</script>
+
+<div class="scrollable" in:fly={{y: 300, duration: 500}}>
 	<p class="agreement">
 		<br />
 		<em>Last updated: 6 May 2022</em><br />
