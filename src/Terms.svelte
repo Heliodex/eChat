@@ -1,7 +1,7 @@
 <div class="scrollable">
 	<p class="agreement">
 		<br />
-		Last updated: 6 May 2022<br />
+		<i>Last updated: 6 May 2022</i><br />
 		<br />
 		This Terms of Service Agreement (“agreement”) is an agreement made between you, or if you represent a legal entity, that legal entity (“you”) and eChat, the owners of all eChat logos, documents, and domains.<br />
 		<br />
