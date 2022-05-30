@@ -34,6 +34,8 @@
 </div>
 
 <style lang="sass">
+	div
+		width: 100%
 	.rangeInput
 		padding: 0
 
