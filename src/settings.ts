@@ -5,23 +5,20 @@ export const theme = writable(localStorage.getItem("theme") || "green")
 export const historyLength = writable(localStorage.getItem("historyLength") || "100")
 
 darkMode.subscribe(value => {
-	switch (value) {
-		case true:
-			document.documentElement.style.setProperty("--dark", "0%")
-			document.documentElement.style.setProperty("--p", "#777")
-			document.documentElement.style.setProperty("--t1", "black")
-			document.documentElement.style.setProperty("--t2", "#222")
-			document.documentElement.style.setProperty("--t3", "#777")
-			document.documentElement.style.setProperty("--t4", "white")
-			break
-			case false:
-			document.documentElement.style.setProperty("--dark", "100%")
-			document.documentElement.style.setProperty("--p", "white")
-			document.documentElement.style.setProperty("--t1", "white")
-			document.documentElement.style.setProperty("--t2", "#ccc")
-			document.documentElement.style.setProperty("--t3", "#aaa")
-			document.documentElement.style.setProperty("--t4", "black")
-			break
+	if (value) {
+		document.documentElement.style.setProperty("--dark", "0%")
+		document.documentElement.style.setProperty("--p", "#777")
+		document.documentElement.style.setProperty("--t1", "black")
+		document.documentElement.style.setProperty("--t2", "#222")
+		document.documentElement.style.setProperty("--t3", "#777")
+		document.documentElement.style.setProperty("--t4", "white")
+	} else {
+		document.documentElement.style.setProperty("--dark", "100%")
+		document.documentElement.style.setProperty("--p", "white")
+		document.documentElement.style.setProperty("--t1", "white")
+		document.documentElement.style.setProperty("--t2", "#ccc")
+		document.documentElement.style.setProperty("--t3", "#aaa")
+		document.documentElement.style.setProperty("--t4", "black")
 	}
 	localStorage.setItem("darkMode", String(value))
 })
