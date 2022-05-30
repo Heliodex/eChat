@@ -90,19 +90,17 @@
 
 {#if username}
 	{#if page == "Settings"}
-		<main>
-			<header>
-				<img
-					src="Backfill.svg"
-					alt="Logout button"
-					on:mousedown={() => {
-						page = ""
-					}}
-				/>
-				<h2>Settings</h2>
-			</header>
-			<Settings />
-		</main>
+		<header>
+			<img
+				src="Backfill.svg"
+				alt="Logout button"
+				on:mousedown={() => {
+					page = ""
+				}}
+			/>
+			<h2>Settings</h2>
+		</header>
+		<Settings />
 	{:else}
 		<main id="messages">
 			{#each messages as msg}
@@ -120,9 +118,7 @@
 		</form>
 	{/if}
 {:else}
-	<main>
-		<Login />
-	</main>
+	<Login />
 {/if}
 
 <style lang="sass">
