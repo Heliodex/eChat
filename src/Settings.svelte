@@ -13,7 +13,7 @@
 	$: transitionLength.set(transitionLengthInput)
 </script>
 
-<div class="scrollable" transition:fly={{y: 300, duration: 500 * parseFloat($transitionLength)}}>
+<div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
@@ -25,12 +25,13 @@
 			<input bind:value={historyLengthInput} type="number" min="0" max="100" />
 		</div>
 
-		<p>Animation and transition length multiplier</p>
-		<div>
-			<input bind:value={transitionLengthInput} class="rangeInput" type="range" min="0" max="2.5" step="0.1" />
-			<input bind:value={transitionLengthInput} type="number" min="0" max="2.5" step="0.1" />
-		</div>
-
+		<p>Animation length multiplier</p>
+		<select bind:value={transitionLengthInput}>
+			<option value="1.5">Slow</option>
+			<option value="1">Normal</option>
+			<option value="0.5">Fast</option>
+			<option value="0">Instant</option>
+		</select>
 
 		<p>Theme</p>
 		<select bind:value={themeInput}>
@@ -44,6 +45,7 @@
 <style lang="sass">
 	div
 		width: 100%
+
 	.rangeInput
 		padding: 0
 
