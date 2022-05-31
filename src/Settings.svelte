@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { fly } from "svelte/transition"
-	import { darkMode, theme, historyLength } from "./settings"
+	import { darkMode, theme, historyLength, transitionLength } from "./settings"
 
 	let darkModeInput = $darkMode
 	let themeInput = $theme
 	let historyLengthInput = $historyLength
+	let transitionLengthInput = $transitionLength
 
 	$: darkMode.set(darkModeInput)
 	$: theme.set(themeInput)
 	$: historyLength.set(historyLengthInput)
+	$: transitionLength.set(transitionLengthInput)
 </script>
 
-<div class="scrollable" in:fly={{y: 300, duration: 500}}>
+<div class="scrollable" transition:fly={{y: 300, duration: 500 * parseFloat($transitionLength)}}>
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
@@ -21,6 +23,12 @@
 		<div>
 			<input bind:value={historyLengthInput} class="rangeInput" type="range" min="0" max="100" />
 			<input bind:value={historyLengthInput} type="number" min="0" max="100" />
+		</div>
+
+		<p>Animation and transition length multiplier</p>
+		<div>
+			<input bind:value={transitionLengthInput} class="rangeInput" type="range" min="0" max="2.5" step="0.1" />
+			<input bind:value={transitionLengthInput} type="number" min="0" max="2.5" step="0.1" />
 		</div>
 
 

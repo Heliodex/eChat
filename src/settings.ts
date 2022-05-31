@@ -3,6 +3,7 @@ import { writable } from "svelte/store"
 export const darkMode = writable(localStorage.getItem("darkMode") == "true" || false)
 export const theme = writable(localStorage.getItem("theme") || "green")
 export const historyLength = writable(localStorage.getItem("historyLength") || "100")
+export const transitionLength = writable(localStorage.getItem("transitionLength") || "1")
 
 darkMode.subscribe(value => {
 	if (value) {
@@ -41,4 +42,8 @@ theme.subscribe(value => {
 
 historyLength.subscribe(value => {
 	localStorage.setItem("historyLength", value)
+})
+
+transitionLength.subscribe(value => {
+	localStorage.setItem("transitionLength", value)
 })

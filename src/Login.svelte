@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from "svelte/transition"
 	import { loginInfo } from "./user"
-	import { theme } from "./settings"
+	import { theme, transitionLength } from "./settings"
 	import Terms from "./Terms.svelte"
 	import Privacy from "./Privacy.svelte"
 	import Settings from "./Settings.svelte"
@@ -33,7 +33,7 @@
 
 <main>
 	{#if page}
-		<header transition:fly={{y: -64, duration: 500}}>
+		<header transition:fly={{y: -64, duration: 500 * parseFloat($transitionLength)}}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"

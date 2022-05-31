@@ -2,7 +2,7 @@
 	import { fade } from "svelte/transition"
 	import aes from "crypto-js/aes"
 	import { loginInfo, centrifuge } from "./user"
-	import { historyLength } from "./settings"
+	import { historyLength ,transitionLength } from "./settings"
 	import { messageType } from "./types"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
@@ -78,7 +78,7 @@
 </script>
 
 {#if username && page == "chat"}
-	<header transition:fade>
+	<header transition:fade={{duration: 500 * parseFloat($transitionLength)}}>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2>{headerText}</h2>
 		<img
@@ -94,7 +94,7 @@
 
 {#if username}
 	{#if page == "Settings"}
-		<header transition:fade>
+		<header transition:fade={{duration: 500 * parseFloat($transitionLength)}}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"

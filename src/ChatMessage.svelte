@@ -4,6 +4,7 @@
 	import Utf8 from "crypto-js/enc-utf8"
 	import { loginInfo } from "./user"
 	import { messageType } from "./types"
+	import { transitionLength } from "./settings"
 	export let msg: messageType
 
 	const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -13,7 +14,7 @@
 	$: userMessage = msg.username != $loginInfo["username"]?.toString()
 </script>
 
-<div class={messageClass} in:fly={{x: userMessage ? 150 : -150, duration: 200}}>
+<div class={messageClass} in:fly={{x: userMessage ? 150 : -150, duration: 200 * parseFloat($transitionLength)}}>
 	<p>
 		{aes.decrypt(msg.text, $loginInfo["groupname"]).toString(Utf8)}
 		<br />
