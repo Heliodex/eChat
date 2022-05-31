@@ -2,7 +2,7 @@
 	import { fade } from "svelte/transition"
 	import aes from "crypto-js/aes"
 	import { loginInfo, centrifuge } from "./user"
-	import { historyLength ,transitionLength } from "./settings"
+	import { historyLength, transitionLength } from "./settings"
 	import { messageType } from "./types"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
@@ -21,7 +21,7 @@
 	function autoScroll(): void {
 		requestAnimationFrame(() =>
 			scrollBottom?.scrollIntoView({
-				/* behavior: "smooth" */
+				//behavior: "smooth"
 			})
 		)
 		// without requestAnimationFrame, it would scroll before the message was added, making it not scroll all the way
@@ -78,7 +78,7 @@
 </script>
 
 {#if username && page == "chat"}
-	<header transition:fade={{duration: 500 * parseFloat($transitionLength)}}>
+	<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2>{headerText}</h2>
 		<img
@@ -94,7 +94,7 @@
 
 {#if username}
 	{#if page == "Settings"}
-		<header transition:fade={{duration: 500 * parseFloat($transitionLength)}}>
+		<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"
@@ -106,7 +106,7 @@
 		</header>
 		<Settings />
 	{:else}
-		<main id="messages">
+		<main id="messages" in:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 			{#each messages as msg}
 				<ChatMessage {msg} />
 			{/each}

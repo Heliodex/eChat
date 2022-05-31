@@ -33,7 +33,7 @@
 
 <main>
 	{#if page}
-		<header transition:fly={{y: -64, duration: 500 * parseFloat($transitionLength)}}>
+		<header transition:fly={{ y: -64, duration: 500 * parseFloat($transitionLength) }}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"
@@ -53,7 +53,7 @@
 	{:else if page == "Help"}
 		<Help />
 	{:else}
-		<main transition:fade>
+		<main transition:fade|local={{ duration: 500 * parseFloat($transitionLength) }}>
 			<button
 				id="helpLogin"
 				class="loginButton"
@@ -75,7 +75,9 @@
 
 			<img src={$theme + ".svg"} id="logo" alt="eChat Logo" width="50%" />
 
-			<p id="splash" on:mousedown={splash}>{@html splashText}</p>
+			<p id="splash" on:mousedown={splash} in:fly|local={{ x: (Math.random() - 0.5) * 40, y: (Math.random() - 0.5) * 40, duration: 500 * parseFloat($transitionLength) }} out:fly|local={{ x: (Math.random() - 0.5) * 40, y: (Math.random() - 0.5) * 40, duration: 500 * parseFloat($transitionLength) }}>
+				{@html splashText}
+			</p>
 
 			<form on:submit|preventDefault={login}>
 				<div class="loginIcon">
@@ -149,7 +151,7 @@
 	.loginIcon
 		position: fixed
 		height: 35px
-		border-radius: 50rem
+		border-radius: 9rem
 		margin-left: 10%
 
 	input
