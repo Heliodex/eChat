@@ -122,12 +122,14 @@
 		display: grid
 		justify-content: center
 		align-content: center
+		margin-top: 15px
 		
 	#settingsLogin
 		right: 0
 		display: grid
 		justify-content: center
 		align-content: center
+		margin-top: 15px
 
 	button
 		height: 35px
