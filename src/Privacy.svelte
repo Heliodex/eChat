@@ -28,12 +28,12 @@
 		We do not allow any third party to collect personal information from our users. We do not work with any third parties and we do not sell our users' data to any third parties.<br />
 		<br />
 		<strong>GDPR</strong><br />
-		Under GDPR Laws, you remain in control of your data. If for any reason you would like to retrieve or request deletion of your personal data, please contact our support team at <a href="mailto:help.echat@gmail.com">mailto:help.echat@gmail.com</a>.<br />
+		Under GDPR Laws, you remain in control of your data. If for any reason you would like to retrieve or request deletion of your personal data, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.<br />
 		<br />
 		<br />
 		Please check this privacy policy regularly. We may update it at any time without notice. You must agree to any changes if you continue to use eChat after the privacy policy has been updated.<br />
 		<br />
-		If you have any questions, suggestions, or if you want more information, please contact our support team at <a href="mailto:help.echat@gmail.com">mailto:help.echat@gmail.com</a>.<br />
+		If you have any questions, suggestions, or if you want more information, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.<br />
 		<br />
 	</p>
 </div>
