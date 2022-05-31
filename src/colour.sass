@@ -10,15 +10,15 @@
 	--t2: #ccc
 	--t3: #b3b3b3
 	--t4: black
-	
+
 	accent-color: var(--main)
 	color: var(--t4)
 
 :root
-	background-color: var(--t1)
+	background: var(--t1)
 
 header
-	background-color: var(--main)
+	background: var(--main)
 	color: white
 
 ::selection
@@ -36,23 +36,25 @@ header
 		background: var(--t1)
 	&-thumb
 		background: var(--main)
+		&:hover
+			background: var(--main-dark)
 
 button
-	background-color: var(--main)
+	background: var(--main)
 	color: white
-	transition: background-color 0.2s
+	transition: background 0.2s
 	&:hover, &:active
-		transition: background-color 0.2s
-		background-color: var(--main-dark)
+		transition: background 0.2s
+		background: var(--main-dark)
 
 .inverted
-	background-color: var(--t1)
+	background: var(--t1)
 	color: var(--main)
 	&:hover, &:active
-		background-color: var(--t2)
+		background: var(--t2)
 
 input
-	background-color: var(--t2)
+	background: var(--t2)
 	color: var(--t4)
 	&::placeholder
 		color: var(--p)
@@ -61,7 +63,7 @@ input
 	color: var(--t4)
 
 .loginIcon
-	background-color: var(--main)
+	background: var(--main)
 
 .footer, .splash, p
 	color: var(--t4)
@@ -75,4 +77,4 @@ input
 
 select, input
 	color: var(--t4)
-	background-color: var(--t2)
+	background: var(--t2)

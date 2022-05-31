@@ -14,7 +14,11 @@
 	$: userMessage = msg.username != $loginInfo["username"]?.toString()
 </script>
 
-<div class={messageClass} in:fly={{x: userMessage ? 150 : -150, duration: 200 * parseFloat($transitionLength)}}>
+<div class={messageClass} in:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
+	<!-- 
+		Adding an "out" transition here will break the aes.decrypt below, as it will 
+		update $loginInfo["groupname"] with a blank string while it is animating out.
+	 -->
 	<p>
 		{aes.decrypt(msg.text, $loginInfo["groupname"]).toString(Utf8)}
 		<br />

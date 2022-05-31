@@ -3,7 +3,7 @@
 	import { transitionLength } from "./settings"
 </script>
 
-<div class="scrollable" transition:fly={{y: 300, duration: 500 * parseFloat($transitionLength)}}>
+<div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<p class="agreement">
 		<br />
 		<strong>How to create a message group</strong><br />
