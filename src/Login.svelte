@@ -61,7 +61,7 @@
 					page = "Help"
 				}}
 			>
-				<img src="Help.svg" alt="Help button" />
+				<img src="Infofill.svg" alt="Help button" />
 			</button>
 			<button
 				id="settingsLogin"
@@ -119,8 +119,15 @@
 <style lang="sass">
 	#helpLogin
 		left: 0
+		display: grid
+		justify-content: center
+		align-content: center
+		
 	#settingsLogin
 		right: 0
+		display: grid
+		justify-content: center
+		align-content: center
 
 	button
 		height: 35px
