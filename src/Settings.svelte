@@ -25,7 +25,7 @@
 			<input bind:value={historyLengthInput} type="number" min="0" max="100" />
 		</div>
 
-		<p>Animation length multiplier</p>
+		<p>Animation speed</p>
 		<select bind:value={transitionLengthInput}>
 			<option value="1.5">Slow</option>
 			<option value="1">Normal</option>
