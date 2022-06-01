@@ -19,9 +19,11 @@
 
 	function login(): void {
 		if (canLogin) {
-			canLogin = false // Still lets you logout then log back in, though
-			loginInfo.set(loginInput) // If you log back in with the same username, history does not load. (ably)
+			canLogin = false
+			loginInfo.set(loginInput)
 			localStorage.setItem("username", String($loginInfo["username"]))
+			localStorage.setItem("groupname", String($loginInfo["groupname"]))
+			canLogin = true
 		}
 	}
 

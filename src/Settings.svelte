@@ -13,7 +13,7 @@
 	$: transitionLength.set(transitionLengthInput)
 </script>
 
-<div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
+<div class="scrollable" in:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
@@ -33,11 +33,11 @@
 			<option value="0">Instant</option>
 		</select>
 
-		<p>Theme</p>
+		<p>Theme colour</p>
 		<select bind:value={themeInput}>
+			<option value="orange">Juicy Orange</option>
 			<option value="green">Sea Green</option>
 			<option value="blue">Bubble Blue</option>
-			<option value="orange">Juicy Orange</option>
 		</select>
 	</div>
 </div>
