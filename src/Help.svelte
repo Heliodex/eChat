@@ -12,8 +12,7 @@
 		<strong>How to create a username</strong><br />
 		From the homepage, enter your desired username into the username box. Before clicking the join button, make sure you've entered your/the group name.<br />
 		<br />
-		<strong>How to create a message group</strong><br />
-		How to join a message group<br />
+		<strong>How to join a message group</strong><br />
 		From the homepage, enter the group name into the group name box. Then enter your desired username into the username box. Once completed, click the join button below and you should join the message group.<br />
 		<br />
 		<strong>How to leave/exit a message group</strong><br />
