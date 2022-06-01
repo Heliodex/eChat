@@ -94,7 +94,7 @@
 
 {#if username}
 	{#if page == "Settings"}
-		<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
+		<header>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"
@@ -106,11 +106,17 @@
 		</header>
 		<Settings />
 	{:else}
-		<main id="messages" in:fade={{ duration: 200 * parseFloat($transitionLength) }}>
-			{#each messages as msg}
-				<ChatMessage {msg} />
-			{/each}
-			<br /><br /><br bind:this={scrollBottom} />
+		<main id="messages">
+			<main in:fade={{ duration: 200 * parseFloat($transitionLength) }}>
+				{#if messages.length == 0}
+					<br />
+					<i id="nomessages">No messages yet</i>
+				{/if}
+				{#each messages as msg}
+					<ChatMessage {msg} />
+				{/each}
+				<br /><br /><br bind:this={scrollBottom} />
+			</main>
 		</main>
 
 		<form on:submit|preventDefault={sendMessage}>
