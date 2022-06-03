@@ -77,7 +77,7 @@
 
 			<img src={$theme + ".svg"} id="logo" alt="eChat Logo" width="50%" />
 
-			<p id="splash" on:mousedown={splash} in:fly|local={{ x: (Math.random() - 0.5) * 40, y: (Math.random() - 0.5) * 40, duration: 500 * parseFloat($transitionLength) }} out:fly|local={{ x: (Math.random() - 0.5) * 40, y: (Math.random() - 0.5) * 40, duration: 500 * parseFloat($transitionLength) }}>
+			<p id="splash" on:mousedown={splash}>
 				{@html splashText}
 			</p>
 
@@ -123,26 +123,21 @@
 <style lang="sass">
 	#helpLogin
 		left: 0
-		display: grid
-		justify-content: center
-		align-content: center
-		margin-top: 15px
 		
 	#settingsLogin
 		right: 0
-		display: grid
-		justify-content: center
-		align-content: center
-		margin-top: 15px
-
+		
 	button
 		height: 35px
 
 	.loginButton
 		position: fixed
 		width: 35px
-		padding: 7px
-		margin: 0.8rem 10px
+		margin: 15px 10px
+
+		display: grid
+		justify-content: center
+		align-content: center
 
 	#logo
 		margin-top: 6rem
