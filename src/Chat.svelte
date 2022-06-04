@@ -15,6 +15,8 @@
 	let username: string
 	let page = "chat"
 	let channel: any
+	let loadingMessage = "Loading..."
+	let error = false
 
 	let scrollBottom: any
 
@@ -29,6 +31,8 @@
 
 	loginInfo.subscribe(value => {
 		if (value["username"]?.trim() && value["groupname"]?.trim()) {
+			error = false
+			loadingMessage = "Loading..."
 			if (channel) {
 				channel.unsubscribe()
 			}
@@ -37,7 +41,7 @@
 
 			headerText = value["groupname"]
 
-			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message) {
+			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message: any) {
 				// a different sort of "subscribe"
 				messages = [...messages, message["data"]] // Must be done to make the {#each messages} block update with the new message.
 				if (username) {
@@ -45,6 +49,7 @@
 					autoScroll()
 				}
 			})
+
 			channel.history({ limit: parseInt($historyLength), reverse: true }).then(function (history: any): void {
 				let pubs = history["publications"].reverse()
 				for (let i = 0; i < pubs.length; i++) {
@@ -52,6 +57,22 @@
 				}
 				autoScroll()
 			})
+
+			if (messages.length == 0) {
+				let socket = new WebSocket("ws://echat.ddns.net:8000/connection/websocket")
+				let times = 0
+
+				const interval = setInterval(() => {
+					times += 1
+					if (socket.readyState == 1 || messages.length > 0) {
+						loadingMessage = "No messages"
+						clearInterval(interval)
+					} else if (times > 15) {
+						error = true
+						clearInterval(interval)
+					}
+				}, 100)
+			}
 		}
 	})
 
@@ -105,12 +126,29 @@
 			<h2>Settings</h2>
 		</header>
 		<Settings />
+	{:else if error}
+		<main>
+			<h1>Oops!</h1>
+			{#if navigator.onLine}
+				<p>
+					We can't connect to the eChat message servers.<br />
+					<br />
+					Please try again later, and contact eChat support if the problem persists.
+				</p>
+			{:else}
+				<p>
+					It looks like you aren't connected to the internet.<br />
+					<br />
+					Please reconnect to the internet and try again.
+				</p>
+			{/if}
+		</main>
 	{:else}
 		<main id="messages">
 			<main in:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 				{#if messages.length == 0}
 					<br />
-					<i id="nomessages">No messages yet</i>
+					<em id="nomessages">{loadingMessage}</em>
 				{/if}
 				{#each messages as msg}
 					<ChatMessage {msg} />
@@ -128,7 +166,7 @@
 		</form>
 	{/if}
 {:else}
-	<main in:fade>
+	<main in:fade={{ duration: 300 * parseFloat($transitionLength) }}>
 		<Login />
 	</main>
 {/if}
@@ -145,6 +183,9 @@
 		overflow-y: auto
 		display: flex
 		flex-direction: column
+
+	p
+		padding: 0 3rem
 
 	form
 		height: 8vh
