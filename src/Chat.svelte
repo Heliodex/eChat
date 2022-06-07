@@ -33,9 +33,6 @@
 		if (value["username"]?.trim() && value["groupname"]?.trim()) {
 			error = false
 			loadingMessage = "Loading..."
-			if (channel) {
-				channel.unsubscribe()
-			}
 
 			username = value["username"].trim()
 
@@ -77,6 +74,7 @@
 	})
 
 	function logout(): void {
+		channel.unsubscribe()
 		username = ""
 		messages = []
 		loginInfo.set({ groupname: "", username: $loginInfo["username"] })
@@ -98,7 +96,14 @@
 	centrifuge.connect() // don't forget
 </script>
 
-{#if username && page == "chat"}
+<!-- 
+	If we had the "page == "chat"", the header would flash when transitioning from 
+	the settings page. There apparently isn't a way to do only non-local transitions
+	in Svelte.
+	The settings page cannot be animated out, because elements would jump around
+	when transitioning back in to the chat page. 
+-->
+{#if username}
 	<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<h2>{headerText}</h2>

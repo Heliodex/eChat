@@ -13,14 +13,14 @@
 	$: transitionLength.set(transitionLengthInput)
 </script>
 
-<div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
+<div class="scrollable" in:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
 		<input bind:checked={darkModeInput} type="checkbox" />
 		<p class="breakset"></p>
 
-		<p>Message history length</p>
+		<p>Number of messages to load</p>
 		<div>
 			<input bind:value={historyLengthInput} class="rangeInput" type="range" min="0" max="100" />
 			<input bind:value={historyLengthInput} type="number" min="0" max="100" />
