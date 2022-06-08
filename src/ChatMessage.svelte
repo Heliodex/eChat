@@ -9,18 +9,15 @@
 
 	const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 	const timestamp = new Date(msg.timestamp)
+	const groupName = $loginInfo["groupname"] // To prevent aes.decrypt from erroring while transitioning out
 
 	$: messageClass = msg.username == $loginInfo["username"]?.toString() ? "sent" : "received"
 	$: userMessage = msg.username != $loginInfo["username"]?.toString()
 </script>
 
-<div class={messageClass} in:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
-	<!-- 
-		Adding an "out" transition here will break the aes.decrypt below, as it will 
-		update $loginInfo["groupname"] with a blank string while it is animating out.
-	 -->
+<div class={messageClass} transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
 	<p>
-		{aes.decrypt(msg.text, $loginInfo["groupname"]).toString(Utf8)}
+		{aes.decrypt(msg.text, groupName).toString(Utf8)}
 		<br />
 		<em>
 			{#if userMessage}
