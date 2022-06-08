@@ -20,5 +20,12 @@
 		<p>Please check this privacy policy regularly. We may update it at any time without notice. You must agree to any changes if you continue to use eChat after the privacy policy has been updated.</p>
 		<p>If you have any questions, suggestions, or if you want more information, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
 		<em>Last updated 1 June 2022</em>
+		<br /><br /><br />
 	</div>
 </div>
+
+<style lang="sass">
+	h4
+		text-align: center
+		margin: 2rem 0 0 0
+</style>
