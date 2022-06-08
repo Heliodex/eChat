@@ -17,7 +17,7 @@
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
-		<input bind:checked={darkModeInput} type="checkbox" />
+		<input bind:checked={darkModeInput} class="checkbox" type="checkbox" />
 
 		<p>Number of messages to load</p>
 		<div>
@@ -45,6 +45,11 @@
 <style lang="sass">
 	div
 		width: 100%
+
+	.checkbox
+		width: 1.1rem
+		height: 1.1rem
+		cursor: pointer
 
 	.rangeInput
 		padding: 0
