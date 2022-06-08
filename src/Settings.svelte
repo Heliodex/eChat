@@ -18,14 +18,12 @@
 	<div class="agreement">
 		<p>Dark mode</p>
 		<input bind:checked={darkModeInput} type="checkbox" />
-		<p class="breakset"></p>
 
 		<p>Number of messages to load</p>
 		<div>
 			<input bind:value={historyLengthInput} class="rangeInput" type="range" min="0" max="100" />
 			<input bind:value={historyLengthInput} type="number" min="0" max="100" />
 		</div>
-		<p class="breakset"></p>
 
 		<p>Animation speed</p>
 		<select bind:value={transitionLengthInput}>
@@ -34,7 +32,6 @@
 			<option value="0.5">Fast</option>
 			<option value="0">Instant</option>
 		</select>
-		<p class="breakset"></p>
 
 		<p>Theme colour</p>
 		<select bind:value={themeInput}>
@@ -42,7 +39,6 @@
 			<option value="green">Sea Green</option>
 			<option value="blue">Bubble Blue</option>
 		</select>
-		<p class="breakset"></p>
 	</div>
 </div>
 
@@ -67,7 +63,5 @@
 	
 	p
 		font-size: 0.7rem
-
-	.breakset
-		padding-bottom: 5px
+		margin-top: 1.5rem
 </style>
