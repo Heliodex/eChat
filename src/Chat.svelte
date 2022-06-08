@@ -96,13 +96,6 @@
 	centrifuge.connect() // don't forget
 </script>
 
-<!-- 
-	If we had the "page == "chat"", the header would flash when transitioning from 
-	the settings page. There apparently isn't a way to do only non-local transitions
-	in Svelte.
-	The settings page cannot be animated out, because elements would jump around
-	when transitioning back in to the chat page. 
--->
 {#if username}
 	<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
@@ -120,7 +113,7 @@
 
 {#if username}
 	{#if page == "Settings"}
-		<header>
+		<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"
@@ -159,6 +152,7 @@
 					<ChatMessage {msg} />
 				{/each}
 				<br /><br /><br /><br bind:this={scrollBottom} />
+				<!-- Appears like too much margin in dev server, works fine when built -->
 			</main>
 		</main>
 
@@ -182,11 +176,12 @@
 		right: 0
 
 	#messages
-		margin-top: 10vh
+		position: fixed
+		bottom: 0
 		height: 90vh
+		width: 100vw
 		overflow-x: hidden
 		overflow-y: auto
-		display: flex
 		flex-direction: column
 
 	p
