@@ -158,7 +158,7 @@
 				{#each messages as msg}
 					<ChatMessage {msg} />
 				{/each}
-				<br /><br /><br bind:this={scrollBottom} />
+				<br /><br /><br /><br bind:this={scrollBottom} />
 			</main>
 		</main>
 
