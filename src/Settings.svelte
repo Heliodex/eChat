@@ -13,7 +13,7 @@
 	$: transitionLength.set(transitionLengthInput)
 </script>
 
-<div class="scrollable" in:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
+<div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
@@ -58,7 +58,6 @@
 			cursor: grab
 			&:active
 				cursor: grabbing
-
 
 	select, input
 		padding: 0.4rem
