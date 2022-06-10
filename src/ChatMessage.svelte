@@ -33,7 +33,8 @@
 				{msg.username},
 			{/if}
 			{week[timestamp.getDay()]}
-			{timestamp.getHours()}:{timestamp.getMinutes()}
+			{timestamp.toTimeString().substring(0, 5)}
+			<!-- {timestamp.getHours()}:{timestamp.getMinutes()} gives bad time, like 23:6 -->
 		</em>
 		<!-- a much better solution than DocSocial -->
 	</p>
