@@ -38,17 +38,20 @@
 	<div><p>How do I send images?</p></div>
 	<p>Currently eChat does not support the sending of messages containing images. Alternatively, you can send image sharing links on eChat.</p>
 	<p>Please remember to make sure that any images sent on eChat adhere to our Terms of Service.</p>
+	
+	<div><p>How do I add text formatting to a message?</p></div>
+	<p>You can add *asterisks* around your message to make it appear <strong>bold</strong>, and _underscores_ to make it appear in <em>italics</em>.</p> 
 
 	<div><p>How do I switch to dark mode?</p></div>
-	<p>From the login page or from in a chat group, click the settings icon in the top right corner. In settings, select the dark mode checkbox, and eChat's light colours will become dark.</p> 
+	<p>From the login page or from in a chat group, click the settings icon in the top right corner. In settings, click the dark mode checkbox, and eChat's light colours will become dark.</p> 
 	<p>You have now joined the dark side. Muahahahaha!</p>
 
 	<div><p>How do I change theme colour?</p></div>
-	<p>From the login page or from in a chat group, click the settings icon in the top right corner. In settings, select the theme dropdown.</p>
+	<p>From the login page or from in a chat group, click the settings icon in the top right corner. In settings, click the theme dropdown.</p>
 	<p>Once you have selected theme, you should see that the accent colour across eChat changes.</p>
 
 	<div><p>How do I change history length?</p></div>
-	<p>From the login page, or from in a chat group, click the settings icon in the top right corner. In settings, select and drag the message history length selector.</p>
+	<p>From the login page, or from in a chat group, click the settings icon in the top right corner. In settings, click and drag the message history length selector.</p>
 	<p>This does not change history length for other users, only the number of messages loaded for you.</p>
 
 	<div><p>Why am I getting an error saying "We can't connect to the eChat message servers"?</p></div>
@@ -63,7 +66,7 @@
 
 	<div><p>How do I contact eChat's support team?</p></div>
 	<p>To contact our support team, please email us at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
-	<br /><br />
+	<br />
 </div>
 
 <style lang="sass">
