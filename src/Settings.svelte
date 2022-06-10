@@ -17,11 +17,11 @@
 	<br />
 	<div class="agreement">
 		<p>Dark mode</p>
-		<input bind:checked={darkModeInput} class="checkbox" type="checkbox" />
+		<input bind:checked={darkModeInput} type="checkbox" />
 
 		<p>Number of messages to load</p>
 		<div>
-			<input bind:value={historyLengthInput} class="rangeInput" type="range" min="0" max="100" />
+			<input bind:value={historyLengthInput} type="range" min="0" max="100" />
 			<input bind:value={historyLengthInput} type="number" min="0" max="100" />
 		</div>
 
@@ -46,12 +46,11 @@
 	div
 		width: 100%
 
-	.checkbox
+	input[type=checkbox]
 		width: 1.1rem
 		height: 1.1rem
-		cursor: pointer
 
-	.rangeInput
+	input[type=range]
 		padding: 0
 		&:active
 			cursor: grabbing
@@ -63,7 +62,7 @@
 	select, input
 		padding: 0.4rem
 
-	select, .rangeInput
+	select, input[type=range], input[type=checkbox]
 		cursor: pointer
 	
 	p
