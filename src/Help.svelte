@@ -60,6 +60,8 @@
 	<div><p>How do I read the terms of service?</p></div>
 	<p>From the login page, click the Terms of Service link at the bottom. You should then be able to read the Terms of Service.</p>
 
+	<div><p>How do I read the privacy policy?</p></div>
+	<p>From the login page, click the Privacy Policy link at the bottom. You should then be able to read the Privacy Policy.</p>
 
 	<div><p>How do I report a user?</p></div>
 	<p>To report a user, please contact our support team with their details such as their username and message groups they were active in.</p>
