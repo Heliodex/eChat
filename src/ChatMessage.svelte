@@ -11,13 +11,22 @@
 	const timestamp = new Date(msg.timestamp)
 	const groupName = $loginInfo["groupname"] // To prevent aes.decrypt from erroring while transitioning out
 
+	function deXSS(x: string) {
+		return {"<": "&lt;", ">": "&gt;"}[x]
+	}
+
 	$: messageClass = msg.username == $loginInfo["username"]?.toString() ? "sent" : "received"
 	$: userMessage = msg.username != $loginInfo["username"]?.toString()
 </script>
 
 <div class={messageClass} transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
 	<p>
-		{aes.decrypt(msg.text, groupName).toString(Utf8)}
+		{@html // Text stylising
+			aes.decrypt(msg.text, groupName).toString(Utf8)
+			.replace(/[<>]/g, deXSS)
+			.replace(/\*([^\s]*?[^\`]*?[^\s])\*/g, "<strong>$1<\/strong>")
+			.replace(/\_([^\s]*?[^\`]*?[^\s])\_/g, "<em>$1<\/em>")
+		}
 		<br />
 		<em>
 			{#if userMessage}
