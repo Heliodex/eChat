@@ -3,12 +3,11 @@
 	import aes from "crypto-js/aes"
 	import { loginInfo, centrifuge } from "./user"
 	import { historyLength, transitionLength } from "./settings"
-	import { messageType } from "./types"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
 	import Settings from "./Settings.svelte"
 
-	let messages: messageType[] = []
+	let messages: any[] = []
 
 	let newMessage: string
 	let headerText: string
@@ -78,6 +77,7 @@
 		username = ""
 		messages = []
 		loginInfo.set({ groupname: "", username: $loginInfo["username"] })
+		localStorage.setItem("groupname", "")
 	}
 
 	async function sendMessage(): Promise<void> {
