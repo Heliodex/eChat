@@ -141,6 +141,7 @@
 		align-content: center
 
 	#logo
+		user-select: none
 		margin-top: 6rem
 		margin-bottom: 3.5rem
 

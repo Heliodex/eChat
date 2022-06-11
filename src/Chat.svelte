@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade } from "svelte/transition"
+	import { fade, fly } from "svelte/transition"
 	import aes from "crypto-js/aes"
 	import { loginInfo, centrifuge } from "./user"
 	import { historyLength, transitionLength } from "./settings"
@@ -156,7 +156,7 @@
 			</main>
 		</main>
 
-		<form on:submit|preventDefault={sendMessage}>
+		<form on:submit|preventDefault={sendMessage} transition:fly={{ y: 40, duration: 300 * parseFloat($transitionLength) }}>
 			<input type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
 
 			<button on:mousedown={sendMessage}>
