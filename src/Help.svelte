@@ -108,8 +108,8 @@
 
 	a
 		color: white
-		transition: filter 0.2s
+		transition: opacity calc(0.2s * var(--transitionLength))
 		&:hover
-			transition: filter 0.2s
-			filter: opacity(0.8)
+			transition: opacity calc(0.2s * var(--transitionLength))
+			opacity: 0.8
 </style>

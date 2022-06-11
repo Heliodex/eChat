@@ -69,9 +69,9 @@
 
 	select, input
 		padding: 0.4rem
-		transition: opacity 0.2s
+		transition: opacity calc(0.2s * var(--transitionLength))
 		&:hover, &:focus
-			transition: opacity 0.2s
+			transition: opacity calc(0.2s * var(--transitionLength))
 			opacity: 0.8
 
 	select, input[type=range], input[type=checkbox]
