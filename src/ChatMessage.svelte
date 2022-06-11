@@ -35,11 +35,11 @@
 			.replace(/\~([^\s]*?[^\~]*?[^\s])\~/g, "<del>$1</del>")
 			.replace(/\`([^\s]*?[^\`]*?[^\s])\`/g, "<code>$1</code>")
 			// Regex match link with or without whatever:// at start of string
-			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:[\w]+)?(\/\w+)*(.\w+)?(\w+)?(\?\w+)?(#\w+)?\/?/gi, link)}
+			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:\w+)?(\/\w+)*(.\w+)?(\w+)?(\?\w+)?(=\w+)?(#\w+)?\/?/gi, link)}
 		<br />
 		<em>
 			{#if userMessage}
-				<img src="Verified.svg" alt="Verified user" />
+				<!-- <img src="Verified.svg" alt="Verified user" /> -->
 				{msg.username},
 			{/if}
 			{week[timestamp.getDay()]}
@@ -65,7 +65,11 @@
 
 	em
 		display: flex
-		font-size: 0.5rem
+		font-size: 0.7rem
+
+	img
+		height: 0.6rem
+		margin-right: 0.3rem
 
 	.sent, .received
 		p
@@ -85,8 +89,8 @@
 					transition: opacity calc(0.2s * var(--transitionLength))
 					opacity: 0.8
 
+
 	div
 		display: flex
-
 
 </style>
