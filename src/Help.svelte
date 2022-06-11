@@ -15,7 +15,7 @@
 	<p>Before clicking the join button, make sure you've entered a group name as well.</p>
 	<div><p>How do I join a message group?</p></div>
 
-	<p>From the login page, enter the group name into the group name box. Then enter your desired username into the username box. </p>
+	<p>From the login page, enter the group name into the group name box. Then enter your desired username into the username box.</p>
 	<p>Once completed, click the join button below and you should join the message group.</p>
 
 	<div><p>How do I leave a message group?</p></div>
@@ -38,12 +38,13 @@
 	<div><p>How do I send images?</p></div>
 	<p>Currently eChat does not support the sending of messages containing images. Alternatively, you can send image sharing links on eChat.</p>
 	<p>Please remember to make sure that any images sent on eChat adhere to our Terms of Service.</p>
-	
+
 	<div><p>How do I add text formatting to a message?</p></div>
-	<p>You can add *asterisks* around your message to make it appear <strong>bold</strong>, and _underscores_ to make it appear in <em>italics</em>.</p> 
+	<p>You can add *asterisks* around your message to make it appear <strong>bold</strong>, and ^carets^ to make it appear in <em>italics</em>.</p>
+	<p>_Underscores_ can also be added to make text appear <ins>underlined</ins>, and ~tildes~ to add a <del>strikethrough</del> effect.</p>
 
 	<div><p>How do I switch to dark mode?</p></div>
-	<p>From the login page or from in a chat group, click the settings icon in the top right corner. In settings, click the dark mode checkbox, and eChat's light colours will become dark.</p> 
+	<p>From the login page or from in a chat group, click the settings icon in the top right corner. In settings, click the dark mode checkbox, and eChat's light colours will become dark.</p>
 	<p>You have now joined the dark side. Muahahahaha!</p>
 
 	<div><p>How do I change theme colour?</p></div>
@@ -87,6 +88,7 @@
 			margin: 0.2rem 0
 			p
 				background: var(--t3)
+				text-align: right
 
 		p
 			background: var(--main)
@@ -95,7 +97,7 @@
 	div p, p
 			color: white
 			max-width: 260px
-			margin: 4px 0.5rem 0 0.5rem
+			margin: 0.25rem 0.5rem 0 0.5rem
 
 			line-height: 1rem
 			font-size: 0.9rem
@@ -106,8 +108,8 @@
 
 	a
 		color: white
-		transition: color 0.2s
+		transition: filter 0.2s
 		&:hover
-			transition: color 0.2s
-			color: #ddd
+			transition: filter 0.2s
+			filter: opacity(0.8)
 </style>
