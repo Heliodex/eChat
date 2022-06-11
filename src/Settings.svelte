@@ -16,25 +16,25 @@
 <div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<br />
 	<div class="agreement">
-		<p>Dark mode</p>
-		<input bind:checked={darkModeInput} type="checkbox" />
+		<label for="darkMode">Dark mode</label>
+		<input bind:checked={darkModeInput} type="checkbox" id="darkMode" />
 
-		<p>Number of messages to load</p>
+		<label for="historyLength">Number of messages to load</label>
 		<div>
 			<input bind:value={historyLengthInput} type="range" min="0" max="100" />
-			<input bind:value={historyLengthInput} type="number" min="0" max="100" />
+			<input bind:value={historyLengthInput} type="number" min="0" max="100" id="historyLength" />
 		</div>
 
-		<p>Animation speed</p>
-		<select bind:value={transitionLengthInput}>
+		<label for="transitionLength">Animation speed</label>
+		<select bind:value={transitionLengthInput} id="transitionLength">
 			<option value="1.5">Slow</option>
 			<option value="1">Normal</option>
 			<option value="0.5">Fast</option>
 			<option value="0">Instant</option>
 		</select>
 
-		<p>Theme colour</p>
-		<select bind:value={themeInput}>
+		<label for="themeColour">Theme colour</label>
+		<select bind:value={themeInput} id="themeColour">
 			<option value="orange">Juicy Orange</option>
 			<option value="green">Sea Green</option>
 			<option value="blue">Bubble Blue</option>
@@ -46,11 +46,19 @@
 	div
 		width: 100%
 
+	label
+		user-select: none
+		cursor: pointer
+		display: block
+		font-size: 0.7rem
+		margin: 1rem 0
+
 	input[type=checkbox]
 		width: 1.1rem
 		height: 1.1rem
 
 	input[type=range]
+		-webkit-appearance: none 
 		padding: 0
 		&:active
 			cursor: grabbing
@@ -61,11 +69,11 @@
 
 	select, input
 		padding: 0.4rem
+		transition: opacity 0.2s
+		&:hover, &:focus
+			transition: opacity 0.2s
+			opacity: 0.8
 
 	select, input[type=range], input[type=checkbox]
 		cursor: pointer
-	
-	p
-		font-size: 0.7rem
-		margin-top: 1.5rem
 </style>
