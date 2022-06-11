@@ -5,6 +5,6 @@ export const centrifuge = new Centrifuge("ws://echat.ddns.net:8000/connection/we
 centrifuge.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM3MjIiLCJleHAiOjE5NTI2NjQyMzN9.G2qQL1Vsr9jv1_UDM2dnoTIVjyxK2m6yu7rgMtSGnhQ")
 
 export const loginInfo = writable({
-	groupname: "",
+	groupname: localStorage.getItem("groupname"),
 	username: localStorage.getItem("username"),
 })
