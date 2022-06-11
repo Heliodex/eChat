@@ -1,4 +1,5 @@
 :root
+	--
 	accent-color: var(--main)
 	color: var(--t4)
 	background: var(--t1)
@@ -12,9 +13,9 @@ header
 
 .linkStyle, a
 	color: var(--main)
-	transition: color 0.2s
+	transition: color calc(0.2s * var(--transitionLength))
 	&:hover
-		transition: color 0.2s
+		transition: color calc(0.2s * var(--transitionLength))
 		color: var(--main-dark)
 
 ::-webkit-scrollbar
@@ -28,9 +29,9 @@ header
 button
 	background: var(--main)
 	color: white
-	transition: background 0.2s
+	transition: background calc(0.2s * var(--transitionLength))
 	&:hover, &:active
-		transition: background 0.2s
+		transition: background calc(0.2s * var(--transitionLength))
 		background: var(--main-dark)
 
 .inverted

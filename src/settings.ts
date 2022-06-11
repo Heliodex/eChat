@@ -9,7 +9,7 @@ export const transitionLength = writable(localStorage.getItem("transitionLength"
 // updating on first run (no animations)
 
 if (get(darkMode)) {
-	document.documentElement.style.setProperty("--p", "#777")
+	document.documentElement.style.setProperty("--p", "#777") // very very dry
 	document.documentElement.style.setProperty("--t1", "black")
 	document.documentElement.style.setProperty("--t2", "#222")
 	document.documentElement.style.setProperty("--t3", "#777")
@@ -36,6 +36,8 @@ switch (get(theme)) {
 		document.documentElement.style.setProperty("--main-dark", "#fe8331")
 		break
 }
+	
+document.documentElement.style.setProperty("--transitionLength", get(transitionLength))
 
 // actual settings updating (animations)
 
@@ -73,4 +75,5 @@ historyLength.subscribe(value => {
 
 transitionLength.subscribe(value => {
 	localStorage.setItem("transitionLength", value)
+	document.documentElement.style.setProperty("--transitionLength", value)
 })
