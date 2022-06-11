@@ -17,7 +17,6 @@
 body
 	font-family: lexendDeca, Arial, sans-serif
 	margin: 0
-	display: flex
 	flex-direction: column
 	justify-content: center
 	min-height: 500px
@@ -26,7 +25,7 @@ body
 header
 	top: 0
 	height: 10vh
-	position: fixed
+	position: absolute
 	width: 100%
 	display: flex
 	align-items: center
@@ -36,7 +35,7 @@ header
 		left: 0
 		position: absolute
 		cursor: pointer
-		margin: 10px
+		padding: 10px
 		transition: opacity 0.2s
 		&:hover
 			transition: opacity 0.2s
@@ -55,6 +54,8 @@ input, select, button
 	border-radius: 9rem
 
 h2
+	margin-top: 1.7rem
+	height: 2rem // Fix very bottom of chars getting cut off
 	width: 75%
 	font-size: 1.5rem
 	text-overflow: ellipsis

@@ -112,9 +112,9 @@
 					}}>Privacy Policy</button
 				>
 				<!--
-			<em>eChat v1.0.0<br />
-			Released 25 May 2022</em>
-			-->
+					<em>eChat v1.0.0<br />
+					Released 25 May 2022</em>
+				-->
 			</footer>
 		</main>
 	{/if}
@@ -133,7 +133,8 @@
 	.loginButton
 		position: fixed
 		width: 35px
-		margin: 15px 10px
+		margin: 8px 10px 
+		padding: 10px
 
 		display: grid
 		justify-content: center
@@ -141,7 +142,7 @@
 
 	#logo
 		margin-top: 6rem
-		margin-bottom: 4rem
+		margin-bottom: 3.5rem
 
 	#splash
 		font-size: 0.6rem
@@ -159,19 +160,20 @@
 		height: 35px
 		border-radius: 9rem
 		margin-left: 10%
+		margin-top: 0.5rem
 
 	input
 		font-size: 1rem
 		text-align: center
 		width: 80%
 		height: 35px
-		margin-bottom: 0.5rem
+		margin-top: 0.5rem
 		box-sizing: border-box
 
 	footer
 		font-size: 0.7rem
 		line-height: 1rem
-		margin: 12% 20vw
+		margin: 5% 20%
 
 	.linkStyle
 		height: auto
