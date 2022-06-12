@@ -171,6 +171,9 @@
 		margin-top: 0.5rem
 		box-sizing: border-box
 
+	form button
+		padding: 0 15px
+
 	footer
 		font-size: 0.7rem
 		line-height: 1rem
