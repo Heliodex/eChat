@@ -5,11 +5,16 @@
 	import { loginInfo } from "./user"
 	import { transitionLength } from "./settings"
 	export let msg: any
+	export let messages: any[]
+	export let i: number
 
 	const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-	const timestamp = new Date(msg.timestamp)
+	const timestamp = new Date(messages[i].timestamp)
+	$: nextTimestamp = new Date(messages[i + 1]?.timestamp)
 	const groupName = $loginInfo["groupname"] // To prevent aes.decrypt from erroring while transitioning out
 
+	let lastMessage = messages[i - 1]?.username != msg.username
+	// if the same user sent previous message
 	function deXSS(x: string) {
 		return { "<": "&lt;", ">": "&gt;" }[x]
 	}
@@ -23,12 +28,12 @@
 </script>
 
 <div class={userMessage ? "received" : "sent"} transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
-	<p>
+	<p class={lastMessage ? "lastMessage" : "groupMessage"}>
 		{@html // Text stylising
 		aes
 			.decrypt(msg.text, groupName)
 			.toString(Utf8)
-			.replace(/[<>]/g, deXSS)
+			.replace(/[><]/g, deXSS)
 			.replace(/\*([^\s]*?[^\*]*?[^\s])\*/g, "<strong>$1</strong>")
 			.replace(/\^([^\s]*?[^\^]*?[^\s])\^/g, "<em>$1</em>")
 			.replace(/\_([^\s]*?[^\_]*?[^\s])\_/g, "<ins>$1</ins>")
@@ -38,19 +43,24 @@
 			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:\w+)?(\/\w+)*(.\w+)?(\w+)?(\?\w+)?(=\w+)?(#\w+)?\/?/gi, link)}
 		<br />
 		<em>
-			{#if userMessage}
-				<!-- <img src="Verified.svg" alt="Verified user" /> -->
-				{msg.username},
+			{#if new Date(nextTimestamp).toTimeString().substring(0, 5) != new Date(timestamp).toTimeString().substring(0, 5)}
+				{week[timestamp.getDay()]}
+				{timestamp.toTimeString().substring(0, 5)}
 			{/if}
-			{week[timestamp.getDay()]}
-			{timestamp.toTimeString().substring(0, 5)}
-			<!--
-				DocSocial much
-				but {timestamp.getHours()}:{timestamp.getMinutes()} gives bad time, like 23:6
-			-->
 		</em>
 	</p>
 </div>
+<em id="username" transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
+	{#if userMessage && messages[i + 1]?.username != msg.username}
+		<!-- <img src="Verified.svg" alt="Verified user" /> -->
+		{msg.username}
+	{/if}
+
+	<!--
+		DocSocial much
+		but {timestamp.getHours()}:{timestamp.getMinutes()} gives bad time, like 23:6
+	-->
+</em>
 
 <style lang="sass">
 	.sent
@@ -60,26 +70,44 @@
 		em
 			float: right
 
-	.received p
-		text-align: left
+		.lastMessage
+			border-radius: 20px 20px 0 20px
+			margin: 1rem 0.5rem 0 0
+		.groupMessage
+			border-radius: 20px 0 0 20px
+			margin: 1px 0.5rem 0 0
+
+	.received 
+		p
+			text-align: left
+
+		.lastMessage
+			border-radius: 20px 20px 20px 0
+			margin: 1rem 0 0 0.5rem
+		.groupMessage
+			border-radius: 0 20px 20px 0
+			margin: 1px 0 0 0.5rem
 
 	em
-		display: flex
+		float: left
 		font-size: 0.7rem
+		
+	#username
+		position: absolute
+		margin-top: 0.1rem
+		left: 0.5rem
 
 	img
 		height: 0.6rem
 		margin-right: 0.3rem
+		filter: brightness(var(--d))
 
-	.sent, .received
+	div
+		display: flex
 		p
 			max-width: 260px
-			margin: 0.25rem 0.5rem 0rem 0.5rem
-
 			font-size: 0.9rem
-
-			padding: 10px 15px 5px 15px
-			border-radius: 20px
+			padding: 10px 10px 7px 10px
 			word-wrap: break-word
 
 			:global(a) // Prevents sass being purged as unused
@@ -90,7 +118,5 @@
 					opacity: 0.8
 
 
-	div
-		display: flex
 
 </style>

@@ -148,8 +148,8 @@
 					<br />
 					<em id="nomessages">{loadingMessage}</em>
 				{/if}
-				{#each messages as msg}
-					<ChatMessage {msg} />
+				{#each messages as msg, i}
+					<ChatMessage {msg} {messages} {i}/>
 				{/each}
 				<br /><br /><br /><br bind:this={scrollBottom} />
 				<!-- Appears like too much margin in dev server, works fine when built -->
@@ -157,7 +157,7 @@
 		</main>
 
 		<form on:submit|preventDefault={sendMessage} transition:fly={{ y: 40, duration: 300 * parseFloat($transitionLength) }}>
-			<input type="text" placeholder="Message" bind:value={newMessage} maxlength="100" />
+			<input type="text" placeholder="Send a message" bind:value={newMessage} maxlength="100" />
 
 			<button on:mousedown={sendMessage}>
 				<img src="Send.svg" alt="Send message" />
