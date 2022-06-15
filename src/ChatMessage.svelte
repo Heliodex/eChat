@@ -28,7 +28,7 @@
 </script>
 
 <div class={userMessage ? "received" : "sent"} transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
-	<p class={lastMessage ? "lastMessage" : "groupMessage"}>
+	<p class={lastMessage ? "lastMessage" : ""}>
 		{@html // Text stylising
 		aes
 			.decrypt(msg.text, groupName)
@@ -65,32 +65,24 @@
 <style lang="sass">
 	.sent
 		flex-direction: row-reverse
-		p
-			text-align: right
 		em
 			float: right
 
-		.lastMessage
-			border-radius: 20px 20px 0 20px
-			margin: 1rem 0.5rem 0 0
-		.groupMessage
-			border-radius: 20px 0 0 20px
-			margin: 1px 0.5rem 0 0
+		p
+			text-align: right
+			margin-right: 0.5rem
 
 	.received 
 		p
 			text-align: left
-
-		.lastMessage
-			border-radius: 20px 20px 20px 0
-			margin: 1rem 0 0 0.5rem
-		.groupMessage
-			border-radius: 0 20px 20px 0
-			margin: 1px 0 0 0.5rem
+			margin-left: 0.5rem
 
 	em
 		float: left
 		font-size: 0.7rem
+
+	.lastMessage
+		margin-top: 1rem
 		
 	#username
 		position: absolute
@@ -105,6 +97,9 @@
 	div
 		display: flex
 		p
+			margin: 0
+			margin-top: 1px 
+			border-radius: 20px
 			max-width: 260px
 			font-size: 0.9rem
 			padding: 10px 10px 7px 10px
@@ -116,7 +111,4 @@
 				&:hover 
 					transition: opacity calc(0.2s * var(--transitionLength))
 					opacity: 0.8
-
-
-
 </style>
