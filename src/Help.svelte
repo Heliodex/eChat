@@ -90,9 +90,14 @@
 				background: var(--t3)
 				text-align: right
 
+
 		p
 			background: var(--main)
 			text-align: left
+
+
+
+
 
 	div p, p
 			color: white
