@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.3.0",
   "type": "module",
+  "packageManager": "pnpm@7.9.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,21 +11,21 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "@tsconfig/svelte": "^2.0.1",
-    "svelte": "^3.44.0",
-    "svelte-check": "^2.2.7",
-    "svelte-preprocess": "^4.9.8",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.4",
-    "vite": "^3.0.0-beta.6"
+    "svelte": "^3.49.0",
+    "svelte-check": "^2.8.0",
+    "svelte-preprocess": "^4.10.7",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.8"
   },
   "dependencies": {
     "centrifuge": "^2.8.5",
     "crypto-js": "^4.1.1",
-    "gsap": "^3.10.4",
+    "gsap": "^3.11.0",
     "node-sass": "^7.0.1",
     "nodejs-aes256": "^1.0.1",
-    "sass": "^1.52.1"
+    "sass": "^1.54.4"
   }
 }
