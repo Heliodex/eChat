@@ -126,7 +126,8 @@
 		<Settings />
 	{:else if error}
 		<main>
-			<h1>Oops!</h1>
+			<br /><br /><br />
+			<h1 id="error">Error</h1>
 			{#if navigator.onLine}
 				<p>
 					We can't connect to the eChat message servers.<br />
@@ -149,7 +150,7 @@
 					<em id="nomessages">{loadingMessage}</em>
 				{/if}
 				{#each messages as msg, i}
-					<ChatMessage {msg} {messages} {i}/>
+					<ChatMessage {msg} {messages} {i} />
 				{/each}
 				<br /><br /><br /><br bind:this={scrollBottom} />
 				<!-- Appears like too much margin in dev server, works fine when built -->
