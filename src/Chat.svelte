@@ -14,6 +14,11 @@
 	let username: string
 	let page = "chat"
 	let channel: any
+
+	let channelName: string
+	let previouslySubscribed: { [index: string]: object } = {}
+	// Holds all channels that have previously been subscribed to, prevent recreating a subscription
+
 	let loadingMessage = "Loading..."
 	let error = false
 
@@ -33,11 +38,20 @@
 			error = false
 			loadingMessage = "Loading..."
 
+			channelName = "chat:" + value["groupname"]
+
 			username = value["username"].trim()
 
 			headerText = value["groupname"]
 
-			channel = centrifuge.subscribe("chat:" + value["groupname"], function (message: any) {
+			if (!previouslySubscribed[channelName]) {
+				// Prevent from resubscribing
+				channel = centrifuge.newSubscription(channelName)
+			} else {
+				channel = previouslySubscribed[channelName]
+			}
+
+			channel.on("publication", function (message: any) {
 				// a different sort of "subscribe"
 				messages = [...messages, message["data"]] // Must be done to make the {#each messages} block update with the new message.
 				if (username) {
@@ -45,6 +59,8 @@
 					autoScroll()
 				}
 			})
+
+			channel.subscribe()
 
 			channel.history({ limit: parseInt($historyLength), reverse: true }).then(function (history: any): void {
 				let pubs = history["publications"].reverse()
@@ -55,12 +71,12 @@
 			})
 
 			if (messages.length == 0) {
-				let socket = new WebSocket("ws://echat.ddns.net:8000/connection/websocket")
+				let transport = new WebTransport("https://echat.ddns.net:8000/connection/webtransport")
 				let times = 0
 
 				const interval = setInterval(() => {
 					times += 1
-					if (socket.readyState == 1 || messages.length > 0) {
+					if (transport.ready || messages.length > 0) {
 						loadingMessage = "No messages"
 						clearInterval(interval)
 					} else if (times > 15) {
@@ -68,12 +84,15 @@
 						clearInterval(interval)
 					}
 				}, 100)
-			}
+			} // very very clunky solution to check whether there was an error or whether there were just 0 messages
 		}
 	})
 
 	function logout(): void {
 		channel.unsubscribe()
+		channel.removeAllListeners()
+		previouslySubscribed[channelName] = channel
+		channelName = ""
 		username = ""
 		messages = []
 		loginInfo.set({ groupname: "", username: $loginInfo["username"] })
