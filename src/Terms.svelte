@@ -38,7 +38,7 @@
 		<p>This agreement is governed by and constructed in accordance with the applicable laws of Scotland, England, Northern Ireland, and Wales. The domains https://echatapp.ml/ and https://echat.cf/ are solely governed by and constructed in accordance with the laws of the Central African Republic, Mali, or any entities connected with them, including connected corporations/companies such as SEDO, Société Centrafricaine de Télécommunications (SOCATEL), Point.ml, Dot.cf, or United Internet AG.</p>
 		<p>If any term of this agreement is adjudged to be invalid or unenforceable, such term shall in no way affect any other term of this agreement or the application of such term in any other circumstance or the validity or enforceability of this Agreement. The Parties will negotiate in good faith about a term that will replace the invalid or unenforceable term.</p>
 		<p>Please check these terms and conditions regularly. We may update them at any time without notice. You must agree to any changes if you continue to use eChat after the terms and conditions have been updated.</p>
-		<p>If you believe you know of someone/a group of people who have broken these terms or you want more information, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
+		<p>If you believe you know of someone/a group of people who have broken these terms or if you want more information, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
 		<em>Last updated: 6 May 2022</em>
 		<br /><br /><br />
 	</div>

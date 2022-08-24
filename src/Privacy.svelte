@@ -12,7 +12,7 @@
 		<h4>Security</h4>
 		<p>Messages are encrypted before sending, and are only decrypted after being received by a user in a message group. All messages are sent only to our server and to the users in your message group.</p>
 		<h4>Children under the age of 13</h4>
-		<p>We do not knowingly collect personally identifiable information from children under 13 years of age. In the case we discover that a child under the age of 13 has provided us with personal information without obtaining parental consent, we will delete this from our servers as soon as possible. If you are a parent or guardian and you are aware that your child has provided us with personal information without obtaining parental consent, please contact us so that we will be able to complete the necessary actions.</p>
+		<p>We do not knowingly collect personally identifiable information from children under 13 years of age without parental consent. In the case we discover that a child under the age of 13 has provided us with personal information without obtaining parental consent, we will delete this from our servers as soon as possible. If you are a parent or guardian and you are aware that your child has provided us with personal information without obtaining parental consent, please contact us so that we will be able to complete the necessary actions to remove their data.</p>
 		<h4>Third parties</h4>
 		<p>We do not allow any third party to collect personal information from our users. We do not work with any third parties and we do not sell our users' data to any third parties.</p>
 		<h4>GDPR</h4>
