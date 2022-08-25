@@ -25,7 +25,6 @@
     "centrifuge": "3.0.1",
     "crypto-js": "^4.1.1",
     "gsap": "^3.11.0",
-    "node-sass": "^7.0.1",
     "nodejs-aes256": "^1.0.1",
     "sass": "^1.54.4"
   }
