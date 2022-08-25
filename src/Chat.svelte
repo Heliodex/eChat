@@ -71,19 +71,24 @@
 			})
 
 			if (messages.length == 0) {
-				let transport = new WebTransport("https://echat.ddns.net:8000/connection/webtransport")
-				let times = 0
+				try {
+					let transport = new WebTransport("https://echat.ddns.net:8000/connection/webtransport")
+					let times = 0
 
-				const interval = setInterval(() => {
-					times += 1
-					if (transport.ready || messages.length > 0) {
-						loadingMessage = "No messages"
-						clearInterval(interval)
-					} else if (times > 15) {
-						error = true
-						clearInterval(interval)
-					}
-				}, 100)
+					const interval = setInterval(() => {
+						times += 1
+						if (transport.ready || messages.length > 0) {
+							loadingMessage = "No messages"
+							clearInterval(interval)
+						} else if (times > 15) {
+							error = true
+							clearInterval(interval)
+						}
+					}, 100)
+				} catch {
+					// Can't tell whether there is an error or not
+					loadingMessage = "Unknown connection state"
+				}
 			} // very very clunky solution to check whether there was an error or whether there were just 0 messages
 		}
 	})
