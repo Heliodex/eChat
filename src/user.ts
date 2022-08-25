@@ -4,8 +4,8 @@ import { writable } from "svelte/store"
 export const centrifuge = new Centrifuge(
 	[
 		{
-			transport: "websocket",
-			endpoint: "wss://echat.ddns.net:8000/connection/websocket",
+			transport: "webtransport",
+			endpoint: "https://echat.ddns.net:8000/connection/webtransport",
 		},
 	],
 	{
