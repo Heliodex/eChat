@@ -40,7 +40,7 @@
 			.replace(/\~([^\s]*?[^\~]*?[^\s])\~/g, "<del>$1</del>")
 			.replace(/\`([^\s]*?[^\`]*?[^\s])\`/g, "<code>$1</code>")
 			// Regex match link with or without whatever:// at start of string
-			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:\w+)?(\/\w+)*(.\w+)?(\w+)?(\?\w+)?(=\w+)?(#\w+)?\/?/gi, link)}
+			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:\d{1,5})?(\/\w+)?(\S+)?(\w+)?(\?\w+)?(=\w*)?(#\w+)?\/?/gi, link)}
 		<br />
 		<em>
 			{#if new Date(nextTimestamp).toTimeString().substring(0, 5) != new Date(timestamp).toTimeString().substring(0, 5)}
