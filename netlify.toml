@@ -4,9 +4,3 @@
 [build.environment]
 	NODE_VERSION = "18.8.0"
 	NPM_VERSION = "8.18.0"
-
-[[redirects]]
-	from = "https://echat.cf/*"
-	to = "https://echatapp.ml/*"
-	status = 301
-	force = true
