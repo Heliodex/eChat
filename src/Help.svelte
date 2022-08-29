@@ -10,7 +10,7 @@
 	<p>From the login page, enter a group name into the group name box. Then enter your desired username into the username box.</p>
 	<p>Once completed, click the join button below and your group should be created.</p>
 
-	<div><p>How do I make a username?</p></div>
+	<div><p>How do I change my username?</p></div>
 	<p>From the login page, enter a username into the username box.</p>
 	<p>Before clicking the join button, make sure you've entered a group name as well.</p>
 	<div><p>How do I join a message group?</p></div>
@@ -31,9 +31,9 @@
 	<div><p>How do I change my username?</p></div>
 	<p>To change your username, exit the message group that you're in. Then enter a different username into the username box and rejoin the message group. Before clicking the join button, make sure you've entered a group name.</p>
 
-	<div><p>What does the checkmark icon beside someone's username mean?</p></div>
+	<!-- <div><p>What does the checkmark icon beside someone's username mean?</p></div>
 	<p>The checkmark icon beside a username means that the user is one of the admins, owners, or developers of eChat.</p>
-	<p>If you see one, why not give them a suggestion about how to improve eChat?</p>
+	<p>If you see one, why not give them a suggestion about how to improve eChat?</p> -->
 
 	<div><p>How do I send images?</p></div>
 	<p>Currently eChat does not support the sending of messages containing images. Alternatively, you can send image sharing links on eChat.</p>
@@ -68,7 +68,7 @@
 	<p>To report a user, please contact our support team with their details such as their username and message groups they were active in.</p>
 
 	<div><p>How do I contact eChat's support team?</p></div>
-	<p>To contact our support team, please email us at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
+	<p>To contact our support team, email us at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
 	<br />
 </div>
 

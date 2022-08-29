@@ -96,7 +96,6 @@
 			</form>
 
 			<footer>
-				<br /><br />
 				By using eChat, you agree to the
 				<button
 					class="linkStyle"
@@ -111,10 +110,14 @@
 						page = "Privacy Policy"
 					}}>Privacy Policy</button
 				>
-				<!--
-					<em>eChat v1.0.0<br />
-					Released 25 May 2022</em>
-				-->
+				<br />
+				<br />
+				<br />
+
+				<em>
+					Version 1.0.0<br />
+					Last updated 29 August 2022<br />
+				</em>
 			</footer>
 		</main>
 	{/if}
