@@ -6,7 +6,7 @@
 <div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<div class="agreement">
 		<h4>Information collection and use</h4>
-		<p>For a better experience while using eChat, we use cookies to store your settings choices. These include your dark mode, message history length and theme colour choices. These choices are stored on your device and are never sent to eChat's servers.</p>
+		<p>For a better experience while using eChat, we use cookies to store your settings choices. These include your dark mode, message history length, and theme colour choices. These choices are stored on your device and are never sent to eChat's servers.</p>
 		<p>No personally identifying information such as location, device information, network information, or email addresses are collected by eChat.</p>
 		<p>Messages are stored temporarily on our servers, for a maximum period of 100 hours. Messages are only visible to other participants in the message group. Usernames are only stored alongside messages, and are not stored individually. Users of eChat are still allowed to screenshot, save, and copy any data that you send, but only in the ways outlined in the Terms of Service.</p>
 		<h4>Security</h4>
@@ -19,7 +19,7 @@
 		<p>Under GDPR Laws, you remain in control of your data. If for any reason you would like to retrieve or request deletion of your personal data, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
 		<p>Please check this privacy policy regularly. We may update it at any time without notice. You must agree to any changes if you continue to use eChat after the privacy policy has been updated.</p>
 		<p>If you have any questions, suggestions, or if you want more information, please contact our support team at <a href="mailto:help.echat@gmail.com">help.echat@gmail.com</a>.</p>
-		<em>Last updated 1 June 2022</em>
+		<em>Last updated 29 August 2022</em>
 		<br /><br /><br />
 	</div>
 </div>
