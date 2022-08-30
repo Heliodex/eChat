@@ -2,7 +2,7 @@
 	import { fade, fly } from "svelte/transition"
 	import aes from "crypto-js/aes"
 	import { loginInfo, centrifuge } from "./user"
-	import { historyLength, transitionLength } from "./settings"
+	import { historyLength, transitionLength, hideChannel } from "./settings"
 	import Login from "./Login.svelte"
 	import ChatMessage from "./ChatMessage.svelte"
 	import Settings from "./Settings.svelte"
@@ -123,7 +123,7 @@
 {#if username}
 	<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
-		<h2>{headerText}</h2>
+		<h2>{$hideChannel ? "eChat" : headerText}</h2>
 		<img
 			id="settings"
 			src="Settingsfill.svg"

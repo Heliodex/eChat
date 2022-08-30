@@ -1,16 +1,18 @@
 <script lang="ts">
 	import { fly } from "svelte/transition"
-	import { darkMode, theme, historyLength, transitionLength } from "./settings"
+	import { darkMode, theme, historyLength, transitionLength, hideChannel } from "./settings"
 
 	let darkModeInput = $darkMode
 	let themeInput = $theme
 	let historyLengthInput = $historyLength
 	let transitionLengthInput = $transitionLength
+	let hideChannelInput = $hideChannel
 
 	$: darkMode.set(darkModeInput)
 	$: theme.set(themeInput)
 	$: historyLength.set(historyLengthInput)
 	$: transitionLength.set(transitionLengthInput)
+	$: hideChannel.set(hideChannelInput)
 </script>
 
 <div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
@@ -18,7 +20,7 @@
 	<div class="agreement">
 		<label for="darkMode">Dark mode</label>
 		<input bind:checked={darkModeInput} type="checkbox" id="darkMode" />
-
+		
 		<label for="historyLength">Number of messages to load</label>
 		<div>
 			<input bind:value={historyLengthInput} type="range" min="0" max="100" />
@@ -39,6 +41,9 @@
 			<option value="green">Sea Green</option>
 			<option value="blue">Bubble Blue</option>
 		</select>
+
+		<label for="hideChannel">Hide channel name</label>
+		<input bind:checked={hideChannelInput} type="checkbox" id="hideChannel" />
 	</div>
 </div>
 
