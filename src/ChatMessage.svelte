@@ -11,7 +11,7 @@
 	const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 	const timestamp = new Date(messages[i].timestamp)
 	$: nextTimestamp = new Date(messages[i + 1]?.timestamp)
-	const groupName = $loginInfo["groupname"] // To prevent aes.decrypt from erroring while transitioning out
+	const groupName = $loginInfo["groupname"]?.toLowerCase() // To prevent aes.decrypt from erroring while transitioning out
 
 	let lastMessage = messages[i - 1]?.username != msg.username
 	// if the same user sent previous message
