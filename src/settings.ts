@@ -1,10 +1,11 @@
 import gsap from "gsap"
 import { writable, get } from "svelte/store"
 
-export const darkMode = writable(localStorage.getItem("darkMode") == "true" || false)
+export const darkMode = writable(localStorage.getItem("darkMode") == "true")
 export const theme = writable(localStorage.getItem("theme") || "green")
 export const historyLength = writable(localStorage.getItem("historyLength") || "100")
 export const transitionLength = writable(localStorage.getItem("transitionLength") || "1")
+export const hideChannel = writable(localStorage.getItem("hideChannel") == "true")
 
 // updating on first run (no animations)
 
