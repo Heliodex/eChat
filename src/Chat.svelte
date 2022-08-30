@@ -35,15 +35,14 @@
 
 	loginInfo.subscribe(value => {
 		if (value["username"]?.trim() && value["groupname"]?.trim()) {
-			let groupname = value["groupname"].toLowerCase()
 			error = false
 			loadingMessage = "Loading..."
 
-			channelName = "chat:" + groupname
+			channelName = "chat:" + value["groupname"]
 
 			username = value["username"].trim()
 
-			headerText = groupname
+			headerText = value["groupname"]
 
 			if (!previouslySubscribed[channelName]) {
 				// Prevent from resubscribing
@@ -107,9 +106,9 @@
 
 	async function sendMessage(): Promise<void> {
 		if (newMessage?.trim()) {
-			centrifuge.publish("chat:" + $loginInfo["groupname"]?.toLowerCase(), {
+			centrifuge.publish("chat:" + $loginInfo["groupname"], {
 				username: username,
-				text: aes.encrypt(newMessage.trim(), $loginInfo["groupname"]).toString().toLowerCase(),
+				text: aes.encrypt(newMessage.trim(), $loginInfo["groupname"]).toString(),
 				timestamp: new Date().getTime(),
 			})
 		}
