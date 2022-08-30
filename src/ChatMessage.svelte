@@ -11,9 +11,25 @@
 	const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 	const timestamp = new Date(messages[i].timestamp)
 	$: nextTimestamp = new Date(messages[i + 1]?.timestamp)
-	const groupName = $loginInfo["groupname"]?.toLowerCase() // To prevent aes.decrypt from erroring while transitioning out
+	const groupName = $loginInfo["groupname"] // To prevent aes.decrypt from erroring while transitioning out
 
 	let lastMessage = messages[i - 1]?.username != msg.username
+	let message: string
+	try {
+		message = aes
+			.decrypt(msg.text, groupName)
+			.toString(Utf8)
+			.replace(/[><]/g, deXSS)
+			.replace(/\*([^\s]*?[^\*]*?[^\s])\*/g, "<strong>$1</strong>")
+			.replace(/\^([^\s]*?[^\^]*?[^\s])\^/g, "<em>$1</em>")
+			.replace(/\_([^\s]*?[^\_]*?[^\s])\_/g, "<ins>$1</ins>")
+			.replace(/\~([^\s]*?[^\~]*?[^\s])\~/g, "<del>$1</del>")
+			.replace(/\`([^\s]*?[^\`]*?[^\s])\`/g, "<code>$1</code>")
+			// Regex match link with or without whatever:// at start of string
+			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:\d{1,5})?(\/\w+)?(\S+)?(\w+)?(\?\w+)?(=\w*)?(#\w+)?\/?/gi, link)
+	} catch (e) {
+		message = "[error receiving message]"
+	}
 	// if the same user sent previous message
 	function deXSS(x: string) {
 		return { "<": "&lt;", ">": "&gt;" }[x]
@@ -30,17 +46,7 @@
 <div class={userMessage ? "received" : "sent"} transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
 	<p class={lastMessage ? "lastMessage" : ""}>
 		{@html // Text stylising
-		aes
-			.decrypt(msg.text, groupName)
-			.toString(Utf8)
-			.replace(/[><]/g, deXSS)
-			.replace(/\*([^\s]*?[^\*]*?[^\s])\*/g, "<strong>$1</strong>")
-			.replace(/\^([^\s]*?[^\^]*?[^\s])\^/g, "<em>$1</em>")
-			.replace(/\_([^\s]*?[^\_]*?[^\s])\_/g, "<ins>$1</ins>")
-			.replace(/\~([^\s]*?[^\~]*?[^\s])\~/g, "<del>$1</del>")
-			.replace(/\`([^\s]*?[^\`]*?[^\s])\`/g, "<code>$1</code>")
-			// Regex match link with or without whatever:// at start of string
-			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:\d{1,5})?(\/\w+)?(\S+)?(\w+)?(\?\w+)?(=\w*)?(#\w+)?\/?/gi, link)}
+		message}
 		<br />
 		<em>
 			{#if new Date(nextTimestamp).toTimeString().substring(0, 5) != new Date(timestamp).toTimeString().substring(0, 5)}
@@ -72,7 +78,7 @@
 			text-align: right
 			margin-right: 0.5rem
 
-	.received 
+	.received
 		p
 			text-align: left
 			margin-left: 0.5rem
@@ -83,7 +89,7 @@
 
 	.lastMessage
 		margin-top: 1rem
-		
+
 	#username
 		position: absolute
 		margin-top: 0.1rem
@@ -98,7 +104,7 @@
 		display: flex
 		p
 			margin: 0
-			margin-top: 1px 
+			margin-top: 1px
 			border-radius: 20px
 			max-width: 260px
 			font-size: 0.9rem
@@ -108,7 +114,7 @@
 			:global(a) // Prevents sass being purged as unused
 				color: white
 				transition: opacity calc(0.2s * var(--transitionLength))
-				&:hover 
+				&:hover
 					transition: opacity calc(0.2s * var(--transitionLength))
 					opacity: 0.8
 </style>
