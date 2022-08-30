@@ -20,6 +20,9 @@
 	function login(): void {
 		if (canLogin) {
 			canLogin = false
+			if (loginInput.groupname) {
+				loginInput.groupname = loginInput.groupname.toLowerCase()
+			}
 			loginInfo.set(loginInput)
 			localStorage.setItem("username", String($loginInfo["username"]))
 			localStorage.setItem("groupname", String($loginInfo["groupname"]))
