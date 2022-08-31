@@ -8,7 +8,7 @@
 		<h4>Information collection and use</h4>
 		<p>For a better experience while using eChat, we use cookies to store your settings choices. These include your dark mode, message history length, and theme colour choices. These choices are stored on your device and are never sent to eChat's servers.</p>
 		<p>No personally identifying information such as location, device information, network information, or email addresses are collected by eChat.</p>
-		<p>Messages are stored temporarily on our servers, for a maximum period of 100 hours. Messages are only visible to other participants in the message group. Usernames are only stored alongside messages, and are not stored individually. Users of eChat are still allowed to screenshot, save, and copy any data that you send, but only in the ways outlined in the Terms of Service.</p>
+		<p>Messages are stored temporarily on our servers, a history of up to 100 per group. Messages are only visible to other participants in the message group. Usernames are only stored alongside messages, and are not stored individually. Users of eChat are still allowed to screenshot, save, and copy any data that you send, but only in the ways outlined in the Terms of Service.</p>
 		<h4>Security</h4>
 		<p>Messages are encrypted before sending, and are only decrypted after being received by a user in a message group. All messages are sent only to our server and to the users in your message group.</p>
 		<h4>Children under the age of 13</h4>
