@@ -7,16 +7,15 @@
 
 <div class="main" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<div><p>How do I create a message group?</p></div>
-	<p>From the login page, enter a group name into the group name box. Then enter your desired username into the username box.</p>
-	<p>Once completed, click the join button below and your group should be created.</p>
+	<p>From the login page, enter your desired username into the username box. You will be sent to the groups page, where you can press the button at the bottom to add a group.</p>
+	<p>Once completed, click the name of the group, and your group should be created.</p>
 
 	<div><p>How do I change my username?</p></div>
 	<p>From the login page, enter a username into the username box.</p>
-	<p>Before clicking the join button, make sure you've entered a group name as well.</p>
-	<div><p>How do I join a message group?</p></div>
 
-	<p>From the login page, enter the group name into the group name box. Then enter your desired username into the username box.</p>
-	<p>Once completed, click the join button below and you should join the message group.</p>
+	<div><p>How do I join a message group?</p></div>
+	<p>From the login page, enter your desired username into the username box. You will be sent to the groups page, where you can press the button at the bottom to add a group.</p>
+	<p>Once completed, click the name of the group, and you should join the message group.</p>
 
 	<div><p>How do I leave a message group?</p></div>
 	<p>To leave a message group, click the back button in the top left corner.</p>
@@ -52,7 +51,7 @@
 	<p>Once you have selected theme, you should see that the accent colour across eChat changes.</p>
 
 	<div><p>How do I change history length?</p></div>
-	<p>From the login page, or from in a chat group, click the settings icon in the top right corner. In settings, click and drag the message history length selector.</p>
+	<p>From the login page or from in a chat group, click the settings icon in the top right corner. In settings, click and drag the message history length selector.</p>
 	<p>This does not change history length for other users, only the number of messages loaded for you.</p>
 
 	<div><p>Why am I getting an error saying "We can't connect to the eChat message servers"?</p></div>
