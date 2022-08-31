@@ -11,14 +11,16 @@ export const hideChannel = writable(localStorage.getItem("hideChannel") == "true
 
 if (get(darkMode)) {
 	document.documentElement.style.setProperty("--p", "#777") // very very dry
-	document.documentElement.style.setProperty("--t1", "black")
+	document.documentElement.style.setProperty("--t0", "black")
+	document.documentElement.style.setProperty("--t1", "#111")
 	document.documentElement.style.setProperty("--t2", "#222")
 	document.documentElement.style.setProperty("--t3", "#777")
 	document.documentElement.style.setProperty("--t4", "white")
 	document.documentElement.style.setProperty("--d", "1")
 } else {
 	document.documentElement.style.setProperty("--p", "white")
-	document.documentElement.style.setProperty("--t1", "white")
+	document.documentElement.style.setProperty("--t0", "white")
+	document.documentElement.style.setProperty("--t1", "#111")
 	document.documentElement.style.setProperty("--t2", "#ccc")
 	document.documentElement.style.setProperty("--t3", "#aaa")
 	document.documentElement.style.setProperty("--t4", "black")
@@ -48,7 +50,7 @@ darkMode.subscribe(value => {
 	localStorage.setItem("darkMode", String(value))
 
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--p": value ? "#777" : "white" })
-	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t1": value ? "black" : "white" })
+	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t0": value ? "black" : "white" })
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t2": value ? "#222" : "#ccc" })
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t3": value ? "#777" : "#aaa" })
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t4": value ? "white" : "black" })

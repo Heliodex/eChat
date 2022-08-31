@@ -1,7 +1,7 @@
 :root
 	accent-color: var(--main)
 	color: var(--t4)
-	background: var(--t1)
+	background: var(--t0)
 
 header
 	background: var(--main)
@@ -19,7 +19,7 @@ header
 
 ::-webkit-scrollbar
 	&-track
-		background: var(--t1)
+		background: var(--t0)
 	&-thumb
 		background: var(--main)
 		&:hover
@@ -34,7 +34,7 @@ button
 		background: var(--main-dark)
 
 .inverted
-	background: var(--t1)
+	background: var(--t0)
 	color: var(--main)
 	&:hover, &:active
 		background: var(--t2)
@@ -67,3 +67,11 @@ input
 select, input
 	color: var(--t4)
 	background: var(--t2)
+
+.groupbutton
+	background: var(--t1)
+	color: var(--t4)
+	transition: background calc(0.2s * var(--transitionLength))
+	&:hover, &:active
+		transition: background calc(0.2s * var(--transitionLength))
+		background: var(--t2)
