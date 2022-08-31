@@ -126,7 +126,7 @@
 				<br />
 
 				<em>
-					Version 1.1.1<br />
+					Version 1.1.2<br />
 					Last updated 31 August 2022<br />
 				</em>
 			</footer>
