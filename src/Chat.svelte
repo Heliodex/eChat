@@ -11,6 +11,7 @@
 
 	let newMessage: string
 	let headerText: string
+	let numOnline: number
 	let username: string
 	let page = "chat"
 	let channel: any
@@ -51,18 +52,29 @@
 				channel = previouslySubscribed[channelName]
 			}
 
-			channel.on("publication", function (message: any) {
+			channel.on("publication", (message: any) => {
 				// a different sort of "subscribe"
 				messages = [...messages, message["data"]] // Must be done to make the {#each messages} block update with the new message.
+				console.log(message)
 				if (username) {
 					// prevent autoscroll being called many times before login
 					autoScroll()
 				}
 			})
 
-			channel.subscribe()
+			channel.on("join", () => {
+				numOnline++
+			})
+			channel.on("leave", () => {
+				numOnline--
+			})
 
-			channel.history({ limit: parseInt($historyLength), reverse: true }).then(function (history: any): void {
+			channel.subscribe()
+			channel.presence().then((presence: any) => {
+				numOnline = Object.keys(presence.clients).length
+			})
+
+			channel.history({ limit: parseInt($historyLength), reverse: true }).then((history: any): void => {
 				let pubs = history["publications"].reverse()
 				for (let i = 0; i < pubs.length; i++) {
 					messages = [...messages, pubs[i]["data"]] // anything outside "data" is not used right now
@@ -100,6 +112,7 @@
 		channelName = ""
 		username = ""
 		messages = []
+		numOnline = 0
 		loginInfo.set({ groupname: "", username: $loginInfo["username"] })
 		localStorage.setItem("groupname", "")
 	}
@@ -123,7 +136,12 @@
 {#if username}
 	<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
-		<h2>{$hideChannel ? "eChat" : headerText}</h2>
+		<div>
+			<h2>{$hideChannel ? "eChat" : headerText}</h2>
+			{#if numOnline}
+				<p>{numOnline} online</p>
+			{/if}
+		</div>
 		<img
 			id="settings"
 			src="Settingsfill.svg"
@@ -182,7 +200,7 @@
 		</main>
 
 		<form on:submit|preventDefault={sendMessage} transition:fly={{ y: 40, duration: 300 * parseFloat($transitionLength) }}>
-			<input type="text" placeholder="Send a message" bind:value={newMessage} maxlength="100" />
+			<input type="text" placeholder="Send a message" bind:value={newMessage} maxlength="150" />
 
 			<button on:mousedown={sendMessage}>
 				<img src="Send.svg" alt="Send message" />
@@ -196,6 +214,20 @@
 {/if}
 
 <style lang="sass">
+	header div
+		width: 75%
+		display: flex
+		flex-direction: column
+		h2, p
+			width: 100%
+			padding: 0
+			margin: 0
+		h2
+			margin-top: 5%
+		p
+			margin-top: -3%
+			font-size: 0.7rem
+
 	#settings
 		left: auto
 		right: 0
