@@ -6,6 +6,7 @@
 	import Privacy from "./Privacy.svelte"
 	import Settings from "./Settings.svelte"
 	import Help from "./Help.svelte"
+	import Groups from "./Groups.svelte"
 	import splashes from "./splashes.json"
 
 	let page: string
@@ -49,6 +50,7 @@
 			<h2>{page}</h2>
 		</header>
 	{/if}
+
 	{#if page == "Terms of Service"}
 		<Terms />
 	{:else if page == "Privacy Policy"}
@@ -57,6 +59,13 @@
 		<Settings />
 	{:else if page == "Help"}
 		<Help />
+	{:else if page == "Groups"}
+		<Groups
+			on:joined={event => {
+				loginInput.groupname = event.detail
+				login()
+			}}
+		/>
 	{:else}
 		<main transition:fade|local={{ duration: 500 * parseFloat($transitionLength) }}>
 			<button
@@ -86,16 +95,15 @@
 
 			<form on:submit|preventDefault={login}>
 				<div class="loginIcon">
-					<img src="Group.svg" alt="Group icon" />
-				</div>
-				<input placeholder="Group name" name="group" bind:value={loginInput["groupname"]} minlength="3" maxlength="16" spellcheck="false" />
-
-				<div class="loginIcon">
 					<img src="Account.svg" alt="Account icon" />
 				</div>
 				<input placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
 
-				<button on:mousedown={login}>Join</button>
+				<button
+					on:mousedown={() => {
+						page = "Groups"
+					}}>Join</button
+				>
 			</form>
 
 			<footer>
@@ -118,8 +126,8 @@
 				<br />
 
 				<em>
-					Version 1.0.2<br />
-					Last updated 30 August 2022<br />
+					Version 1.1.0<br />
+					Last updated 31 August 2022<br />
 				</em>
 			</footer>
 		</main>
@@ -149,7 +157,7 @@
 	#logo
 		user-select: none
 		margin-top: 6rem
-		margin-bottom: 3.5rem
+		margin-bottom: 4.5rem
 
 	#splash
 		font-size: 0.6rem
@@ -183,7 +191,7 @@
 	footer
 		font-size: 0.7rem
 		line-height: 1rem
-		margin: 5% 20%
+		margin: 15% 20%
 
 	.linkStyle
 		height: auto
