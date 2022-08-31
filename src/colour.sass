@@ -6,6 +6,8 @@
 header
 	background: var(--main)
 	color: white
+	p
+		color: white
 
 ::selection
 	background: var(--main-dark)
@@ -69,9 +71,9 @@ select, input
 	background: var(--t2)
 
 .groupbutton
-	background: var(--t1)
+	background: var(--t2)
 	color: var(--t4)
 	transition: background calc(0.2s * var(--transitionLength))
 	&:hover, &:active
 		transition: background calc(0.2s * var(--transitionLength))
-		background: var(--t2)
+		background: var(--t1)
