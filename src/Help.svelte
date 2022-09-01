@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { fly } from "svelte/transition"
 	import { transitionLength } from "./settings"
-
-	// Transition properties
 </script>
 
 <div class="main" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
@@ -93,10 +91,6 @@
 		p
 			background: var(--main)
 			text-align: left
-
-
-
-
 
 	div p, p
 			color: white
