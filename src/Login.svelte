@@ -7,6 +7,7 @@
 	import Settings from "./Settings.svelte"
 	import Help from "./Help.svelte"
 	import Groups from "./Groups.svelte"
+	import Changelog from "./Changelog.svelte"
 	import splashes from "./splashes.json"
 
 	let page: string
@@ -48,6 +49,16 @@
 				}}
 			/>
 			<h2>{page}</h2>
+			{#if page == "Help"}
+				<img
+					id="changelog"
+					src="changelog.svg"
+					alt="Settings button"
+					on:mousedown={() => {
+						page = "Changelog"
+					}}
+				/>
+			{/if}
 		</header>
 	{/if}
 
@@ -66,6 +77,8 @@
 				login()
 			}}
 		/>
+	{:else if page == "Changelog"}
+		<Changelog />
 	{:else}
 		<main transition:fade|local={{ duration: 500 * parseFloat($transitionLength) }}>
 			<button
