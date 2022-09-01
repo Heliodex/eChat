@@ -126,8 +126,8 @@
 				<br />
 
 				<em>
-					Version 1.1.2<br />
-					Last updated 31 August 2022<br />
+					Version 1.1.3<br />
+					Last updated 1 September 2022<br />
 				</em>
 			</footer>
 		</main>

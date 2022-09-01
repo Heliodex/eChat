@@ -1,18 +1,20 @@
 <script lang="ts">
 	import { fly } from "svelte/transition"
-	import { darkMode, theme, historyLength, transitionLength, hideChannel } from "./settings"
+	import { darkMode, theme, historyLength, transitionLength, hideChannel, superSecretSetting } from "./settings"
 
 	let darkModeInput = $darkMode
 	let themeInput = $theme
 	let historyLengthInput = $historyLength
 	let transitionLengthInput = $transitionLength
 	let hideChannelInput = $hideChannel
+	let superSecretSettingInput = false
 
 	$: darkMode.set(darkModeInput)
 	$: theme.set(themeInput)
 	$: historyLength.set(historyLengthInput)
 	$: transitionLength.set(transitionLengthInput)
 	$: hideChannel.set(hideChannelInput)
+	$: superSecretSetting.set(superSecretSettingInput)
 </script>
 
 <div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
@@ -20,7 +22,7 @@
 	<div class="agreement">
 		<label for="darkMode">Dark mode</label>
 		<input bind:checked={darkModeInput} type="checkbox" id="darkMode" />
-		
+
 		<label for="historyLength">Number of messages to load</label>
 		<div>
 			<input bind:value={historyLengthInput} type="range" min="0" max="100" />
@@ -44,6 +46,14 @@
 
 		<label for="hideChannel">Hide channel name</label>
 		<input bind:checked={hideChannelInput} type="checkbox" id="hideChannel" />
+
+		<br /><br />
+		<br /><br /><br /><br />
+		<br /><br /><br /><br />
+
+		<label for="hideChannel">Super secret setting</label>
+		<input bind:checked={superSecretSettingInput} type="checkbox" id="hideChannel" />
+		<br /><br /><br />
 	</div>
 </div>
 
