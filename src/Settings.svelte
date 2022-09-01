@@ -44,7 +44,7 @@
 			<option value="blue">Bubble Blue</option>
 		</select>
 
-		<label for="hideChannel">Hide channel name</label>
+		<label for="hideChannel">Hide group name</label>
 		<input bind:checked={hideChannelInput} type="checkbox" id="hideChannel" />
 
 		<br /><br />
