@@ -31,7 +31,7 @@
 
 	h3
 		margin-top: 3rem
-		color: var(--main)
+		
 	.scrollable
 		width: 100%
 </style>
