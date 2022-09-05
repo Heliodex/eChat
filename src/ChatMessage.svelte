@@ -4,22 +4,24 @@
 	import Utf8 from "crypto-js/enc-utf8"
 	import { loginInfo } from "./user"
 	import { transitionLength } from "./settings"
-	export let msg: any
 	export let messages: any[]
+	export let msg: any
 	export let i: number
 
 	const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 	const timestamp = new Date(messages[i].timestamp)
 	$: nextTimestamp = new Date(messages[i + 1]?.timestamp)
-	const groupName = $loginInfo["groupname"] // To prevent aes.decrypt from erroring while transitioning out
+	const groupName = $loginInfo.groupname // To prevent aes.decrypt from erroring while transitioning out
 
-	let lastMessage = messages[i - 1]?.username != msg.username
+	let lastMessage = messages[i - 1]?.username != msg.username || messages[i - 1]?.verified != msg.verified
 	let message: string
 	try {
 		message = aes
 			.decrypt(msg.text, groupName)
 			.toString(Utf8)
-			.replace(/[><]/g, deXSS)
+			.replace(/[><]/g, (x: string) => {
+				return { "<": "&lt;", ">": "&gt;" }[x]
+			})
 			.replace(/\*([^\s]*?[^\*]*?[^\s])\*/g, "<strong>$1</strong>")
 			.replace(/\^([^\s]*?[^\^]*?[^\s])\^/g, "<em>$1</em>")
 			.replace(/\_([^\s]*?[^\_]*?[^\s])\_/g, "<ins>$1</ins>")
@@ -30,20 +32,17 @@
 	} catch (e) {
 		message = "[error receiving message]"
 	}
-	// if the same user sent previous message
-	function deXSS(x: string) {
-		return { "<": "&lt;", ">": "&gt;" }[x]
-	}
 
 	function link(x: string) {
-		return `<a href="${/^(\w+:\/\/)+/gi.test(x) ? "" : "https://"}${x}" target="_blank">${x}</a>`
 		// Regex only matches whatever:// at start of string
+		return `<a href="${/^(\w+:\/\/)+/gi.test(x) ? "" : "https://"}${x}" target="_blank">${x}</a>`
 	}
 
-	$: userMessage = msg.username != $loginInfo["username"]?.toString()
+	// if the current user sent previous message
+	$: userMessage = msg.username == $loginInfo.username?.toString() && Boolean(msg.verified) == $loginInfo.verified
 </script>
 
-<div class={userMessage ? "received" : "sent"} transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
+<div class={userMessage ? "sent" : "received"} transition:fly={{ x: userMessage ? -100 : 100, duration: 300 * parseFloat($transitionLength) }}>
 	<p class={lastMessage ? "lastMessage" : ""}>
 		{@html // Text stylising
 		message}
@@ -53,19 +52,20 @@
 				{week[timestamp.getDay()]}
 				{timestamp.toTimeString().substring(0, 5)}
 			{/if}
+			<!--
+				DocSocial much
+				but {timestamp.getHours()}:{timestamp.getMinutes()} gives bad time, like 23:6
+			-->
 		</em>
 	</p>
 </div>
-<em id="username" transition:fly={{ x: userMessage ? 100 : -100, duration: 300 * parseFloat($transitionLength) }}>
-	{#if userMessage && messages[i + 1]?.username != msg.username}
-		<!-- <img src="Verified.svg" alt="Verified user" /> -->
+<em id="username" transition:fly={{ x: userMessage ? -100 : 100, duration: 300 * parseFloat($transitionLength) }}>
+	{#if !userMessage && (messages[i + 1]?.username != msg.username || messages[i + 1]?.verified != msg.verified)}
+		{#if msg.verified}
+			<img src="Verified.svg" alt="Verified user" />
+		{/if}
 		{msg.username}
 	{/if}
-
-	<!--
-		DocSocial much
-		but {timestamp.getHours()}:{timestamp.getMinutes()} gives bad time, like 23:6
-	-->
 </em>
 
 <style lang="sass">
