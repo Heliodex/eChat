@@ -26,7 +26,7 @@
 				<button
 					class="add"
 					on:mousedown={() => {
-						groups = groups.filter(e => { // "PaRAmEteR e implICITLY HaS AN anY TYPe" shut up
+						groups = groups.filter(e => { // "PaRAmEteR 'e' implICITLY HaS AN 'anY' TYPe." shut up
 							return e != group
 						})
 						localStorage.setItem("groups", JSON.stringify(groups))

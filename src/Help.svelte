@@ -28,9 +28,9 @@
 	<div><p>How do I change my username?</p></div>
 	<p>To change your username, exit the message group that you're in. Then enter a different username into the username box and rejoin the message group. Before clicking the join button, make sure you've entered a group name.</p>
 
-	<!-- <div><p>What does the checkmark icon beside someone's username mean?</p></div>
+	<div><p>What does the checkmark icon beside someone's username mean?</p></div>
 	<p>The checkmark icon beside a username means that the user is one of the admins, owners, or developers of eChat.</p>
-	<p>If you see one, why not give them a suggestion about how to improve eChat?</p> -->
+	<p>If you see one, why not give them a suggestion about how to improve eChat?</p>
 
 	<div><p>How do I send images?</p></div>
 	<p>Currently eChat does not support the sending of messages containing images. Alternatively, you can send image sharing links on eChat.</p>

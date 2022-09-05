@@ -35,15 +35,15 @@
 	}
 
 	loginInfo.subscribe(value => {
-		if (value["username"]?.trim() && value["groupname"]?.trim()) {
+		if (value.username?.trim() && value.groupname?.trim()) {
 			error = false
 			loadingMessage = "Loading..."
 
-			channelName = "chat:" + value["groupname"]
+			channelName = "chat:" + value.groupname
 
-			username = value["username"].trim()
+			username = value.username.trim()
 
-			headerText = value["groupname"]
+			headerText = value.groupname
 
 			if (!previouslySubscribed[channelName]) {
 				// Prevent from resubscribing
@@ -55,7 +55,6 @@
 			channel.on("publication", (message: any) => {
 				// a different sort of "subscribe"
 				messages = [...messages, message["data"]] // Must be done to make the {#each messages} block update with the new message.
-				console.log(message)
 				if (username) {
 					// prevent autoscroll being called many times before login
 					autoScroll()
@@ -113,15 +112,15 @@
 		username = ""
 		messages = []
 		numOnline = 0
-		loginInfo.set({ groupname: "", username: $loginInfo["username"] })
+		loginInfo.set({ groupname: "", username: $loginInfo.username, verified: false })
 		localStorage.setItem("groupname", "")
 	}
 
 	async function sendMessage(): Promise<void> {
 		if (newMessage?.trim()) {
-			centrifuge.publish("chat:" + $loginInfo["groupname"], {
+			centrifuge.publish("chat:" + $loginInfo.groupname, {
 				username: username,
-				text: aes.encrypt(newMessage.trim(), $loginInfo["groupname"]).toString(),
+				text: aes.encrypt(newMessage.trim(), $loginInfo.groupname).toString(),
 				timestamp: new Date().getTime(),
 			})
 		}
@@ -191,11 +190,11 @@
 					<br />
 					<em id="nomessages">{loadingMessage}</em>
 				{/if}
+
 				{#each messages as msg, i}
-					<ChatMessage {msg} {messages} {i} />
+					<ChatMessage {messages} {msg} {i} />
 				{/each}
 				<br /><br /><br /><br bind:this={scrollBottom} />
-				<!-- Appears like too much margin in dev server, works fine when built -->
 			</main>
 		</main>
 

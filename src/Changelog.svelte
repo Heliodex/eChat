@@ -5,10 +5,12 @@
 
 <div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<div class="agreement">
+		<h4>1.1.4: 5 September 2022</h4>
+		<p>- Added verified users to prevent impersonation of admins.</p>
 		<h4>1.1.3: 1 September 2022</h4>
-		<p>- Add changelog page in help page (sup)</p>
+		<p>- Added changelog page in help page (sup)</p>
 		<h4>1.1.2: 1 September 2022</h4>
-		<p>- Add new setting in settings menu...</p>
+		<p>- Added new setting in settings menu...</p>
 		<h4>1.1.1: 31 August 2022</h4>
 		<p>- Number of users online is now shown in header while in a group</p>
 		<p>- Max message length increased from 100 to 150 characters</p>
@@ -17,7 +19,7 @@
 		<h4>1.0.2: 30 August 2022</h4>
 		<p>- All group names now must be in lowercase</p>
 		<h4>1.0.1: 30 August 2022</h4>
-		<p>- Add option to hide group name from header</p>
+		<p>- Added option to hide group name from header</p>
 		<h3>1.0.0: 29 August 2022</h3>
 		<p>- eChat's full release!!</p>
 		<br /><br />

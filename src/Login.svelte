@@ -26,8 +26,8 @@
 				loginInput.groupname = loginInput.groupname.toLowerCase()
 			}
 			loginInfo.set(loginInput)
-			localStorage.setItem("username", String($loginInfo["username"]))
-			localStorage.setItem("groupname", String($loginInfo["groupname"]))
+			localStorage.setItem("username", String($loginInfo.username))
+			localStorage.setItem("groupname", String($loginInfo.groupname))
 			canLogin = true
 		}
 	}
@@ -110,7 +110,7 @@
 				<div class="loginIcon">
 					<img src="Account.svg" alt="Account icon" />
 				</div>
-				<input placeholder="Username" name="username" bind:value={loginInput["username"]} minlength="3" maxlength="16" spellcheck="false" />
+				<input placeholder="Username" name="username" bind:value={loginInput.username} minlength="3" maxlength="16" spellcheck="false" />
 
 				<button
 					on:mousedown={() => {
@@ -139,8 +139,8 @@
 				<br />
 
 				<em>
-					Version 1.1.3<br />
-					Last updated 1 September 2022<br />
+					Version 1.1.4<br />
+					Last updated 5 September 2022<br />
 				</em>
 			</footer>
 		</main>
