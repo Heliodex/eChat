@@ -74,6 +74,7 @@
 		<Groups
 			on:joined={event => {
 				loginInput.groupname = event.detail
+				loginInput.verified = true
 				login()
 			}}
 		/>
@@ -141,6 +142,7 @@
 				<em>
 					Version 1.1.4<br />
 					Last updated 5 September 2022<br />
+					DEVELOPMENT VERSION
 				</em>
 			</footer>
 		</main>

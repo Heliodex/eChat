@@ -122,6 +122,7 @@
 				username: username,
 				text: aes.encrypt(newMessage.trim(), $loginInfo.groupname).toString(),
 				timestamp: new Date().getTime(),
+				verified: true,
 			})
 		}
 		newMessage = ""

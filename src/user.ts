@@ -16,5 +16,5 @@ export const centrifuge = new Centrifuge(
 export const loginInfo = writable({
 	groupname: localStorage.getItem("groupname"),
 	username: localStorage.getItem("username"),
-	verified: false
+	verified: true
 })
