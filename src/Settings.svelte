@@ -42,6 +42,8 @@
 			<option value="orange">Juicy Orange</option>
 			<option value="green">Sea Green</option>
 			<option value="blue">Bubble Blue</option>
+			<option value="indigo">Midnight Indigo</option>
+			<option value="red">Rose Red</option>
 		</select>
 
 		<label for="hideChannel">Hide group name</label>
@@ -91,6 +93,11 @@
 		&:hover, &:focus
 			transition: opacity calc(0.2s * var(--transitionLength))
 			opacity: 0.8
+	
+	select
+		width: 150px
+		option
+			width: 150px
 
 	select, input[type=range], input[type=checkbox]
 		cursor: pointer

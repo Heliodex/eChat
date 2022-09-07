@@ -139,8 +139,8 @@
 				<br />
 
 				<em>
-					Version 1.1.4<br />
-					Last updated 5 September 2022<br />
+					Version 1.1.5<br />
+					Last updated 7 September 2022<br />
 				</em>
 			</footer>
 		</main>
