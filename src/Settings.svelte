@@ -58,8 +58,11 @@
 </div>
 
 <style lang="sass">
-	div
-		width: 100%
+	label
+		width: 75vw
+
+	.scrollable
+		width: 100vw
 
 	label
 		user-select: none
