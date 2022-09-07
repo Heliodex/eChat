@@ -28,36 +28,20 @@ if (get(darkMode)) {
 	document.documentElement.style.setProperty("--d", "0")
 }
 
-switch (get(theme)) {
-	case "green":
-		document.documentElement.style.setProperty("--main", "#31a47e")
-		document.documentElement.style.setProperty("--main-dark", "#31837e")
-		break
-	case "blue":
-		document.documentElement.style.setProperty("--main", "#31a4fe")
-		document.documentElement.style.setProperty("--main-dark", "#3183fe")
-		break
-	case "orange":
-		document.documentElement.style.setProperty("--main", "#fea431")
-		document.documentElement.style.setProperty("--main-dark", "#fe8331")
-		break
+const themes: any = {
+	green: ["#31a47e", "#31837e"],
+	blue: ["#31a4fe", "#3183fe"],
+	orange: ["#fea431", "#fe8831"],
+	indigo: ["#2a3a8a", "#1a2a77"],
+	red: ["#be0031", "#7e0031"],
 }
 
+document.documentElement.style.setProperty("--main", themes[get(theme)][0])
+document.documentElement.style.setProperty("--main-dark", themes[get(theme)][1])
+
 function changeTheme(themeValue: string) {
-	switch (themeValue) {
-		case "green":
-			gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main": "#31a47e" })
-			gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main-dark": "#31837e" })
-			break
-		case "blue":
-			gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main": "#31a4fe" })
-			gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main-dark": "#3183fe" })
-			break
-		case "orange":
-			gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main": "#fea431" })
-			gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main-dark": "#fe8831" })
-			break
-	}
+	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main": themes[themeValue][0] })
+	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--main-dark": themes[themeValue][1] })
 }
 
 document.documentElement.style.setProperty("--transitionLength", get(transitionLength))

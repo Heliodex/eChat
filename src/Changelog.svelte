@@ -5,6 +5,8 @@
 
 <div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<div class="agreement">
+		<h4>1.1.5: 7 September 2022</h4>
+		<p>- Added new themes: Midnight Indigo and Rose Red</p>
 		<h4>1.1.4: 5 September 2022</h4>
 		<p>- Added verified users to prevent impersonation of admins.</p>
 		<h4>1.1.3: 1 September 2022</h4>
