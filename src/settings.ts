@@ -15,7 +15,7 @@ if (get(darkMode)) {
 	document.documentElement.style.setProperty("--t0", "black")
 	document.documentElement.style.setProperty("--t1", "#171717")
 	document.documentElement.style.setProperty("--t2", "#272727")
-	document.documentElement.style.setProperty("--t3", "#777")
+	document.documentElement.style.setProperty("--t3", "#555")
 	document.documentElement.style.setProperty("--t4", "white")
 	document.documentElement.style.setProperty("--d", "1")
 } else {
@@ -138,7 +138,7 @@ darkMode.subscribe(value => {
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t0": value ? "black" : "white" })
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t1": value ? "#171717" : "#ddd" })
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t2": value ? "#272727" : "#ccc" })
-	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t3": value ? "#777" : "#aaa" })
+	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t3": value ? "#555" : "#aaa" })
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--t4": value ? "white" : "black" })
 	gsap.to(":root", { duration: 0.3 * parseFloat(get(transitionLength)), "--d": value ? "1" : "0" })
 })
