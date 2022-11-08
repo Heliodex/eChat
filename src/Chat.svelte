@@ -136,7 +136,13 @@
 	<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
 		<img src="Backfill.svg" alt="Logout button" on:mousedown={logout} />
 		<div>
-			<h2>{$hideChannel ? "eChat" : headerText}</h2>
+			<h2>
+				{#if $hideChannel}
+					eChat
+				{:else}
+					{headerText}
+				{/if}
+			</h2>
 			{#if numOnline}
 				<p>{numOnline} online</p>
 			{/if}
