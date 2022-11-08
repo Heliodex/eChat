@@ -141,6 +141,10 @@ transitionLength.subscribe(value => {
 	document.documentElement.style.setProperty("--transitionLength", value)
 })
 
+hideChannel.subscribe(value => {
+	localStorage.setItem("hideChannel", value.toString())
+})
+
 superSecretSetting.subscribe(value => {
 	if (value) {
 		const rand = Math.floor(Math.random() * superSecretSettings.length)
