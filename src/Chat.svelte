@@ -83,7 +83,7 @@
 
 			if (messages.length == 0) {
 				try {
-					let transport = new WebTransport("https://echat.ddns.net:8000/connection/webtransport")
+					let transport = new WebTransport("https://YOUR_DOMAIN:8000/connection/webtransport")
 					let times = 0
 
 					const interval = setInterval(() => {
@@ -122,6 +122,7 @@
 				username: username,
 				text: aes.encrypt(newMessage.trim(), $loginInfo.groupname).toString(),
 				timestamp: new Date().getTime(),
+				// verified: true, // add for checkmark (not secure)
 			})
 		}
 		newMessage = ""

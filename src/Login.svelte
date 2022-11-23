@@ -74,6 +74,7 @@
 		<Groups
 			on:joined={event => {
 				loginInput.groupname = event.detail
+				// loginInput.verified = true // add for checkmark (not secure)
 				login()
 			}}
 		/>

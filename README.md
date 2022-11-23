@@ -1,48 +1,49 @@
-# Svelte + TS + Vite
+# eChat
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+eChat is a simple chat app built as the successor to DocSocial. **It is just as insecure as DocSocial as well.**
 
-## Recommended IDE Setup
+eChat consits of two parts: the server (/Server) and the client (/).
+The server constists of 2 docker containers: A [Centrifugo](https://centrifugal.dev/) instance, connected to a [Redis](https://redis.io) database for (not reliably) saving messages.
+The client is a [Svelte](https://svelte.dev/) app that connects to the server via [Centrifuge.js](https://github.com/centrifugal/centrifuge-js) with WebTransport.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## Running the server
 
-## Need an official Svelte framework?
+You will need:
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+- A server
+- Latest version of Docker installed
 
-## Technical considerations
+Instructions:
 
-**Why use this over SvelteKit?**
+- Clone the contents of the Server directory to the server
+- Replace every instance of "YOUR_DOMAIN" with a domain pointing to the server and forward port 8000
+- Install the latest version of the [Centrifugo](https://github.com/centrifugal/centrifugo/releases/) binary in the same directory if you don't have it already
+- Run the Centrifugo binary with the `genconfig` argument to generate a config.json file, and replace the Secrets in the config.yml file with the newly generated ones
+- Run the Centrifugo binary with the arguments `gentoken -u 1` to generate a token, save this for later
+- Follow [Centrifugo's instructions](https://centrifugal.dev/docs/server/tls/) on how to set up TLS (Required due to WebTransport, edit docker-compose.yml if not using Let's Encrypt)
+- Configure any other files to your liking
+- Run `docker compose up` in the same directory to run the containers
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-  `vite dev` and `vite build` wouldn't work in a SvelteKit environment, for example.
+## Running the client
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+You will need:
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+- Latest version of NodeJS installed
+- Latest version of npm installed
+- A terminal
+- A modern web browser
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+Instructions:
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+- Clone the repository to your local machine
+- Open a terminal and navigate to the directory of the repository
+- Run `npm i -g pnpm` to install pnpm if you do not already have it
+- Run `pnpm i` to install all dependencies
+- Replace every instance of "YOUR_DOMAIN" with the same domain used when setting up the server
+- Replace "YOUR_TOKEN" in user.ts with the token generated when setting up the server.
 
-**Why include `.vscode/extensions.json`?**
+To start a local dev server, run `pnpm run dev` and navigate to the link shown in the terminal (remember to use HTTPS!). Upon saving a file, your changes will be shown in the web browser.
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+**The app's styling only works correctly at a resolution of 375x500!** This is because the app was originally designed for use in a browser extension.
 
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+To build for production, run `pnpm run build`, then `pnpm run preview` (or `pnpm run buildview`) to preview the final site.

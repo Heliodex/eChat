@@ -5,16 +5,16 @@ export const centrifuge = new Centrifuge(
 	[
 		{
 			transport: "webtransport",
-			endpoint: "https://echat.ddns.net:8000/connection/webtransport",
+			endpoint: "https://YOUR_DOMAIN:8000/connection/webtransport",
 		},
 	],
 	{
-		token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM3MjIiLCJleHAiOjE5NTI2NjQyMzN9.G2qQL1Vsr9jv1_UDM2dnoTIVjyxK2m6yu7rgMtSGnhQ",
+		token: "YOUR_TOKEN", // ./centrifugo gentoken -u 1 (https://centrifugal.dev/docs/getting-started/quickstart)
 	}
 )
 
 export const loginInfo = writable({
 	groupname: localStorage.getItem("groupname"),
 	username: localStorage.getItem("username"),
-	verified: false
+	verified: false, // change to true for checkmark (not secure)
 })

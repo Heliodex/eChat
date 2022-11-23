@@ -7,8 +7,10 @@ export default defineConfig({
 	plugins: [svelte(), mkcert()],
 	server: {
 		https: true,
-		watch: {
-			usePolling: true
-		}
+		// watch: {
+		// 	usePolling: true
+		// }
+		
+		// Uncomment if you experience problems with HMR
 	}
 })
