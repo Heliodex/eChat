@@ -1,0 +1,55 @@
+version: "3"
+
+#volumes:
+#  prometheus-data:
+#    driver: local
+#  grafana-data:
+#    driver: local
+
+services:
+  redis:
+    container_name: redis
+    image: redis
+    command: redis-server --port 6969
+    network_mode: host
+    restart: unless-stopped
+
+  echat:
+    container_name: echat
+    image: centrifugo/centrifugo
+    volumes:
+      - ./config.yml:/centrifugo/config.yml
+      - /etc/letsencrypt/live/YOUR_DOMAIN/fullchain.pem:/centrifugo/cert.pem
+      - /etc/letsencrypt/live/YOUR_DOMAIN/privkey.pem:/centrifugo/cert-key.pem
+
+    command: centrifugo -c config.yml
+#    ports:
+#      - 8000:8000
+
+    network_mode: host
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+
+    restart: unless-stopped
+
+# 2022/11/08
+# eChat doesnt need to be monitored 24/7 (because it dead)
+# plus grafana is too difficult to configure
+
+#  prometheus:
+#   container_name: prometheus
+#    image: prom/prometheus
+#    volumes:
+#      - ./prometheus:/prometheus-config
+#      - /etc/letsencrypt/live/YOUR_DOMAIN/fullchain.pem:/prometheus-config/cert.pem
+#      - /etc/letsencrypt/live/YOUR_DOMAIN/privkey.pem:/prometheus-config/cert-key.pem
+#      - prometheus-data:/prometheus
+#    command:
+#      - "--config.file=/prometheus-config/prometheus.yml"
+#        #--web.config.file=/prometheus-config/web-config.yml"
+#
+#  grafana:
+#    container_name: grafana
+#    image: grafana/grafana

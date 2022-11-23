@@ -1,0 +1,9 @@
+global:
+    scrape_interval: 5s
+
+scrape_configs:
+    - job_name: echat
+      scheme: https
+      static_configs:
+          - targets: ["YOUR_DOMAIN:8000"]
+      metrics_path: "/metrics"
