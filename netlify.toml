@@ -1,6 +1,0 @@
-[build]
-	publish = "dist/"
-
-[build.environment]
-	NODE_VERSION = "18.8.0"
-	NPM_VERSION = "8.18.0"
