@@ -53,8 +53,8 @@
 		<br /><br /><br /><br />
 		<br /><br /><br /><br />
 
-		<label for="hideChannel">Super secret setting</label>
-		<input bind:checked={superSecretSettingInput} type="checkbox" id="hideChannel" />
+		<label for="superSecretSetting">Super secret setting</label>
+		<input bind:checked={superSecretSettingInput} type="checkbox" id="superSecretSetting" />
 		<br /><br /><br />
 	</div>
 </div>
