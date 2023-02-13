@@ -1,4 +1,4 @@
-# eChat
+<img src="/public/green.svg" height="69" alt="eChat logo" />
 
 eChat is a simple chat app built as the successor to DocSocial. **It is just as insecure as DocSocial as well.**
 
