@@ -25,7 +25,7 @@
 
 	let scrollBottom: any
 
-	function autoScroll(): void {
+	function autoScroll() {
 		requestAnimationFrame(() =>
 			scrollBottom?.scrollIntoView({
 				//behavior: "smooth"
@@ -45,45 +45,44 @@
 
 			headerText = value.groupname
 
-			if (!previouslySubscribed[channelName]) {
-				// Prevent from resubscribing
-				channel = centrifuge.newSubscription(channelName)
-			} else {
-				channel = previouslySubscribed[channelName]
-			}
+			channel = previouslySubscribed[channelName]
+				? previouslySubscribed[channelName]
+				: // Prevent from resubscribing
+				  centrifuge.newSubscription(channelName)
 
 			channel.on("publication", (message: any) => {
 				// a different sort of "subscribe"
-				messages = [...messages, message["data"]] // Must be done to make the {#each messages} block update with the new message.
-				if (username) {
+				messages.push(message["data"])
+				messages = messages // Must be done to make the {#each messages} block update with the new message.
+				if (username)
 					// prevent autoscroll being called many times before login
 					autoScroll()
-				}
 			})
 
-			channel.on("join", () => {
-				numOnline++
-			})
-			channel.on("leave", () => {
-				numOnline--
-			})
+			channel.on("join", () => numOnline++)
+			channel.on("leave", () => numOnline--)
 
 			channel.subscribe()
 			channel.presence().then((presence: any) => {
 				numOnline = Object.keys(presence.clients).length
 			})
 
-			channel.history({ limit: parseInt($historyLength), reverse: true }).then((history: any): void => {
-				let pubs = history["publications"].reverse()
-				for (let i = 0; i < pubs.length; i++) {
-					messages = [...messages, pubs[i]["data"]] // anything outside "data" is not used right now
-				}
-				autoScroll()
-			})
+			channel
+				.history({ limit: parseInt($historyLength), reverse: true })
+				.then((history: any) => {
+					let pubs = history["publications"].reverse()
+					for (let i = 0; i < pubs.length; i++) {
+						messages.push(pubs[i]["data"]) // anything outside "data" is not used right now
+						messages = messages
+					}
+					autoScroll()
+				})
 
 			if (messages.length == 0) {
 				try {
-					let transport = new WebTransport("https://YOUR_DOMAIN:8000/connection/webtransport")
+					const transport = new WebTransport(
+						"https://YOUR_DOMAIN:8000/connection/webtransport"
+					)
 					let times = 0
 
 					const interval = setInterval(() => {
@@ -104,7 +103,7 @@
 		}
 	})
 
-	function logout(): void {
+	function logout() {
 		channel.unsubscribe()
 		channel.removeAllListeners()
 		previouslySubscribed[channelName] = channel
@@ -112,15 +111,21 @@
 		username = ""
 		messages = []
 		numOnline = 0
-		loginInfo.set({ groupname: "", username: $loginInfo.username, verified: false })
+		loginInfo.set({
+			groupname: "",
+			username: $loginInfo.username,
+			verified: false,
+		})
 		localStorage.setItem("groupname", "")
 	}
 
-	async function sendMessage(): Promise<void> {
+	async function sendMessage() {
 		if (newMessage?.trim()) {
 			centrifuge.publish("chat:" + $loginInfo.groupname, {
 				username: username,
-				text: aes.encrypt(newMessage.trim(), $loginInfo.groupname).toString(),
+				text: aes
+					.encrypt(newMessage.trim(), $loginInfo.groupname)
+					.toString(),
 				timestamp: new Date().getTime(),
 				// verified: true, // add for checkmark (not secure)
 			})
@@ -152,39 +157,41 @@
 			id="settings"
 			src="Settingsfill.svg"
 			alt="Settings button"
-			on:mousedown={() => {
-				page = "Settings"
-			}}
-		/>
+			on:mousedown={() => (page = "Settings")} />
 	</header>
 {/if}
 
 {#if username}
 	{#if page == "Settings"}
-		<header transition:fade={{ duration: 200 * parseFloat($transitionLength) }}>
+		<header
+			transition:fade={{
+				duration: 200 * parseFloat($transitionLength),
+			}}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"
-				on:mousedown={() => {
-					page = "chat"
-				}}
-			/>
+				on:mousedown={() => (page = "chat")} />
 			<h2>Settings</h2>
 		</header>
 		<Settings />
 	{:else if error}
 		<main>
-			<br /><br /><br />
+			<br />
+			<br />
+			<br />
 			<h1 id="error">Error</h1>
 			{#if navigator.onLine}
 				<p>
-					We can't connect to the eChat message servers.<br />
+					We can't connect to the eChat message servers.
 					<br />
-					Please try again later, and contact eChat support if the problem persists.
+					<br />
+					Please try again later, and contact eChat support if the problem
+					persists.
 				</p>
 			{:else}
 				<p>
-					It looks like you aren't connected to the internet.<br />
+					It looks like you aren't connected to the internet.
+					<br />
 					<br />
 					Please reconnect to the internet and try again.
 				</p>
@@ -201,12 +208,24 @@
 				{#each messages as msg, i}
 					<ChatMessage {messages} {msg} {i} />
 				{/each}
-				<br /><br /><br /><br bind:this={scrollBottom} />
+				<br />
+				<br />
+				<br />
+				<br bind:this={scrollBottom} />
 			</main>
 		</main>
 
-		<form on:submit|preventDefault={sendMessage} transition:fly={{ y: 40, duration: 300 * parseFloat($transitionLength) }}>
-			<input type="text" placeholder="Send a message" bind:value={newMessage} maxlength="150" />
+		<form
+			on:submit|preventDefault={sendMessage}
+			transition:fly={{
+				y: 40,
+				duration: 300 * parseFloat($transitionLength),
+			}}>
+			<input
+				type="text"
+				placeholder="Send a message"
+				bind:value={newMessage}
+				maxlength="150" />
 
 			<button on:mousedown={sendMessage}>
 				<img src="Send.svg" alt="Send message" />

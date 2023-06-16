@@ -23,25 +23,26 @@ allow_presence_for_subscriber: true
 webtransport: true
 
 allowed_origins:
-  - "*" # not secure
+    - "*" # not secure
 
 namespaces:
-  - name: "chat"
-    publish: true
-    subscribe_to_publish: true
-    history_size: 100
-    history_ttl: 100h
-    recover: true
-    presence: true
-    join_leave: true
-    force_push_join_leave: true
+    - name: "chat"
+      publish: true
+      subscribe_to_publish: true
+      history_size: 100
+      history_ttl: 100h
+      recover: true
+      presence: true
+      join_leave: true
+      force_push_join_leave: true
 
-    allow_subscribe_for_client: true
-    allow_publish_for_subscriber: true
-    allow_history_for_subscriber: true
-    allow_presence_for_subscriber: true
+      allow_subscribe_for_client: true
+      allow_publish_for_subscriber: true
+      allow_history_for_subscriber: true
+      allow_presence_for_subscriber:
+          true
 
-      #  - name: "logs"
-      #   anonymous: true
-      #    history_size: 1000
-      #    history_ttl: 10000h
+          #  - name: "logs"
+          #   anonymous: true
+          #    history_size: 1000
+          #    history_ttl: 10000h

@@ -4,5 +4,5 @@ import "./colour.sass"
 
 new Chat({
 	target: document.body,
-	intro: true
+	intro: true,
 })

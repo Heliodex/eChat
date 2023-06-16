@@ -13,7 +13,9 @@
 	$: nextTimestamp = new Date(messages[i + 1]?.timestamp)
 	const groupName = $loginInfo.groupname // To prevent aes.decrypt from erroring while transitioning out
 
-	let lastMessage = messages[i - 1]?.username != msg.username || messages[i - 1]?.verified != msg.verified
+	let lastMessage =
+		messages[i - 1]?.username != msg.username ||
+		messages[i - 1]?.verified != msg.verified
 	let message: string
 	try {
 		message = aes
@@ -28,27 +30,43 @@
 			.replace(/\~([^\s]*?[^\~]*?[^\s])\~/g, "<del>$1</del>")
 			.replace(/\`([^\s]*?[^\`]*?[^\s])\`/g, "<code>$1</code>")
 			// Regex match link with or without whatever:// at start of string
-			.replace(/(\w+:\/\/)?(\w+\.)+\w+(:\d{1,5})?(\/\w+)?(\S+)?(\w+)?(\?\w+)?(=\w*)?(#\w+)?\/?/gi, link)
+			.replace(
+				/(\w+:\/\/)?(\w+\.)+\w+(:\d{1,5})?(\/\w+)?(\S+)?(\w+)?(\?\w+)?(=\w*)?(#\w+)?\/?/gi,
+				link
+			)
 	} catch (e) {
 		message = "[error receiving message]"
 	}
 
 	function link(x: string) {
 		// Regex only matches whatever:// at start of string
-		return `<a href="${/^(\w+:\/\/)+/gi.test(x) ? "" : "https://"}${x}" target="_blank">${x}</a>`
+		return `<a href="${
+			/^(\w+:\/\/)+/gi.test(x) ? "" : "https://"
+		}${x}" target="_blank">${x}</a>`
 	}
 
 	// if the current user sent previous message
-	$: userMessage = msg.username == $loginInfo.username?.toString() && Boolean(msg.verified) == $loginInfo.verified
+	$: userMessage =
+		msg.username == $loginInfo.username?.toString() &&
+		Boolean(msg.verified) == $loginInfo.verified
 </script>
 
-<div class={userMessage ? "sent" : "received"} transition:fly={{ x: userMessage ? -100 : 100, duration: 300 * parseFloat($transitionLength) }}>
+<div
+	class={userMessage ? "sent" : "received"}
+	transition:fly={{
+		x: userMessage ? -100 : 100,
+		duration: 300 * parseFloat($transitionLength),
+	}}>
 	<p class={lastMessage ? "lastMessage" : ""}>
 		{@html // Text stylising
 		message}
 		<br />
 		<em>
-			{#if new Date(nextTimestamp).toTimeString().substring(0, 5) != new Date(timestamp).toTimeString().substring(0, 5)}
+			{#if new Date(nextTimestamp)
+				.toTimeString()
+				.substring(0, 5) != new Date(timestamp)
+					.toTimeString()
+					.substring(0, 5)}
 				{week[timestamp.getDay()]}
 				{timestamp.toTimeString().substring(0, 5)}
 			{/if}
@@ -59,7 +77,12 @@
 		</em>
 	</p>
 </div>
-<em id="username" transition:fly={{ x: userMessage ? -100 : 100, duration: 300 * parseFloat($transitionLength) }}>
+<em
+	id="username"
+	transition:fly={{
+		x: userMessage ? -100 : 100,
+		duration: 300 * parseFloat($transitionLength),
+	}}>
 	{#if !userMessage && (messages[i + 1]?.username != msg.username || messages[i + 1]?.verified != msg.verified)}
 		{#if msg.verified}
 			<img src="Verified.svg" alt="Verified user" />

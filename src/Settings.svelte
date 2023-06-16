@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { fly } from "svelte/transition"
-	import { darkMode, theme, historyLength, transitionLength, hideChannel, superSecretSetting } from "./settings"
+	import {
+		darkMode,
+		theme,
+		historyLength,
+		transitionLength,
+		hideChannel,
+		superSecretSetting,
+	} from "./settings"
 
 	let darkModeInput = $darkMode
 	let themeInput = $theme
@@ -17,7 +24,9 @@
 	$: superSecretSetting.set(superSecretSettingInput)
 </script>
 
-<div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
+<div
+	class="scrollable"
+	transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<br />
 	<div class="agreement">
 		<label for="darkMode">Dark mode</label>
@@ -25,8 +34,17 @@
 
 		<label for="historyLength">Number of messages to load</label>
 		<div>
-			<input bind:value={historyLengthInput} type="range" min="0" max="100" />
-			<input bind:value={historyLengthInput} type="number" min="0" max="100" id="historyLength" />
+			<input
+				bind:value={historyLengthInput}
+				type="range"
+				min="0"
+				max="100" />
+			<input
+				bind:value={historyLengthInput}
+				type="number"
+				min="0"
+				max="100"
+				id="historyLength" />
 		</div>
 
 		<label for="transitionLength">Animation speed</label>
@@ -47,15 +65,30 @@
 		</select>
 
 		<label for="hideChannel">Hide group name</label>
-		<input bind:checked={hideChannelInput} type="checkbox" id="hideChannel" />
+		<input
+			bind:checked={hideChannelInput}
+			type="checkbox"
+			id="hideChannel" />
 
-		<br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 
 		<label for="superSecretSetting">Super secret setting</label>
-		<input bind:checked={superSecretSettingInput} type="checkbox" id="superSecretSetting" />
-		<br /><br /><br />
+		<input
+			bind:checked={superSecretSettingInput}
+			type="checkbox"
+			id="superSecretSetting" />
+		<br />
+		<br />
+		<br />
 	</div>
 </div>
 
