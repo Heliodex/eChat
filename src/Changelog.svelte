@@ -3,7 +3,9 @@
 	import { transitionLength } from "./settings"
 </script>
 
-<div class="scrollable" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
+<div
+	class="scrollable"
+	transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	<div class="agreement">
 		<h4>1.1.6: 8 November 2022</h4>
 		<p>- "Hide group name" setting now saves properly</p>
@@ -19,14 +21,18 @@
 		<p>- Number of users online is now shown in header while in a group</p>
 		<p>- Max message length increased from 100 to 150 characters</p>
 		<h3>1.1.0: 31 August 2022</h3>
-		<p>- New groups page! After entering your username, you will now be sent to a page where you can choose a group to join.</p>
+		<p>
+			- New groups page! After entering your username, you will now be
+			sent to a page where you can choose a group to join.
+		</p>
 		<h4>1.0.2: 30 August 2022</h4>
 		<p>- All group names now must be in lowercase</p>
 		<h4>1.0.1: 30 August 2022</h4>
 		<p>- Added option to hide group name from header</p>
 		<h3>1.0.0: 29 August 2022</h3>
 		<p>- eChat's full release!!</p>
-		<br /><br />
+		<br />
+		<br />
 	</div>
 </div>
 

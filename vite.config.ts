@@ -10,7 +10,7 @@ export default defineConfig({
 		// watch: {
 		// 	usePolling: true
 		// }
-		
+
 		// Uncomment if you experience problems with HMR
-	}
+	},
 })
