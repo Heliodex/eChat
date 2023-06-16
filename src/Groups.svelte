@@ -11,43 +11,60 @@
 
 	function addGroup() {
 		if (groupToAdd.trim() && !groups.includes(groupToAdd)) {
-			groups = [...groups, groupToAdd]
+			groups.push(groupToAdd)
+			groups = groups
 			localStorage.setItem("groups", JSON.stringify(groups))
 			groupToAdd = ""
 		}
 	}
 </script>
 
-<main id="groups" transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
+<main
+	id="groups"
+	transition:fly={{ y: 300, duration: 500 * parseFloat($transitionLength) }}>
 	{#each groups as group}
-		<div class="group" transition:fly|local={{ x: 30, duration: 200 * parseFloat($transitionLength) }}>
+		<div
+			class="group"
+			transition:fly|local={{
+				x: 30,
+				duration: 200 * parseFloat($transitionLength),
+			}}>
 			<!-- transition is not coherent but good enough -->
 			{#if group != "main"}
 				<button
 					class="add"
 					on:mousedown={() => {
-						groups = groups.filter(e => { // "PaRAmEteR 'e' implICITLY HaS AN 'anY' TYPe." shut up
-							return e != group
-						})
+						groups = groups.filter(
+							e =>
+								// "PaRAmEteR 'e' implICITLY HaS AN 'anY' TYPe." shut up
+								e != group
+						)
 						localStorage.setItem("groups", JSON.stringify(groups))
-					}}>-</button
-				>
+					}}>
+					-
+				</button>
 			{/if}
 			<button
 				class="groupbutton"
-				on:mousedown={() => {
-					dispatch("joined", group)
-				}}
-			>
+				on:mousedown={() => dispatch("joined", group)}>
 				{group}
 			</button>
 		</div>
 	{/each}
-	<br /><br /><br /> <br />
+	<br />
+	<br />
+	<br />
+	<br />
 </main>
 
-<form on:submit|preventDefault={addGroup} transition:fly={{ y: 40, duration: 500 * parseFloat($transitionLength) }}>
-	<input type="text" placeholder="Add a group" maxlength="100" bind:value={groupToAdd} />
+<form
+	on:submit|preventDefault={addGroup}
+	transition:fly={{ y: 40, duration: 500 * parseFloat($transitionLength) }}>
+	<input
+		type="text"
+		placeholder="Add a group"
+		maxlength="100"
+		bind:value={groupToAdd} />
 
 	<button on:mousedown={addGroup} class="add">+</button>
 </form>

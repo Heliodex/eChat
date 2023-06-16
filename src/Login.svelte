@@ -19,12 +19,12 @@
 	// or subscribing more than once, resulting in message duplication
 	// So login() must be being called more than once by the form. idk y
 
-	function login(): void {
+	function login() {
 		if (canLogin) {
 			canLogin = false
-			if (loginInput.groupname) {
+			if (loginInput.groupname)
 				loginInput.groupname = loginInput.groupname.toLowerCase()
-			}
+
 			loginInfo.set(loginInput)
 			localStorage.setItem("username", String($loginInfo.username))
 			localStorage.setItem("groupname", String($loginInfo.groupname))
@@ -32,32 +32,30 @@
 		}
 	}
 
-	function splash(): void {
-		splashText = splashes[Math.floor(Math.random() * splashes.length)]
-	}
+	const splash = () =>
+		(splashText = splashes[Math.floor(Math.random() * splashes.length)])
+
 	splash()
 </script>
 
 <main>
 	{#if page}
-		<header transition:fly={{ y: -64, duration: 500 * parseFloat($transitionLength) }}>
+		<header
+			transition:fly={{
+				y: -64,
+				duration: 500 * parseFloat($transitionLength),
+			}}>
 			<img
 				src="Backfill.svg"
 				alt="Logout button"
-				on:mousedown={() => {
-					page = ""
-				}}
-			/>
+				on:mousedown={() => (page = "")} />
 			<h2>{page}</h2>
 			{#if page == "Help"}
 				<img
 					id="changelog"
 					src="changelog.svg"
 					alt="Settings button"
-					on:mousedown={() => {
-						page = "Changelog"
-					}}
-				/>
+					on:mousedown={() => (page = "Changelog")} />
 			{/if}
 		</header>
 	{/if}
@@ -76,28 +74,24 @@
 				loginInput.groupname = event.detail
 				// loginInput.verified = true // add for checkmark (not secure)
 				login()
-			}}
-		/>
+			}} />
 	{:else if page == "Changelog"}
 		<Changelog />
 	{:else}
-		<main transition:fade|local={{ duration: 500 * parseFloat($transitionLength) }}>
+		<main
+			transition:fade|local={{
+				duration: 500 * parseFloat($transitionLength),
+			}}>
 			<button
 				id="helpLogin"
 				class="loginButton"
-				on:mousedown={() => {
-					page = "Help"
-				}}
-			>
+				on:mousedown={() => (page = "Help")}>
 				<img src="Infofill.svg" alt="Help button" />
 			</button>
 			<button
 				id="settingsLogin"
 				class="loginButton"
-				on:mousedown={() => {
-					page = "Settings"
-				}}
-			>
+				on:mousedown={() => (page = "Settings")}>
 				<img src="Settings.svg" alt="Settings button" />
 			</button>
 
@@ -111,37 +105,39 @@
 				<div class="loginIcon">
 					<img src="Account.svg" alt="Account icon" />
 				</div>
-				<input placeholder="Username" name="username" bind:value={loginInput.username} minlength="3" maxlength="16" spellcheck="false" />
+				<input
+					placeholder="Username"
+					name="username"
+					bind:value={loginInput.username}
+					minlength="3"
+					maxlength="16"
+					spellcheck="false" />
 
-				<button
-					on:mousedown={() => {
-						page = "Groups"
-					}}>Join</button
-				>
+				<button on:mousedown={() => (page = "Groups")}>Join</button>
 			</form>
 
 			<footer>
 				By using eChat, you agree to the
 				<button
 					class="linkStyle"
-					on:mousedown={() => {
-						page = "Terms of Service"
-					}}>Terms of Service</button
-				>
+					on:mousedown={() => (page = "Terms of Service")}>
+					Terms of Service
+				</button>
 				and
 				<button
 					class="linkStyle"
-					on:mousedown={() => {
-						page = "Privacy Policy"
-					}}>Privacy Policy</button
-				>
+					on:mousedown={() => (page = "Privacy Policy")}>
+					Privacy Policy
+				</button>
 				<br />
 				<br />
 				<br />
 
 				<em>
-					Version 1.1.6<br />
-					Last updated 8 November 2022<br />
+					Version 1.1.6
+					<br />
+					Last updated 8 November 2022
+					<br />
 				</em>
 			</footer>
 		</main>
