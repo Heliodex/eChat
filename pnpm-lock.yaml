@@ -4,7 +4,7 @@ specifiers:
   '@sveltejs/vite-plugin-svelte': ^2.4.1
   '@tsconfig/svelte': ^4.0.1
   centrifuge: ^3.1.2
-  crypto-js: ^4.1.1
+  crypto-js: ^4.2.0
   gsap: ^3.12.1
   nodejs-aes256: ^1.0.1
   prettier: ^2.8.8
@@ -19,7 +19,7 @@ specifiers:
 
 dependencies:
   centrifuge: 3.1.2
-  crypto-js: 4.1.1
+  crypto-js: 4.2.0
   gsap: 3.12.2
   nodejs-aes256: 1.0.1
   sass: 1.65.1
@@ -579,8 +579,8 @@ packages:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
-  /crypto-js/4.1.1:
-    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
+  /crypto-js/4.2.0:
+    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
     dev: false
 
   /debug/4.3.4:
